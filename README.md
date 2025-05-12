@@ -16,9 +16,9 @@
 | Name              | Role                        | Student Number | GitHub Profile                             | LinkedIn                                                                 |
 |-------------------|-----------------------------|----------------|--------------------------------------------|--------------------------------------------------------------------------|
 | Hayley Dodkins    | Project Manager / DevOps Engineer | 21528790       | [github.com/hayley-d](https://github.com/hayley-d)       | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hayley-dodkins-867126222/) |
-| Zainab Abdulrasaq | Backend Developer           | 23456789       | [github.com/zainab-a](https://github.com/zainab-a)       | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://linkedin.com/in/bob-johnson) |
-| Arnaud Strydom    | Backend Developer           | 34567890       | [github.com/arnaud-s](https://github.com/arnaud-s)       | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://linkedin.com/in/carla-moatshe) |
-| Palesa Thabane    | Backend Developer           | 45678901       | [github.com/palesa-t](https://github.com/palesa-t)       | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://linkedin.com/in/daniel-khumalo) |
+| Zainab Abdulrasaq | UI Engineer           | 23456789       | [github.com/zainab-a](https://github.com/zainab-a)       | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://linkedin.com/in/bob-johnson) |
+| Arnaud Strydom    | Integration Engineer           | 34567890       | [github.com/arnaud-s](https://github.com/arnaud-s)       | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://linkedin.com/in/carla-moatshe) |
+| Palesa Thabane    | Services Engineer           | 45678901       | [github.com/palesa-t](https://github.com/palesa-t)       | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://linkedin.com/in/daniel-khumalo) |
 | Eugen Vosloo      | Data Engineer               | 56789012       | [github.com/eugen-v](https://github.com/eugen-v)         | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://linkedin.com/in/emma-van-wyk) |
 
 
