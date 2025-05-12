@@ -1,17 +1,14 @@
 # Mavito: A PWA for Multilingual Lexicons, Term Banks, and Glossaries
 
-## By Velox
-
-
-## Project Description
-**Mavito** is a progressive web application (PWA) developed for the COS 301 Capstone project at the University of Pretoria. It serves as a unified platform for accessing, browsing, and contributing to multilingual glossaries, dictionaries, and terminology banks. Designed with an offline-first approach and scalable architecture, Mavito aims to support South Africa’s low-resource languages and empower linguistic research, NLP development, and language preservation.
-
 ## Links
 -  [Functional Requirements Document](https://placeholder.com)
 -  [GitHub Project Board](https://github.com/orgs/COS301-SE-2025/projects/112)
 
 ## Badges
 
+
+## Project Description
+**Mavito** is a progressive web application (PWA) developed for the COS 301 Capstone project at the University of Pretoria. It serves as a unified platform for accessing, browsing, and contributing to multilingual glossaries, dictionaries, and terminology banks. Designed with an offline-first approach and scalable architecture, Mavito aims to support South Africa’s low-resource languages and empower linguistic research, NLP development, and language preservation.
 
 
 ## Velox Team Members
