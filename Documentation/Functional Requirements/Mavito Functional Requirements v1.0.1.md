@@ -89,3 +89,8 @@
         - FR7.3.1 The system shall highlight trending words and new database entries.
     - FR7.4 Interactive Linguistic Data Charts
         - FR7.4.1 The system shall provide interactive charts/graphs for linguistic data analysis.
+
+
+- **FR8: Community and Collaboration**  
+    - FR8.1 Term Change Voting System  
+        - FR8.1.1 The system shall allow users to upvote/downvote term changes (similar to iNaturalist/Reddit).  
