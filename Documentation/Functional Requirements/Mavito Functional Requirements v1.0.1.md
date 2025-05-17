@@ -80,8 +80,12 @@
     - FR6.4 (Optional) Blockchain-backed Authorship Tracking
         - FR6.4.1 (Wow Factor) The system may maintain authorship records for glossaries using blockchain technology.
 
-**FR7 Data Visualization and Analytics**
-- FR7.1 The system should be able to display stats on word frequency and usage trends.
-- FR7.2 The system should be able to visualize a user's contribution to different languages.
-- FR7.3 The system should highlight trending words and new entries to the database.
-- FR7.4 The system should be able to provide interactive charts or graphs for linguistic data.
+- **FR7: Data Visualization and Analytics**
+    - FR7.1 Word Frequency and Usage Trends
+        - FR7.1.1 The system shall display statistics on word frequency and usage trends.
+    - FR7.2 User Contribution Visualization
+        - FR7.2.1 The system shall visualize a user's contributions across different languages.
+    - FR7.3 Trending Words and New Entries
+        - FR7.3.1 The system shall highlight trending words and new database entries.
+    - FR7.4 Interactive Linguistic Data Charts
+        - FR7.4.1 The system shall provide interactive charts/graphs for linguistic data analysis.
