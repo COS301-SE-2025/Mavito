@@ -1,6 +1,6 @@
 # FR (Functional Requirements) - Mavito Application
 
-- **FR1 User Management**
+- **FR1: User Management**
     - FR1.1 User Registration
         - FR1.1.1 The system shall allow new users to create an account.
         - FR1.1.2 The system shall require a unique username/email and password for registration.
@@ -9,7 +9,7 @@
     - FR1.3 (Optional) Role-Based Access Control
         - FR1.3.1 The system shall define user roles (e.g., Casual User, Student, Linguist, NLP Researcher, Administrator).
         - FR1.3.2 The system shall assign distinct permissions based on user roles.
-- **FR2 Lexicon and Terminology Access**
+- **FR2: Lexicon and Terminology Access**
     - FR2.1 Unified Search Interface
         - FR2.1.1 The system shall provide a single search interface to query across all integrated lexicons, glossaries, and dictionaries.
         - FR2.1.2 (Optional) Advanced Search
@@ -37,7 +37,7 @@
         - FR2.4.3 User Control over Recommendations
             - FR2.4.3.1 The system shall allow users to enable or disable personalized recommendations.
             - FR2.4.3.2 The system may allow users to provide feedback on the relevance of recommendations.
-- **FR3 Offline Functionality (Progressive Web App - PWA)**
+- **FR3: Offline Functionality (Progressive Web App - PWA)**
     - FR3.1 Download Language Resources
         - FR3.1.1 The system shall allow users to download selected language resources (lexicons, glossaries) for offline access.
     - FR3.2 Offline Access
@@ -46,7 +46,7 @@
         - FR3.3.1 When online, the system shall synchronize downloaded resources with updates from the central repository.
     - FR3.4 (Optional) Offline Speech Recognition
         - FR3.4.1 (Wow Factor) The system may allow users to search via voice commands even when offline.
-- **FR4 User Contributions and Feedback**
+- **FR4: User Contributions and Feedback**
     - FR4.1 User Commenting
         - FR4.1.1 The system shall allow logged-in users to comment on specific terms or entries.
     - FR4.2 User Feedback Submission
@@ -57,7 +57,7 @@
         - FR4.4.1 The system may implement a feature allowing users to upvote/downvote suggested changes or comments.
     - FR4.5 (Optional) Gamification for Contributions
         - FR4.5.1 (Wow Factor) The system may reward users (e.g., points, badges) for valuable contributions like comments or error reporting.
-- **FR5 Interface and User Experience (UX)**
+- **FR5: Interface and User Experience (UX)**
     - FR5.1 Multi-language Support for Interface
         - FR5.1.1 The application interface shall support multiple South African languages.
     - FR5.2 (Optional) Mobile-Friendly UI .
@@ -69,7 +69,7 @@
         - FR5.4.1 The system shall provide at least one basic theme for the user interface.
     - FR5.5 Form Validation (Required for Demo 1)
         - FR5.5.1 All user input forms (e.g., login, registration, feedback) shall have appropriate client-side and server-side validation.
-- **FR6 Data Management & Extensibility (System-focused)**
+- **FR6: Data Management & Extensibility (System-focused)**
     - FR6.1 Open Source & Extensible Code Structure
         - FR6.1.1 The project codebase shall be open source.
         - FR6.1.2 The code shall be well-documented and structured to allow for future contributions and extensions.
