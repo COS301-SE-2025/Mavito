@@ -94,3 +94,7 @@
 - **FR8: Community and Collaboration**  
     - FR8.1 Term Change Voting System  
         - FR8.1.1 The system shall allow users to upvote/downvote term changes (similar to iNaturalist/Reddit).  
+ - FR8.2 Contributor Leaderboards  
+        - FR8.2.1 The system shall display leaderboards for top contributors (filterable by community/region).  
+    - FR8.3 Contribution Notifications  
+        - FR8.3.1 The system shall notify users when their contributions are accepted or rejected.  
