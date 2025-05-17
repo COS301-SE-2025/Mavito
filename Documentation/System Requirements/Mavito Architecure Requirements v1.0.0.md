@@ -27,7 +27,47 @@
     - AR6.1 **Authentication and Authorization:** Define the mechanisms for user authentication and how authorization will be handled to protect resources and user data.
     - AR6.2 **Data Security:** Outline measures for securing data both in transit (e.g., HTTPS) and at rest. (Also NFR5.1)
 - **AR7 Architectural Patterns**
-    - AR7.1 TODO
+    - **Microkernel Architecture**
+      Adoption of a microkernel architecture for the backend of the Mavito project. This architecture will support clean separation between core system       
+      functionality and optional features, enabling the team to develop and maintain the platform in a more modular, scalable, and collaborative way.
+    - **Core of Architecture**
+      A microkernel architecture consists of a minimal, stable core application that handles essential operations, with optional features implemented as 
+      independent plugins. These plugins integrate with the core through clearly defined interfaces and can be added, updated, or removed without affecting the main system.
+      In Mavito’s case, the core will manage fundamental features such as glossary browsing, term searching, and feedback submission, while features like AI-powered translations, text- 
+      to-speech, and usage statistics will be developed as modular plugins.
+     - **Advantages**
+      - Modularity: Each plugin can be developed independently allowing team members to work in parallel.
+      - Maintainability: Advanced features can be updated or removed without changing the core.
+      - Scalability: New features can be added in future iterations
+    - **Proposed File Structure**
+        - main.py	(app entry)
+        - core/		(Core app logic)
+        - plugins/	(Optional feature modules)
+                - gamification
+                - ai_suggestion
+        - shared		(Reusable utilities)
+    - **Technical Things**
+      - FastAPI will serve as the backend framework.
+      - Each plugin will define its own router and can be mounted via the core using route registration logic.
+      - Plugins will be self-contained, promoting clean code separation and independent testing.
+      - Shared functionality (database access, caching) will reside in a shared/ directory accessible by both core and plugins.
+    - **Project Plan**
+        - **Initial Development (Core system)**
+            - Search
+            - Feedback
+            - Multi-language interface
+            - Export Tools
+            - Analytics Dashboard
+        - **Plugin System (After Core System)**
+            - AI suggestion
+            - AI Semantic Search
+            - User Submissions
+            - User glossary upload
+            - User term/edit upload
+        - **Optional Enhancements (After Plugin System)**
+            - Gamification
+            - NLP APIs for external research access
+
 - **AR8 Design Patterns (to be documented in SRS as per Demo 1 Instructions)**
     - AR8.1 TODO
 - **AR9 Quality Requirements (to be documented in SRS as per Demo 1 Instructions - these heavily influence architecture)**
