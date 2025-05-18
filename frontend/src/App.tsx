@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import RegistrationPage from './pages/RegistrationPage';
+import LoginPage from './pages/LoginPage';
 import './App.css'
 
 function App() {
@@ -10,9 +11,8 @@ function App() {
       <Routes>
         <Route path="/Landing" element={<LandingPage />} />
         <Route path="/register" element={<RegistrationPage />} />
-        {/* <Route path="/" element={<HomePage />} /> */}
-        {/* Default route could redirect to login or a landing page */}
-        <Route path="/" element={<LandingPage />} /> {/* For now, default to login */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<LandingPage />} /> 
       </Routes>
     </div>
   );
