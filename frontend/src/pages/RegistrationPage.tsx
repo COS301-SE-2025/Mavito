@@ -1,7 +1,7 @@
-// src/pages/RegistrationPage.tsx
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/RegistrationPage.css'; // Path to your CSS file
+import '../styles/RegistrationPage.css'; 
 
 // SVG for Google Logo
 const GoogleLogo = () => (
@@ -45,13 +45,13 @@ const RegistrationPage: React.FC = () => {
 
       <div className="registration-right-half">
         <img 
-          src="/DFSI_Logo.png" // Assuming this is in your public folder
+          src="/DFSI_Logo.png" 
           alt="DSFSI Logo" 
           className="dsfsi-logo-registration" 
         />
         <div className="registration-form-content">
           <h1 className="registration-header">GET STARTED NOW</h1>
-          <p className="registration-subheader">Create your Mavito account.</p>
+          <p className="registration-subheader">Create your Marito account.</p>
 
           <form onSubmit={handleSubmit} className="registration-form">
             <div className="form-row">

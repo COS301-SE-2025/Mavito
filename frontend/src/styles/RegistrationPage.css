@@ -32,7 +32,7 @@
   justify-content: center;
   align-items: center;
   padding: 40px;
-  padding-top: 150px;
+  padding-top: 140px;
   background-color: #ffffff;
   position: relative;
   overflow-y: auto;
@@ -41,11 +41,11 @@
 
 .dsfsi-logo-registration {
   position: absolute;
-  top: 25px;
-  right: 25px;
-  width: 12vw;
-  max-width: 114px;
-  min-width: 70px;
+  top: 20px;
+  right: 20px;
+  width: 10vw;
+  max-width: 90px;
+  min-width: 50px;
   height: auto;
   aspect-ratio: 1 / 1;
   flex-shrink: 0;
@@ -275,18 +275,20 @@
     width: 100%;
     order: 1;
   }
-  .registration-hero-image {
-    object-position: center;
-  }
+.registration-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
   .registration-right-half {
     order: 2;
     padding: 25px 20px;
-    padding-top: 100px; /* Adjusted for smaller logo on mobile */
+    padding-top: 100px;
     flex-grow: 1;
   }
   .dsfsi-logo-registration {
-    width: 15vw; /* Make logo responsive on mobile too */
-    max-width: 70px; /* Cap mobile logo size */
+    width: 15vw;
+    max-width: 70px;
     min-width: 50px;
     top: 15px;
     right: 15px;
