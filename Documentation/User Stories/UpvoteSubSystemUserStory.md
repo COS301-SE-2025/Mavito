@@ -25,5 +25,17 @@
    - [ ] **Given** I have already voted on a contribution,  
    - [ ] **Then** the UI prevents me from voting again (unless I undo my vote).  
 
+4. **Offline Handling:**  
+   - [ ] **Given** I vote while offline,  
+   - [ ] **Then** the vote is stored locally and synced to the central repository when I reconnect.  
 
+5. **Moderation Visibility (Optional Enhancement):**  
+   - [ ] **Given** I am a moderator,  
+   - [ ] **Then** I can filter contributions by vote count to prioritize high-quality submissions.  
+
+6. **Feedback Transparency:**  
+   - [ ] **Given** a contribution receives significant downvotes,  
+   - [ ] **Then** the system may flag it for review (future enhancement).  
+
+---
 
