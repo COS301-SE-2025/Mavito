@@ -1,7 +1,7 @@
-.login-page-container .info-text {
-    
+ .info-text {
+    padding-right: 10px;
     display: flex;
-    width: 139px;
+    width: fit-content;
     height: 88px;
     justify-content: center;
     align-items: center;
