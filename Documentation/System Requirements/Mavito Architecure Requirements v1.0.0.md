@@ -69,7 +69,46 @@
             - NLP APIs for external research access
 
 - **AR8 Design Patterns (to be documented in SRS as per Demo 1 Instructions)**
-    - AR8.1 TODO
+    - AR8.1 **Repository Pattern**
+              - Type: Backend
+              - Description: Abstracts the data access layer and isolates the domain logic from the persistence logic
+              - Use Case: Helps decouple FastAPI endpoints from the database logic
+
+    - AR8.2 **Service Layer Pattern**
+            - Type: Backend
+            - Description: Encapsulates business logic between controllers (FastAPI routes) and data access
+            - Use Case: Enables cleaner FastAPI route functions and reusable services for glossary manipulation
+
+    - AR8.3 **Proxy Pattern**
+            - Type: Backend
+            - Description: Acts as a placeholder to control access
+            - Use Case: Lazy-loading or protecting access to sensitive glossary data
+      
+    - AR8.4 **Adapter Pattern**
+            - Type: Backend
+            - Description: Converts interface of one class into another
+            - Use Case: Wrapping external AI/NLP services
+      
+    - AR8.5 **Builder Pattern**
+            - Type: Backend
+            - Description: Constructs complex objects step-by-step
+            - Use Case: Building API responses or assembling glossary entries
+      
+     - AR8.6 **Observer Pattern**
+            - Type: Frontend
+            - Description: Allows objects to subscribe to changes
+            - Use Case: Real-time UI updates on data sync or new glossary terms
+       
+     - AR8.7 **Model–View–Controller(MVC)**
+            - Type: Frontend
+            - Description: Separates data (Model), UI (View), and logic (Controller)
+            - Use Case: React naturally supports MV-like separation with state as model, JSX as view, and hooks/handlers as controller logic
+
+     - AR8.8 **Model–View–ViewModel(MVVM)**
+            - Type: Frontend
+            - Description: Variation of MVC suited for component-based UI frameworks
+            - Use Case: Could apply with custom React hooks that manage state and side effects for the View
+       
 - **AR9 Quality Requirements (to be documented in SRS as per Demo 1 Instructions - these heavily influence architecture)**
     - AR9.1 **Performance:** The architecture must support fast load times, quick search responses, and efficient data handling.
     - AR9.2 **Reliability:** The system, especially data synchronization and offline access, must be reliable.
