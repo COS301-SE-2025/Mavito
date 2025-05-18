@@ -1,7 +1,7 @@
 // src/pages/RegistrationPage.tsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // For navigation links
-
+import '../styles/RegistrationPage.css'; // Assuming this path is correct
 
 // SVG for Google Logo
 const GoogleLogo = () => (
