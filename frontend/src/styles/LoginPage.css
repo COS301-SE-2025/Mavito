@@ -1,0 +1,315 @@
+.login-page-full-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.login-left-half {
+  flex: 1;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #00A79D; 
+}
+
+.login-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login-right-half {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  padding-top: 150px; /* Space for the logo */
+  background-color: #ffffff;
+  position: relative;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.dsfsi-logo-login {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 8vw;
+  max-width: 80px;
+  min-width: 45px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.login-form-content {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.login-header {
+  width: 100%;
+  flex-shrink: 0;
+  color: #4F5D75;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 1.02px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.login-subheader {
+  width: 100%;
+  flex-shrink: 0;
+  color: #00CEAF;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.42px;
+  margin-bottom: 30px;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-group label {
+  color: #4F5D75;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.42px;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.20);
+  background: #fff;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.10);
+  padding: 0 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #212431;
+  box-sizing: border-box;
+}
+
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+  border-color: #00CEAF;
+  outline: none;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.10), 0 0 0 3px rgba(0, 206, 175, 0.25);
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: -10px; 
+  margin-bottom: 10px; 
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  color: #4F5D75;
+}
+
+.remember-me input[type="checkbox"] {
+  width: 16px; 
+  height: 16px;
+  accent-color: #00CEAF; 
+  cursor: pointer;
+  border: 1.5px solid #212431; 
+}
+
+.remember-me label { 
+  font-size: 12px; 
+  font-weight: normal; 
+  color: #4F5D75;
+  margin-bottom: 0; 
+  cursor: pointer;
+}
+
+
+.forgot-password-link {
+  color: #00CEAF;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px; 
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 100%;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.login-button.primary {
+  background: #00CEAF;
+  box-shadow: 0px 4px 10px 0px rgba(0, 206, 175, 0.3);
+  color: white;
+}
+.login-button.primary:hover {
+  background-color: #00b89e;
+  transform: translateY(-1px);
+}
+
+.social-login-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #999;
+  margin: 20px 0;
+  font-size: 0.85em;
+  width: 100%;
+}
+.social-login-divider span { padding: 0 12px; }
+.social-login-divider::before, .social-login-divider::after {
+  content: ''; flex: 1; border-bottom: 1px solid #e0e0e0;
+}
+
+.login-button.google {
+  border: 1px solid #dadce0;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+  color: #3c4043;
+}
+.login-button.google:hover {
+  background-color: #f8f9fa;
+  border-color: #c6c9cc;
+  transform: translateY(-1px);
+}
+
+.register-link-prompt {
+  flex-shrink: 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+  margin-top: 25px;
+  color: #4F5D75;
+}
+
+.register-link-prompt a {
+  color: #00CEAF;
+  text-decoration: none;
+  font-weight: 500;
+}
+.register-link-prompt a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .login-page-full-container {
+    flex-direction: column;
+  }
+  .login-left-half {
+    min-height: 200px;
+    max-height: 35vh;
+    width: 100%;
+    order: 1;
+  }
+  .login-hero-image {
+    object-position: center;
+  }
+  .login-right-half {
+    order: 2;
+    padding: 25px 20px;
+    padding-top: 110px;
+    flex-grow: 1;
+  }
+  .dsfsi-logo-login {
+    width: 12vw;
+    max-width: 60px;
+    min-width: 40px;
+    top: 15px;
+    right: 15px;
+  }
+  .login-header {
+    font-size: 24px;
+  }
+  .login-subheader {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .login-form-content {
+    max-width: 100%;
+  }
+  .form-options {
+    flex-direction: column;
+    gap: 12px; 
+    align-items: flex-start;
+    margin-bottom: 15px; 
+  }
+  .remember-me {
+    width: 100%; 
+  }
+  .forgot-password-link {
+     width: 100%; 
+     text-align: left; 
+  }
+}
