@@ -1,36 +1,41 @@
-
 .registration-page-full-container {
   display: flex;
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; 
-  height: 100vh; 
-  overflow: hidden; 
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .registration-left-half {
-  flex: 1; 
+  flex: 1;
   flex-shrink: 0;
-
-  background: url('/path/to/your/left-side-image.jpg') lightgray 50% / cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; 
+  overflow: hidden;
   box-sizing: border-box;
+  background-color: #e0e0e0;
+}
+
+.registration-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .registration-right-half {
-  flex: 1; 
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px 40px; 
-  background-color: #ffffff; 
-  position: relative; 
-  overflow-y: auto; 
+  padding: 40px;
+  padding-top: 150px;
+  background-color: #ffffff;
+  position: relative;
+  overflow-y: auto;
   box-sizing: border-box;
 }
 
@@ -38,9 +43,13 @@
   position: absolute;
   top: 25px;
   right: 25px;
-  width: 114px;
-  height: 114px;
+  width: 12vw;
+  max-width: 114px;
+  min-width: 70px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   flex-shrink: 0;
+  z-index: 10;
 }
 
 .registration-form-content {
@@ -51,7 +60,6 @@
   align-items: center;
 }
 
-/* --- Text Elements --- */
 .registration-header {
   width: 100%;
   flex-shrink: 0;
@@ -81,7 +89,6 @@
   margin-bottom: 25px;
 }
 
-/* --- Form Specifics --- */
 .registration-form {
   width: 100%;
   display: flex;
@@ -183,8 +190,6 @@
   text-decoration: underline;
 }
 
-
-/* --- Buttons & Links --- */
 .register-button {
   width: 100%;
   height: 48px;
@@ -238,7 +243,6 @@
   transform: translateY(-1px);
 }
 
-
 .login-link {
   flex-shrink: 0;
   text-align: center;
@@ -261,31 +265,29 @@
   text-decoration: underline;
 }
 
-/* --- Responsive Adjustments --- */
 @media (max-width: 900px) {
   .registration-page-full-container {
     flex-direction: column;
-    position: static; 
-    height: auto;
-    min-height: 100vh; 
   }
   .registration-left-half {
     min-height: 200px;
     max-height: 35vh;
     width: 100%;
     order: 1;
-    background-size: cover; 
+  }
+  .registration-hero-image {
+    object-position: center;
   }
   .registration-right-half {
     order: 2;
     padding: 25px 20px;
-    flex-grow: 1; 
-    min-height: 65vh;
-    overflow-y: auto; 
+    padding-top: 100px; /* Adjusted for smaller logo on mobile */
+    flex-grow: 1;
   }
   .dsfsi-logo-registration {
-    width: 70px;
-    height: 70px;
+    width: 15vw; /* Make logo responsive on mobile too */
+    max-width: 70px; /* Cap mobile logo size */
+    min-width: 50px;
     top: 15px;
     right: 15px;
   }

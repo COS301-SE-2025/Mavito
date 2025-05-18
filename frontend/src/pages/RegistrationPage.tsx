@@ -1,7 +1,7 @@
 // src/pages/RegistrationPage.tsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // For navigation links
-import '../styles/RegistrationPage.css'; // Assuming this path is correct
+import { Link } from 'react-router-dom';
+import '../styles/RegistrationPage.css'; // Path to your CSS file
 
 // SVG for Google Logo
 const GoogleLogo = () => (
@@ -23,35 +23,32 @@ const RegistrationPage: React.FC = () => {
       alert("Please agree to the terms and conditions.");
       return;
     }
-    // Handle form submission logic here
     console.log("Form submitted");
-    // Collect form data:
     // const formData = new FormData(event.currentTarget);
     // const data = Object.fromEntries(formData.entries());
     // console.log(data);
   };
 
   const handleGoogleSignUp = () => {
-    // Handle Google Sign Up logic here
     console.log("Attempting Google Sign Up");
   };
 
   return (
     <div className="registration-page-full-container">
-      {/* Left Half - Image */}
       <div className="registration-left-half">
-        {/* You can use an <img> tag here if you have a specific image */}
-        {/* For example: <img src="/path/to/your/image.jpg" alt="Mavito Welcome" /> */}
-        {/* Using a placeholder background for now */}
-        <div className="image-placeholder">
-          {/* Optional: Add text or overlay on the image placeholder */}
-          {/* For example: <h2>Discover Languages with Mavito</h2> */}
-        </div>
+        <img 
+          src="/LS_image.png" 
+          alt="Mavito Welcome" 
+          className="registration-hero-image"
+        />
       </div>
 
-      {/* Right Half - Form */}
       <div className="registration-right-half">
-        <img src="/DFSI_Logo.png" alt="DSFSI Logo" className="dsfsi-logo-registration" />
+        <img 
+          src="/DFSI_Logo.png" // Assuming this is in your public folder
+          alt="DSFSI Logo" 
+          className="dsfsi-logo-registration" 
+        />
         <div className="registration-form-content">
           <h1 className="registration-header">GET STARTED NOW</h1>
           <p className="registration-subheader">Create your Mavito account.</p>
