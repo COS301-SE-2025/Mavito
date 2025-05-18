@@ -53,5 +53,4 @@
 ---
 **Notes/Assumptions:**
 
-* Only logged-in users can comment, submit feedback, vote, or receive contribution rewards.
-* Users must have verified accounts to interact with community features (e.g., comments, voting).
+* Devices with screen widths less than or equal to 768 pixels are considered mobile, and touch interation is expected on these devices.
