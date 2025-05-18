@@ -36,7 +36,7 @@ const LoginPage: React.FC = () => {
       {/* Left Half - Image */}
       <div className="login-left-half">
         <img
-          src="/images/login-hero.jpg" 
+          src="/LS_image.png" 
           alt="Mavito Login Welcome"
           className="login-hero-image"
         />
