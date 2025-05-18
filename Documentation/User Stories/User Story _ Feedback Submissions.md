@@ -26,20 +26,25 @@
     * **Then** I should be presented with a feedback form, 
     * **And** I should receive a confirmation message after successfully submitting the feedback.
 
-3.   **Voting on User Contributions**
+3.   **Voting on User Contributions:**
         * **Given** I am logged into my account, 
         * **And** I am viewing a comment or suggestion submitted by another user, 
         * **Then** I should see upvote and downvote buttons associated with it, 
         * **And** I should be able to cast one vote per contribution, 
         * **And** the vote count should update immediately after I vote.
         
-4. **Approval Status of Feedback**
+4. **Approval Status of Feedback:**
     * **Given** I have submitted feedback for a term, 
     * **And** the feedback has been approved by a moderator, 
     * **Then** the approved feedback should be integrated into the application content, 
     * **And** I should receive a notification confirming the integration.
+
+5. **Marking Approved Submissions:**marking user submission criterion added v.1.1.0
+
+   * **Given** user feedback or content has been approved and integrated,
+   * **Then** the associated entry should be visibly marked as a "User Submission" to distinguish it from original content.
     
-5. **Rewarding User Contributions (Optional Gamification)**
+6. **Rewarding User Contributions (Optional Gamification):**
     * **Given** I am logged in and submit a comment, feedback, or report, 
     * **When** my contribution meets a predefined threshold (e.g., approved, upvoted), 
     * **Then** I should earn points or badges for that action, 
@@ -52,3 +57,4 @@
 
 * Only logged-in users can comment, submit feedback, vote, or receive contribution rewards.
 * Users must have verified accounts to interact with community features (e.g., comments, voting).
+* Rate limiting will be implemented to prevent spam submissions
