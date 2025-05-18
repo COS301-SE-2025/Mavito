@@ -38,4 +38,10 @@
    - [ ] **Then** the system may flag it for review (future enhancement).  
 
 ---
-
+### Notes/Assumptions:
+- Voting requires user authentication to prevent abuse.  
+- Vote counts are public to encourage transparency.  
+- Offline votes are treated as "pending" until synced.  
+- Future enhancements could include:  
+  - Gamification (e.g., badges for active voters).  
+  - Weighted voting for trusted users (e.g., linguists).  
