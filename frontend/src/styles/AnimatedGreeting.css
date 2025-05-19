@@ -1,0 +1,26 @@
+ .info-text {
+    padding-right: 10px;
+    display: flex;
+    width: fit-content;
+    height: 88px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: #F5F5F5;
+     font-family: 'Playball', cursive;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.info-text.fade-in {
+  opacity: 1;
+}
+
+.info-text.fade-out {
+  opacity: 0;
+}
