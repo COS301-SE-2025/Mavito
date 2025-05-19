@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import RegistrationPage from './pages/RegistrationPage';
