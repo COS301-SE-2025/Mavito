@@ -44,11 +44,14 @@ const LoginPage: React.FC = () => {
 
       {/* Right Half - Form */}
       <div className="login-right-half">
-        <img
-          src="/DFSI_Logo.png" 
-          alt="DSFSI Logo"
-          className="dsfsi-logo-login"
-        />
+        <div>
+          <img
+            src="/DFSI_Logo.png" 
+            alt="DSFSI Logo"
+            className="dsfsi-logo-login"
+          />
+        </div>
+
         <div className="login-form-content">
           <h1 className="login-header">WELCOME BACK!</h1>
           <p className="login-subheader">Please enter your credentials to login.</p>

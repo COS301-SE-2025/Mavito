@@ -11,7 +11,7 @@ const AnimatedGreeting: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentGreeting, setCurrentGreeting] = useState(greetings[0]);
   const [isVisible, setIsVisible] = useState(true);
-
+currentIndex;
   useEffect(() => {
     const intervalId = setInterval(() => {
       setIsVisible(false); 
