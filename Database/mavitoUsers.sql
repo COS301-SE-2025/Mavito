@@ -37,7 +37,7 @@ CREATE TABLE users (
 CREATE TABLE user_languages (
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE, -- for automatic delete
     language_code CHAR(3) REFERENCES languages(code) ON UPDATE CASCADE,
-    proficiency_level INTEGER CHECK (proficiency_level BETWEEN 1 AND 5), -- how good is user at lanaguage?,can be used to value contributions
+    proficiency_level INTEGER CHECK (proficiency_level BETWEEN 1 AND 5), -- how good is user at language?, can be used to value contributions
     is_primary BOOLEAN DEFAULT FALSE, --primary language- users expert language
     PRIMARY KEY (user_id, language_code)
 );
