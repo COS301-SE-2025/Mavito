@@ -1,5 +1,17 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+# Run frontend checks
 cd frontend
-npx lint-staged
+echo "Linting frontend..."
+npx lint-staged || exit 1
+
+# Run backend checks
+cd ../backend
+echo "Checking backend (Ruff, Mypy, Black)..."
+ruff check . || exit 1
+mypy . || exit 1
+black --check . || exit 1
+black . || exit 1
+
+echo "All pre-commit checks passed"
