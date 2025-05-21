@@ -5,7 +5,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden; /* Prevents body scroll, individual halves manage their scroll */
+  overflow: hidden; /* Parent is fixed and hides overflow */
   box-sizing: border-box;
 }
 
@@ -17,7 +17,7 @@
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
-  background-color: #00A79D; /* Fallback or theme color for left side */
+  background-color: #00A79D;
 }
 
 .login-hero-image {
@@ -28,14 +28,14 @@
 
 .login-right-half {
   flex: 1;
-  display: flex;
+  display: flex; /* Use flex to center .login-form-content */
   flex-direction: column;
   align-items: center;
-  padding: 40px;
-  padding-top: 150px; /* Generous top padding for desktop logo */
+  justify-content: center; /* Center content vertically if it's short */
+  padding: 20px; /* Reduced base padding, more specific padding on form-content */
   background-color: #ffffff;
   position: relative;
-  overflow-y: auto; /* Allows this half to scroll if content overflows */
+  overflow-y: auto; /* This half scrolls if its content is too tall */
   box-sizing: border-box;
 }
 
@@ -59,7 +59,8 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  padding-bottom: 40px; /* Add padding at the bottom for links */
+  padding-top: 100px; /* Space for logo + header */
+  padding-bottom: 40px; /* Space at the bottom */
 }
 
 .login-header {
@@ -265,37 +266,33 @@
 
 @media (max-width: 900px) {
   .login-page-full-container {
-    flex-direction: column;
-    position: static;
-    height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
+    /* Desktop styles for fixed full-screen remain */
   }
 
   .login-left-half {
-    display: none;
+    display: none; /* Hide the left image part on mobile */
   }
 
   .login-right-half {
-    flex: 1 0 auto;
+    flex: 1 1 100%; /* Allow it to take full width of the fixed parent */
     width: 100%;
-    order: 0;
-    padding: 25px 20px;
-    padding-top: 90px;
-    justify-content: flex-start;
-    min-height: auto;
+    padding: 20px; /* Base padding */
+    padding-top: 80px; /* Space for mobile logo */
+    justify-content: flex-start; /* Align content to top for scrolling */
+    /* overflow-y: auto; is already set for desktop, which is fine for mobile too */
   }
 
   .dsfsi-logo-login {
     width: 15vw;
-    max-width: 70px;
-    min-width: 50px;
+    max-width: 60px;
+    min-width: 45px;
     top: 15px;
     right: 15px;
   }
 
   .login-header {
-    font-size: 26px;
+    font-size: 24px;
+    margin-top: 10px;
   }
 
   .login-subheader {
@@ -305,7 +302,11 @@
 
   .login-form-content {
     max-width: 100%;
-    padding-bottom: 20px;
+    padding-top: 0;
+    padding-bottom: 70px;
+    margin-top: 0; /* Align to top within .login-right-half */
+    margin-bottom: 0;
+    width: 100%;
   }
 
   .form-options {

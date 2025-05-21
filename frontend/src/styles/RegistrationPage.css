@@ -5,7 +5,8 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden; /* Prevents body scroll, individual halves manage their scroll */
+  overflow: hidden; /* Parent is fixed and hides overflow */
+  box-sizing: border-box;
 }
 
 .registration-left-half {
@@ -16,7 +17,7 @@
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
-  background-color: #e0e0e0; /* Fallback if image doesn't load */
+  background-color: #e0e0e0; /* Fallback */
 }
 
 .registration-hero-image {
@@ -27,15 +28,14 @@
 
 .registration-right-half {
   flex: 1;
-  display: flex;
+  display: flex; /* Use flex to center .registration-form-content */
   flex-direction: column;
-  /* justify-content: center; -- We'll adjust this for scrolling */
   align-items: center;
-  padding: 40px;
-  padding-top: 140px; /* Generous top padding for desktop logo */
+  justify-content: center; /* Center content vertically if it's shorter */
+  padding: 20px; /* Reduced base padding, more specific padding on form-content */
   background-color: #ffffff;
   position: relative;
-  overflow-y: auto; /* Allows this half to scroll if content overflows */
+  overflow-y: auto; /* This half scrolls if its content is too tall */
   box-sizing: border-box;
 }
 
@@ -58,7 +58,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 40px; /* Add padding at the bottom to ensure space for links when scrolling */
+  padding-top: 100px; /* Space for logo + header */
+  padding-bottom: 40px; /* Space at the bottom */
+  box-sizing: border-box;
 }
 
 .registration-header {
@@ -268,11 +270,7 @@
 
 @media (max-width: 900px) {
   .registration-page-full-container {
-    flex-direction: column;
-    position: static; /* Allow natural document flow for scrolling */
-    height: auto;    /* Let content define height */
-    min-height: 100vh; /* Ensure it still tries to fill screen if content is short */
-    overflow-y: auto; /* Allow the whole container to scroll if needed on mobile */
+     /* Desktop styles for fixed full-screen remain */
   }
 
   .registration-left-half {
@@ -280,26 +278,25 @@
   }
 
   .registration-right-half {
-    flex: 1 0 auto; /* Allow it to grow and shrink, but don't shrink below content */
-    width: 100%;   /* Take full width */
-    order: 0;      /* Ensure it's the primary content */
-    padding: 25px 20px; /* Adjust padding for mobile */
-    padding-top: 90px;  /* Top padding to clear the smaller mobile logo */
-    /* overflow-y: auto; -- Let the main container scroll if needed */
-    justify-content: flex-start; /* Align content to the top */
-    min-height: auto; /* Reset min-height as main container handles it */
+    flex: 1 1 100%; /* Allow it to take full width of the fixed parent */
+    width: 100%;
+    padding: 20px; /* Base padding */
+    padding-top: 80px;  /* Top padding to clear the smaller mobile logo */
+    justify-content: flex-start; /* Align content to top for scrolling */
+    /* overflow-y: auto; is already set for desktop, which is fine for mobile too */
   }
 
   .dsfsi-logo-registration {
     width: 15vw;
-    max-width: 70px;
-    min-width: 50px;
+    max-width: 60px;
+    min-width: 45px;
     top: 15px;
     right: 15px;
   }
 
   .registration-header {
-    font-size: 26px; /* Adjust font size for mobile */
+    font-size: 24px;
+    margin-top: 10px;
   }
 
   .registration-subheader {
@@ -313,7 +310,12 @@
   }
 
   .registration-form-content {
-    max-width: 100%; /* Allow form content to use full padding */
-    padding-bottom: 20px; /* Ensure space at the very bottom for the link */
+    max-width: 100%;
+    padding-top: 0px;
+    padding-bottom: 70px;
+    margin-top: 0; /* Align to top within .registration-right-half */
+    margin-bottom: 0;
+    width: 100%;
   }
 }
+
