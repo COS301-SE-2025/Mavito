@@ -42,9 +42,9 @@ export default defineConfig({
         description: 'A PWA for Multilingual Lexicons, Term Banks, and Glossaries for South African Languages.',
         theme_color: '#00CEAF',
         background_color: '#ffffff', // Background color for splash screen
-        display: 'standalone', // Makes the app look like a native app
-        scope: '/',
-        start_url: '/', // The page that loads when the PWA is opened
+        display: 'standalone', 
+        start_url: '/Mavito/', 
+        scope: '/Mavito/',
         icons: [
           {
             src: '/icons/DFSI_Logo_192.png',
