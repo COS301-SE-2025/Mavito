@@ -1,0 +1,310 @@
+.registration-page-full-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.registration-left-half {
+  flex: 1;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #e0e0e0;
+}
+
+.registration-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.registration-right-half {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  padding-top: 140px;
+  background-color: #ffffff;
+  position: relative;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.dsfsi-logo-registration {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 10vw;
+  max-width: 90px;
+  min-width: 50px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.registration-form-content {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registration-header {
+  width: 100%;
+  flex-shrink: 0;
+  color: #4F5D75;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 1.02px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.registration-subheader {
+  width: 100%;
+  flex-shrink: 0;
+  color: #00CEAF;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.42px;
+  margin-bottom: 25px;
+}
+
+.registration-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+.form-row .form-group.column {
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-group label {
+  color: #4F5D75;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.42px;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.20);
+  background: #fff;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.10);
+  padding: 0 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #212431;
+  box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+  border-color: #00CEAF;
+  outline: none;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.10), 0 0 0 3px rgba(0, 206, 175, 0.25);
+}
+
+.form-group.terms-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.form-group.terms-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1.5px solid #212431;
+  background: rgba(196, 196, 196, 0.00);
+  cursor: pointer;
+  accent-color: #00CEAF;
+}
+
+.form-group.terms-checkbox .terms-label {
+  color: #212431;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.36px;
+  margin-bottom: 0;
+}
+
+.form-group.terms-checkbox .terms-label a {
+  color: #00CEAF;
+  text-decoration: none;
+}
+.form-group.terms-checkbox .terms-label a:hover {
+  text-decoration: underline;
+}
+
+.register-button {
+  width: 100%;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.register-button.primary {
+  background: #00CEAF;
+  box-shadow: 0px 4px 10px 0px rgba(0, 206, 175, 0.3);
+  color: white;
+}
+.register-button.primary:hover {
+  background-color: #00b89e;
+  transform: translateY(-1px);
+}
+
+.social-login-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #999;
+  margin: 20px 0;
+  font-size: 0.85em;
+  width: 100%;
+}
+.social-login-divider span { padding: 0 12px; }
+.social-login-divider::before, .social-login-divider::after {
+  content: ''; flex: 1; border-bottom: 1px solid #e0e0e0;
+}
+
+.register-button.google {
+  border: 1px solid #dadce0;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+  color: #3c4043;
+}
+.register-button.google:hover {
+  background-color: #f8f9fa;
+  border-color: #c6c9cc;
+  transform: translateY(-1px);
+}
+
+.login-link {
+  flex-shrink: 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+  margin-top: 20px;
+  color: #4F5D75;
+}
+
+.login-link a {
+  color: #00CEAF;
+  text-decoration: none;
+  font-weight: 500;
+}
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .registration-page-full-container {
+    flex-direction: column;
+  }
+  .registration-left-half {
+    min-height: 200px;
+    max-height: 35vh;
+    width: 100%;
+    order: 1;
+  }
+.registration-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+  .registration-right-half {
+    order: 2;
+    padding: 25px 20px;
+    padding-top: 100px;
+    flex-grow: 1;
+  }
+  .dsfsi-logo-registration {
+    width: 15vw;
+    max-width: 70px;
+    min-width: 50px;
+    top: 15px;
+    right: 15px;
+  }
+  .registration-header {
+    font-size: 26px;
+  }
+  .registration-subheader {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .registration-form-content {
+    max-width: 100%;
+  }
+}
