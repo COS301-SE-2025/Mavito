@@ -7,7 +7,7 @@ const Navbar = () => {
     const navItems = ["Dashboard","Seach","Saved Terms", "Analytics"];
 
     return (
-        <nav className="w-full fixed top-0 left-0 bg-[#1D202A] text-white px-6 py-3 shadow-md z-50">
+        <nav className="w-full fixed top-0 left-0 bg-[#212431] text-white px-6 py-3 shadow-md z-50">
             <div className="max-w-screen-xl mx-auto flex items-center justify-between">
                 {/*Logo and Tile*/}
                 <div className="flex items-center space-x-3">
@@ -37,7 +37,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Avatar Circle */}
-                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+                <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
             </div>
         </nav>
     );
