@@ -1,7 +1,75 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// vite.config.ts
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  server: {
+    host: true, // Exposes the server to your local network
+  },
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate', // Automatically update the PWA when a new version is available
+      injectRegister: 'auto', // Injects the service worker registration script
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2,ttf,eot}'], // Files to precache
+        // Runtime caching for API calls - Commented out as APIs are not yet implemented
+        /*
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/your-api-domain\.com\/api\//, // Replace with actual API domain when ready
+            handler: 'NetworkFirst', // Or 'CacheFirst', 'StaleWhileRevalidate'
+            options: {
+              cacheName: 'api-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 7, // 7 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
+        */
+      },
+      manifest: {
+        name: 'Mavito - Multilingual Lexicons',
+        short_name: 'Mavito',
+        description: 'A PWA for Multilingual Lexicons, Term Banks, and Glossaries for South African Languages.',
+        theme_color: '#00CEAF',
+        background_color: '#ffffff', // Background color for splash screen
+        display: 'standalone', // Makes the app look like a native app
+        scope: '/',
+        start_url: '/', // The page that loads when the PWA is opened
+        icons: [
+          {
+            src: '/icons/DFSI_Logo_192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/icons/DFSI_Logo_512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
+            src: '/icons/maskable_icon_x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
+        ],
+      },
+      // Enable service worker and PWA features during development
+      devOptions: {
+        enabled: true,
+        type: 'module',
+        /* when using certificate based on `mkcert` for development */
+        // navigateFallbackAllowlist: [/^\/$/], // Example: only allow root path for SPA fallback
+      },
+    }),
+  ],
+});

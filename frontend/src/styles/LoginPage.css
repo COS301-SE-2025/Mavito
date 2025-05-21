@@ -5,7 +5,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* Parent is fixed and hides overflow */
   box-sizing: border-box;
 }
 
@@ -17,7 +17,7 @@
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
-  background-color: #00A79D; 
+  background-color: #00A79D;
 }
 
 .login-hero-image {
@@ -28,15 +28,14 @@
 
 .login-right-half {
   flex: 1;
-  display: flex;
+  display: flex; /* Use flex to center .login-form-content */
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 40px;
-  padding-top: 150px; /* Space for the logo */
+  justify-content: center; /* Center content vertically if it's short */
+  padding: 20px; /* Reduced base padding, more specific padding on form-content */
   background-color: #ffffff;
   position: relative;
-  overflow-y: auto;
+  overflow-y: auto; /* This half scrolls if its content is too tall */
   box-sizing: border-box;
 }
 
@@ -60,6 +59,8 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  padding-top: 100px; /* Space for logo + header */
+  padding-bottom: 40px; /* Space at the bottom */
 }
 
 .login-header {
@@ -146,8 +147,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-top: -10px; 
-  margin-bottom: 10px; 
+  margin-top: -10px;
+  margin-bottom: 10px;
   font-size: 12px;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
@@ -156,32 +157,32 @@
 .remember-me {
   display: flex;
   align-items: center;
-  gap: 8px; 
+  gap: 8px;
   color: #4F5D75;
 }
 
 .remember-me input[type="checkbox"] {
-  width: 16px; 
+  width: 16px;
   height: 16px;
-  accent-color: #00CEAF; 
+  accent-color: #00CEAF;
   cursor: pointer;
-  border: 1.5px solid #212431; 
+  border: 1.5px solid #212431;
+  border-radius: 4px;
 }
 
-.remember-me label { 
-  font-size: 12px; 
-  font-weight: normal; 
+.remember-me label {
+  font-size: 12px;
+  font-weight: normal;
   color: #4F5D75;
-  margin-bottom: 0; 
+  margin-bottom: 0;
   cursor: pointer;
 }
-
 
 .forgot-password-link {
   color: #00CEAF;
   text-decoration: none;
   font-weight: 500;
-  font-size: 12px; 
+  font-size: 12px;
 }
 
 .forgot-password-link:hover {
@@ -265,51 +266,63 @@
 
 @media (max-width: 900px) {
   .login-page-full-container {
-    flex-direction: column;
+    /* Desktop styles for fixed full-screen remain */
   }
+
   .login-left-half {
-    min-height: 200px;
-    max-height: 35vh;
-    width: 100%;
-    order: 1;
+    display: none; /* Hide the left image part on mobile */
   }
-  .login-hero-image {
-    object-position: center;
-  }
+
   .login-right-half {
-    order: 2;
-    padding: 25px 20px;
-    padding-top: 110px;
-    flex-grow: 1;
+    flex: 1 1 100%; /* Allow it to take full width of the fixed parent */
+    width: 100%;
+    padding: 20px; /* Base padding */
+    padding-top: 80px; /* Space for mobile logo */
+    justify-content: flex-start; /* Align content to top for scrolling */
+    /* overflow-y: auto; is already set for desktop, which is fine for mobile too */
   }
+
   .dsfsi-logo-login {
-    width: 12vw;
+    width: 15vw;
     max-width: 60px;
-    min-width: 40px;
+    min-width: 45px;
     top: 15px;
     right: 15px;
   }
+
   .login-header {
     font-size: 24px;
+    margin-top: 10px;
   }
+
   .login-subheader {
     font-size: 13px;
     margin-bottom: 20px;
   }
+
   .login-form-content {
     max-width: 100%;
+    padding-top: 0;
+    padding-bottom: 70px;
+    margin-top: 0; /* Align to top within .login-right-half */
+    margin-bottom: 0;
+    width: 100%;
   }
+
   .form-options {
     flex-direction: column;
-    gap: 12px; 
+    gap: 12px;
     align-items: flex-start;
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
   }
+
   .remember-me {
-    width: 100%; 
+    width: 100%;
   }
+
   .forgot-password-link {
-     width: 100%; 
-     text-align: left; 
+     width: 100%;
+     text-align: left;
   }
 }
+
