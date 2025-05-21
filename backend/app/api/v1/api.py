@@ -1,12 +1,14 @@
 # app/api/v1/api.py
 from fastapi import APIRouter
 
-# You will import your specific feature endpoint routers here later
-# from .endpoints import auth, lexicon, comment
+from app.api.v1.endpoints import auth # <--- IMPORT your auth router
+# from .endpoints import lexicon, comment # You'll import these later when created
 
 api_router_v1 = APIRouter()
 
-# And include them like this:
-# api_router_v1.include_router(auth.router, prefix="/auth", tags=["Authentication"])
-# api_router_v1.include_router(lexicon.router, prefix="/lexicons", tags=["Lexicons"])
-# api_router_v1.include_router(comment.router, prefix="/comments", tags=["Comments"])
+# Include the authentication router
+api_router_v1.include_router(auth.router, prefix="/auth", tags=["Authentication"]) # <--- INCLUDE the router
+
+# You will include other routers here later:
+# api_router_v1.include_router(lexicon.router, prefix="/lexicons", tags=["Lexicons & Entries"])
+# api_router_v1.include_router(comment.router, tags=["Comments & Feedback"]) # No prefix needed here based on previous comment router structure

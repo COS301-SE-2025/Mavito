@@ -1,7 +1,9 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/RegistrationPage.css'; 
+import LsImage from '/LS_image.png';
+import DfsiLogo from '/DFSI_Logo.png';
 
 // SVG for Google Logo
 const GoogleLogo = () => (
@@ -15,29 +17,85 @@ const GoogleLogo = () => (
 );
 
 const RegistrationPage: React.FC = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!agreedToTerms) {
-      alert("Please agree to the terms and conditions.");
+    setError(null);
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
       return;
     }
-    console.log("Form submitted");
-    // const formData = new FormData(event.currentTarget);
-    // const data = Object.fromEntries(formData.entries());
-    // console.log(data);
+    if (!agreedToTerms) {
+      setError("You must agree to the terms and conditions.");
+      return;
+    }
+
+    setIsLoading(true);
+
+    const NGROK_BASE_URL = "https://de4b-197-185-129-74.ngrok-free.app"; // <-- REPLACE WITH YOUR NGROK URL
+    const API_ENDPOINT = `${NGROK_BASE_URL}/api/v1/auth/register`;
+
+    // CORRECTED userData object creation:
+    const userData = {
+      first_name: firstName, // Use the state variable 'firstName' and map to 'first_name' for the backend
+      last_name: lastName,   // Use the state variable 'lastName' and map to 'last_name' for the backend
+      email: email,         // Use the state variable 'email'
+      password: password,     // Use the state variable 'password'
+      // role: "contributor", // Optional
+    };
+
+    console.log("Registration attempt with:", userData);
+    console.log("Calling API endpoint:", API_ENDPOINT);
+
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      const data = await response.json(); // Try to parse JSON regardless of status for error details
+
+      if (response.status === 201) { // 201 Created
+        console.log("Registration successful:", data);
+        
+        alert("Registration successful! Please proceed to login."); // Temporary alert
+        navigate('/login');
+      } else {
+        console.error("Registration failed with status:", response.status, "Response data:", data);
+        setError(data.detail || `Registration failed (status ${response.status}). Please try again.`);
+      }
+    } catch (err) {
+      console.error("Network or other error during registration:", err);
+      setError("An error occurred. Please check your network and try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleGoogleSignUp = () => {
     console.log("Attempting Google Sign Up");
+    // TODO: Implement Google Sign Up logic
   };
+
 
   return (
     <div className="registration-page-full-container">
       <div className="registration-left-half">
         <img 
-          src="/LS_image.png" 
+          src={LsImage}
           alt="Mavito Welcome" 
           className="registration-hero-image"
         />
@@ -46,7 +104,7 @@ const RegistrationPage: React.FC = () => {
       <div className="registration-right-half">
         <div>
           <img 
-            src="/DFSI_Logo.png" 
+            src={DfsiLogo}
             alt="DSFSI Logo" 
             className="dsfsi-logo-registration" 
           />
@@ -54,33 +112,80 @@ const RegistrationPage: React.FC = () => {
 
         <div className="registration-form-content">
           <h1 className="registration-header">GET STARTED NOW</h1>
-          <p className="registration-subheader">Create your Marito account.</p>
+          <p className="registration-subheader">Create your Mavito account.</p>
+
+          {error && <p className="error-message" style={{color: 'red', textAlign: 'center', marginBottom: '10px'}}>{error}</p>}
 
           <form onSubmit={handleSubmit} className="registration-form">
             <div className="form-row">
               <div className="form-group column">
                 <label htmlFor="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required />
+                <input 
+                  type="text" 
+                  id="firstName" 
+                  name="firstName" 
+                  placeholder="Enter your first name" 
+                  value={firstName} // Bind to state
+                  onChange={(e) => setFirstName(e.target.value)} // Update state
+                  required 
+                  disabled={isLoading}
+                />
               </div>
               <div className="form-group column">
                 <label htmlFor="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required />
+                <input 
+                  type="text" 
+                  id="lastName" 
+                  name="lastName" 
+                  placeholder="Enter your last name" 
+                  value={lastName} // Bind to state
+                  onChange={(e) => setLastName(e.target.value)} // Update state
+                  required 
+                  disabled={isLoading}
+                />
               </div>
             </div>
 
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="Enter your email address" 
+                value={email} // Bind to state
+                onChange={(e) => setEmail(e.target.value)} // Update state
+                required 
+                disabled={isLoading}
+              />
             </div>
 
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" id="password" name="password" placeholder="Create a password" required />
+              <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                placeholder="Create a password" 
+                value={password} // Bind to state
+                onChange={(e) => setPassword(e.target.value)} // Update state
+                required 
+                disabled={isLoading}
+              />
             </div>
 
             <div className="form-group">
               <label htmlFor="confirmPassword">Confirm Password</label>
-              <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required />
+              <input 
+                type="password" 
+                id="confirmPassword" 
+                name="confirmPassword" 
+                placeholder="Confirm your password" 
+                value={confirmPassword} // Bind to state
+                onChange={(e) => setConfirmPassword(e.target.value)} // Update state
+                required 
+                disabled={isLoading}
+              />
             </div>
 
             <div className="form-group terms-checkbox">
@@ -91,21 +196,22 @@ const RegistrationPage: React.FC = () => {
                 checked={agreedToTerms}
                 onChange={(e) => setAgreedToTerms(e.target.checked)}
                 required
+                disabled={isLoading}
               />
               <label htmlFor="terms" className="terms-label">
                 I agree to the <Link to="/terms" target="_blank" rel="noopener noreferrer">Terms and Conditions</Link>
               </label>
             </div>
 
-            <button type="submit" className="register-button primary">
-              Create Account
+            <button type="submit" className="register-button primary" disabled={isLoading}>
+              {isLoading ? 'Creating Account...' : 'Create Account'}
             </button>
 
             <div className="social-login-divider">
               <span>OR</span>
             </div>
 
-            <button type="button" onClick={handleGoogleSignUp} className="register-button google">
+            <button type="button" onClick={handleGoogleSignUp} className="register-button google" disabled={isLoading}>
               <GoogleLogo />
               Create Account with Google
             </button>

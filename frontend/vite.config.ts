@@ -8,6 +8,7 @@ export default defineConfig({
   server: {
     host: true, // Exposes the server to your local network
   },
+  base: '/Mavito/',
   plugins: [
     react(),
     VitePWA({

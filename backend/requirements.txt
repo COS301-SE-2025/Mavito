@@ -12,3 +12,7 @@ asyncpg              # PostgreSQL driver for SQLAlchemy (for Cloud SQL)
 aiosqlite            # SQLite driver for SQLAlchemy (for local dev fallback)
 passlib[bcrypt]      # For password hashing
 python-jose[cryptography] # For JWT tokens (can also use PyJWT)
+email-validator
+pydantic[email]
+PyJWT
+python-multipart
