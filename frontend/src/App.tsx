@@ -6,7 +6,7 @@ import LoginPage from './pages/LoginPage';
 import './App.css'
 
 function App() {
-    return (
+    return 
     <div className="MavitoApp">
       <Routes>
         <Route path="/Landing" element={<LandingPage />} />
