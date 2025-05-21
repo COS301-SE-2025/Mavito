@@ -9,7 +9,7 @@ CREATE TABLE languages (
     code CHAR(3) PRIMARY KEY,
     name VARCHAR(50) NOT NULL, --Zulu ,Xhosa, etc...
     native_name VARCHAR(50), --isiZulu, isiXhosa, etc...
-    is_active BOOLEAN DEFAULT TRUE --is this langauge removed from our dataset? 
+    is_active BOOLEAN DEFAULT TRUE --is this language removed from our dataset? 
 );
 
 -- Table: users
@@ -30,14 +30,14 @@ CREATE TABLE users (
     verification_token VARCHAR(255),	-- account verification token
     account_locked BOOLEAN DEFAULT FALSE,-- account locking
     failed_login_attempts INTEGER DEFAULT 0,
-    deleted_at TIMESTAMP WITH TIME ZONE -- can help with recovering deleted accounts, if its less than 30 days old we can recover accound-delete user data after 30 days of delete
+    deleted_at TIMESTAMP WITH TIME ZONE -- Timestamp for soft-deleted accounts; user data can be recovered within 30 days of deletion
 );
 
--- Table: users_languages -languages teh user is proficient in and teh levels
+-- Table: users_languages -languages the user is proficient in and the levels
 CREATE TABLE user_languages (
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE, -- for automatic delete
     language_code CHAR(3) REFERENCES languages(code) ON UPDATE CASCADE,
-    proficiency_level INTEGER CHECK (proficiency_level BETWEEN 1 AND 5), -- how good is user at lanaguage?,can be used to value contributions
+    proficiency_level INTEGER CHECK (proficiency_level BETWEEN 1 AND 5), -- how good is user at language?, can be used to value contributions
     is_primary BOOLEAN DEFAULT FALSE, --primary language- users expert language
     PRIMARY KEY (user_id, language_code)
 );
