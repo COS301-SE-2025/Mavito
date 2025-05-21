@@ -30,7 +30,7 @@ CREATE TABLE users (
     verification_token VARCHAR(255),	-- account verification token
     account_locked BOOLEAN DEFAULT FALSE,-- account locking
     failed_login_attempts INTEGER DEFAULT 0,
-    deleted_at TIMESTAMP WITH TIME ZONE -- can help with recovering deleted accounts, if its less than 30 days old we can recover accound-delete user data after 30 days of delete
+    deleted_at TIMESTAMP WITH TIME ZONE -- Timestamp for soft-deleted accounts; user data can be recovered within 30 days of deletion
 );
 
 -- Table: users_languages -languages the user is proficient in and the levels
