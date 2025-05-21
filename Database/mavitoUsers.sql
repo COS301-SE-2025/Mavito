@@ -33,7 +33,7 @@ CREATE TABLE users (
     deleted_at TIMESTAMP WITH TIME ZONE -- can help with recovering deleted accounts, if its less than 30 days old we can recover accound-delete user data after 30 days of delete
 );
 
--- Table: users_languages -languages teh user is proficient in and teh levels
+-- Table: users_languages -languages the user is proficient in and the levels
 CREATE TABLE user_languages (
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE, -- for automatic delete
     language_code CHAR(3) REFERENCES languages(code) ON UPDATE CASCADE,
