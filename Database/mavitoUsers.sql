@@ -9,7 +9,7 @@ CREATE TABLE languages (
     code CHAR(3) PRIMARY KEY,
     name VARCHAR(50) NOT NULL, --Zulu ,Xhosa, etc...
     native_name VARCHAR(50), --isiZulu, isiXhosa, etc...
-    is_active BOOLEAN DEFAULT TRUE --is this langauge removed from our dataset? 
+    is_active BOOLEAN DEFAULT TRUE --is this language removed from our dataset? 
 );
 
 -- Table: users
