@@ -44,11 +44,14 @@ const RegistrationPage: React.FC = () => {
       </div>
 
       <div className="registration-right-half">
-        <img 
-          src="/DFSI_Logo.png" 
-          alt="DSFSI Logo" 
-          className="dsfsi-logo-registration" 
-        />
+        <div>
+          <img 
+            src="/DFSI_Logo.png" 
+            alt="DSFSI Logo" 
+            className="dsfsi-logo-registration" 
+          />
+        </div>
+
         <div className="registration-form-content">
           <h1 className="registration-header">GET STARTED NOW</h1>
           <p className="registration-subheader">Create your Marito account.</p>

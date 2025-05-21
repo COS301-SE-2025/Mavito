@@ -5,7 +5,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* Prevents body scroll, individual halves manage their scroll */
   box-sizing: border-box;
 }
 
@@ -17,7 +17,7 @@
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
-  background-color: #00A79D; 
+  background-color: #00A79D; /* Fallback or theme color for left side */
 }
 
 .login-hero-image {
@@ -30,13 +30,12 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 40px;
-  padding-top: 150px; /* Space for the logo */
+  padding-top: 150px; /* Generous top padding for desktop logo */
   background-color: #ffffff;
   position: relative;
-  overflow-y: auto;
+  overflow-y: auto; /* Allows this half to scroll if content overflows */
   box-sizing: border-box;
 }
 
@@ -60,6 +59,7 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  padding-bottom: 40px; /* Add padding at the bottom for links */
 }
 
 .login-header {
@@ -146,8 +146,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-top: -10px; 
-  margin-bottom: 10px; 
+  margin-top: -10px;
+  margin-bottom: 10px;
   font-size: 12px;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
@@ -156,32 +156,32 @@
 .remember-me {
   display: flex;
   align-items: center;
-  gap: 8px; 
+  gap: 8px;
   color: #4F5D75;
 }
 
 .remember-me input[type="checkbox"] {
-  width: 16px; 
+  width: 16px;
   height: 16px;
-  accent-color: #00CEAF; 
+  accent-color: #00CEAF;
   cursor: pointer;
-  border: 1.5px solid #212431; 
+  border: 1.5px solid #212431;
+  border-radius: 4px;
 }
 
-.remember-me label { 
-  font-size: 12px; 
-  font-weight: normal; 
+.remember-me label {
+  font-size: 12px;
+  font-weight: normal;
   color: #4F5D75;
-  margin-bottom: 0; 
+  margin-bottom: 0;
   cursor: pointer;
 }
-
 
 .forgot-password-link {
   color: #00CEAF;
   text-decoration: none;
   font-weight: 500;
-  font-size: 12px; 
+  font-size: 12px;
 }
 
 .forgot-password-link:hover {
@@ -266,50 +266,62 @@
 @media (max-width: 900px) {
   .login-page-full-container {
     flex-direction: column;
+    position: static;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
   }
+
   .login-left-half {
-    min-height: 200px;
-    max-height: 35vh;
-    width: 100%;
-    order: 1;
+    display: none;
   }
-  .login-hero-image {
-    object-position: center;
-  }
+
   .login-right-half {
-    order: 2;
+    flex: 1 0 auto;
+    width: 100%;
+    order: 0;
     padding: 25px 20px;
-    padding-top: 110px;
-    flex-grow: 1;
+    padding-top: 90px;
+    justify-content: flex-start;
+    min-height: auto;
   }
+
   .dsfsi-logo-login {
-    width: 12vw;
-    max-width: 60px;
-    min-width: 40px;
+    width: 15vw;
+    max-width: 70px;
+    min-width: 50px;
     top: 15px;
     right: 15px;
   }
+
   .login-header {
-    font-size: 24px;
+    font-size: 26px;
   }
+
   .login-subheader {
     font-size: 13px;
     margin-bottom: 20px;
   }
+
   .login-form-content {
     max-width: 100%;
+    padding-bottom: 20px;
   }
+
   .form-options {
     flex-direction: column;
-    gap: 12px; 
+    gap: 12px;
     align-items: flex-start;
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
   }
+
   .remember-me {
-    width: 100%; 
+    width: 100%;
   }
+
   .forgot-password-link {
-     width: 100%; 
-     text-align: left; 
+     width: 100%;
+     text-align: left;
   }
 }
+
