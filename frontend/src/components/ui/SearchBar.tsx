@@ -4,23 +4,36 @@ import {
   useState,
   useEffect,
   KeyboardEvent,
+  useRef,
 } from 'react';
 import { Search } from 'lucide-react';
 import '../../styles/SearchBar.scss';
 
+interface Suggestion {
+  id: string;
+  label: string;
+}
+
 interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
   onSearch: (value: string) => void;
+  fetchSuggestions: (term: string) => Promise<Suggestion[]>;
+  minChars?: number;
   placeholder?: string;
   debounceMs?: number;
 }
 
 const SearchBar: FC<SearchBarProps> = ({
   onSearch,
+  fetchSuggestions,
+  minChars = 2,
   placeholder = 'Search term',
   debounceMs = 300,
 }) => {
   const [value, setValue] = useState('');
   const [debounced, setDebounced] = useState(value);
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const suggestionsRef = useRef<HTMLDivElement>(null);
 
   // Debounced logic
   useEffect(() => {
@@ -32,29 +45,63 @@ const SearchBar: FC<SearchBarProps> = ({
     };
   }, [value, debounceMs]);
 
+  // Fetch suggestions
   useEffect(() => {
-    onSearch(debounced);
-  }, [debounced, onSearch]);
+    if (debounced.length >= minChars) {
+      void fetchSuggestions(debounced).then(setSuggestions);
+      setShowSuggestions(true);
+    } else {
+      setSuggestions([]);
+      setShowSuggestions(false);
+    }
+  }, [debounced, fetchSuggestions, minChars]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
+      setShowSuggestions(false);
       onSearch(value);
     }
   };
 
+  const handleSuggestionClick = (label: string) => {
+    setValue(label);
+    setShowSuggestions(false);
+    onSearch(label);
+  };
+
   return (
-    <div className="search-bar">
-      <Search size={20} className="search-icon" />
-      <input
-        type="text"
-        placeholder={placeholder}
-        className="search-input"
-        value={value}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-        onKeyDown={handleKeyDown}
-      />
+    <div className="search-wrapper">
+      <div className="search-bar" role="search">
+        <Search size={20} className="search-icon" />
+        <input
+          type="text"
+          placeholder={placeholder}
+          className="search-input"
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+          }}
+          onKeyDown={handleKeyDown}
+          aria-autocomplete="list"
+          aria-expanded={showSuggestions}
+        />
+      </div>
+
+      {showSuggestions && suggestions.length > 0 && (
+        <div className="search-suggestions" ref={suggestionsRef}>
+          {suggestions.map((s) => (
+            <div
+              key={s.id}
+              className="suggestion-item"
+              onClick={() => {
+                handleSuggestionClick(s.label);
+              }}
+            >
+              {s.label}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
