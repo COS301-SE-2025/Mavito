@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import '../../styles/Navbar.scss';
 
 const Navbar = () => {
+  const location = useLocation();
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem('theme') === 'dark';
   });
   const [menuOpen, setMenuOpen] = useState(false);
-  const [active, setActive] = useState('Dashboard');
+  const [active, setActive] = useState('');
 
   const navItems = ['Dashboard', 'Search', 'Saved Terms', 'Analytics'];
 
@@ -23,7 +24,14 @@ const Navbar = () => {
       root.classList.add('theme-light');
       localStorage.setItem('theme', 'light');
     }
-  }, [darkMode]);
+
+    const currentPath = location.pathname.replace('/', '').replace(/-/g, ' ');
+    const match = navItems.find(
+      (item) => item.toLowerCase() === currentPath.toLowerCase(),
+    );
+    if (match) setActive(match);
+    else setActive('');
+  }, [darkMode, location.pathname]);
 
   return (
     <nav className="w-full fixed top-0 left-0 bg-theme text-theme px-6 py-3 shadow-md z-50">
