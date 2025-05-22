@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/LoginPage.css'; 
-
+import LsImage from '/LS_image.png';
+import DfsiLogo from '/DFSI_Logo.png';
 
 const GoogleLogo = () => (
   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" height="24px" width="24px">
@@ -18,12 +19,37 @@ const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Handle login logic here
+    const NGROK_BASE_URL = "https://de4b-197-185-129-74.ngrok-free.app";
+    const API_ENDPOINT  = `${NGROK_BASE_URL}/api/v1/auth/login`;
     console.log("Login attempt with:", { email, password });
-    // Example: Call an API service
-    // authService.login(email, password).then(...).catch(...);
+    console.log("Calling API endpoint:", API_ENDPOINT);
+    try {
+        const response = await fetch(API_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded', // FastAPI OAuth2PasswordRequestForm expects this
+          },
+          body: new URLSearchParams({ // Send as form data
+            username: email, // 'username' is expected by OAuth2PasswordRequestForm
+            password: password,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          console.log("Login successful:", data);
+          // TODO: Store the token (data.access_token), redirect user, etc.
+        } else {
+          console.error("Login failed:", data.detail || "Unknown error");
+          // TODO: Show error message to user
+        }
+      } catch (error) {
+        console.error("Network or other error during login:", error);
+        // TODO: Show network error message
+      }
   };
 
   const handleGoogleLogin = () => {
@@ -36,7 +62,7 @@ const LoginPage: React.FC = () => {
       {/* Left Half - Image */}
       <div className="login-left-half">
         <img
-          src="/LS_image.png" 
+           src={LsImage} 
           alt="Mavito Login Welcome"
           className="login-hero-image"
         />
@@ -46,7 +72,7 @@ const LoginPage: React.FC = () => {
       <div className="login-right-half">
         <div>
           <img
-            src="/DFSI_Logo.png" 
+            src={DfsiLogo}
             alt="DSFSI Logo"
             className="dsfsi-logo-login"
           />

@@ -9,7 +9,7 @@ const rootElement = document.getElementById('root');
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
-      <BrowserRouter>
+      <BrowserRouter basename="/Mavito">
         <App />
       </BrowserRouter>
     </React.StrictMode>
