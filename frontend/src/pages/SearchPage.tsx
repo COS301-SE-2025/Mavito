@@ -3,6 +3,8 @@ import React, { useState, useCallback, useEffect } from 'react';
 import Navbar from '../components/ui/Navbar';
 import SearchBar from '../components/ui/SearchBar';
 import DropdownFilter from '../components/ui/DropdownFilter';
+import ToggleSwitch from '../components/ui/ToggleSwtich';
+import { Brain, Wand2 } from 'lucide-react';
 
 interface Suggestion {
   id: string;
@@ -16,6 +18,8 @@ const SearchPage: React.FC = () => {
   const [partOfSpeech, setPartOfSpeech] = useState('');
   const [domainOptions, setDomainOptions] = useState<string[]>([]);
   const [partOfSpeechOptions, setPartOfSpeechOptions] = useState<string[]>([]);
+  const [aiSearch, setAiSearch] = useState(false);
+  const [fuzzySearch, setFuzzySearch] = useState(false);
 
   useEffect(() => {
     void fetchDomains().then(setDomainOptions);
@@ -85,6 +89,20 @@ const SearchPage: React.FC = () => {
             options={partOfSpeechOptions}
             selected={partOfSpeech}
             onSelect={setPartOfSpeech}
+          />
+        </div>
+        <div className="flex gap-4 flex-wrap">
+          <ToggleSwitch
+            label="AI Search"
+            icon={<Brain size={16} />}
+            checked={aiSearch}
+            onChange={setAiSearch}
+          />
+          <ToggleSwitch
+            label="Fuzzy Search"
+            icon={<Wand2 size={16} />}
+            checked={fuzzySearch}
+            onChange={setFuzzySearch}
           />
         </div>
       </section>
