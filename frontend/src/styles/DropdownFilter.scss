@@ -25,6 +25,8 @@
     border-radius: 9999px;
     font-size: 0.9rem;
     font-weight: 500;
+    border: none; 
+    outline: none;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
     transition: background-color 0.2s, color 0.2s;
     cursor: pointer;
@@ -73,6 +75,12 @@
     &.selected {
       font-weight: 600;
     }
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 8px var(--accent-color); 
   }
 }
 
