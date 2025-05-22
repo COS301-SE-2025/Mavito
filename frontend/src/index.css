@@ -91,3 +91,30 @@ button:focus-visible {
     color: var(--text-color);
   }
 }
+
+.theme-light {
+  --bg-theme: #F5F5F5;
+  --text-theme: #212431;
+  --accent-pink: #F00A50;
+  --accent-yellow: #F2D001;
+  --accent-teal: #00CEAF;
+  --accent-blue: #212431;
+  --secondary-light: #FFFFFF;
+  --secondary-dark: #212431;
+  --text-light: #212431;
+  --text-dark: #FFFFFF;
+}
+
+.theme-dark {
+  --bg-theme: #363B4D;
+  --text-theme: #FFFFFF;
+  --accent-pink: #F00A50;
+  --accent-yellow: #F2D001;
+  --accent-teal: #00CEAF;
+  --accent-blue: #212431;
+  --secondary-light: #212431;
+  --secondary-dark: #FFFFFF;
+  --text-light: #FFFFFF;
+  --text-dark: #212431;
+}
+

@@ -24,12 +24,16 @@ $text-dark: #FFFFFF;
   --bg-theme: #{$tertiary-light};
   --text-theme: #{$text-dark};
   --accent-color: #{$accent-pink};
+  --bg-secondary: #{$secondary-dark};
+  --bg-first: #{$background-light};
 }
 
 .theme-dark {
   --bg-theme: #{$tertiary-dark};
   --text-theme: #{$text-light};
   --accent-color: #{$accent-pink};
+  --bg-secondary: #{$secondary-light};
+  --bg-first: #{$background-dark};
 }
 
 /* Utility classes */

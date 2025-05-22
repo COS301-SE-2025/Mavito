@@ -15,7 +15,7 @@ interface Suggestion {
 }
 
 interface SearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
-  onSearch: (value: string) => void;
+  onSearch: (value: string) => Promise<void>;
   fetchSuggestions: (term: string) => Promise<Suggestion[]>;
   minChars?: number;
   placeholder?: string;
@@ -56,17 +56,17 @@ const SearchBar: FC<SearchBarProps> = ({
     }
   }, [debounced, fetchSuggestions, minChars]);
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = async (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       setShowSuggestions(false);
-      onSearch(value);
+      await onSearch(value);
     }
   };
 
-  const handleSuggestionClick = (label: string) => {
+  const handleSuggestionClick = async (label: string) => {
     setValue(label);
     setShowSuggestions(false);
-    onSearch(label);
+    await onSearch(label);
   };
 
   return (
@@ -81,7 +81,7 @@ const SearchBar: FC<SearchBarProps> = ({
           onChange={(e) => {
             setValue(e.target.value);
           }}
-          onKeyDown={handleKeyDown}
+          onKeyDown={void handleKeyDown}
           aria-autocomplete="list"
           aria-expanded={showSuggestions}
         />
@@ -94,7 +94,7 @@ const SearchBar: FC<SearchBarProps> = ({
               key={s.id}
               className="suggestion-item"
               onClick={() => {
-                handleSuggestionClick(s.label);
+                void handleSuggestionClick(s.label);
               }}
             >
               {s.label}

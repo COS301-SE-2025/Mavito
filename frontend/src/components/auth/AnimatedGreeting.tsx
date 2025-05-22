@@ -1,20 +1,27 @@
-
 import React, { useState, useEffect } from 'react';
-import '../../styles/AnimatedGreeting.css'; 
+import '../../styles/AnimatedGreeting.css';
 
 const greetings = [
-  "Hello", "Hallo", "Sanibonani", "Molo",
-  "Lotjhani", "Dumela", "Xewani", "Ndaa","Sawubona"
+  'Hello',
+  'Hallo',
+  'Sanibonani',
+  'Molo',
+  'Lotjhani',
+  'Dumela',
+  'Xewani',
+  'Ndaa',
+  'Sawubona',
 ];
 
 const AnimatedGreeting: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_currentIndex, setCurrentIndex] = useState(0);
   const [currentGreeting, setCurrentGreeting] = useState(greetings[0]);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setIsVisible(false); 
+      setIsVisible(false);
 
       setTimeout(() => {
         setCurrentIndex((prevIndex) => {
@@ -22,12 +29,14 @@ const AnimatedGreeting: React.FC = () => {
           setCurrentGreeting(greetings[nextIndex]);
           return nextIndex;
         });
-        setIsVisible(true); 
-      }, 500); 
-    }, 3000); 
+        setIsVisible(true);
+      }, 500);
+    }, 3000);
 
-    return () => clearInterval(intervalId); 
-  }, []); 
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   return (
     <h1 className={`info-text ${isVisible ? 'fade-in' : 'fade-out'}`}>
@@ -36,5 +45,4 @@ const AnimatedGreeting: React.FC = () => {
   );
 };
 
-
-export default AnimatedGreeting; 
+export default AnimatedGreeting;

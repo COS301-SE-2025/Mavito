@@ -31,7 +31,7 @@ const Navbar = () => {
     );
     if (match) setActive(match);
     else setActive('');
-  }, [darkMode, location.pathname]);
+  }, [darkMode, location.pathname, navItems]);
 
   return (
     <nav className="w-full fixed top-0 left-0 bg-theme text-theme px-6 py-3 shadow-md z-50">
