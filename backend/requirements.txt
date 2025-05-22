@@ -16,3 +16,4 @@ email-validator
 pydantic[email]
 PyJWT
 python-multipart
+
