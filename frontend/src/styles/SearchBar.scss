@@ -32,7 +32,9 @@ $radius: 9999px;
   }
 
   &:focus-within {
-    box-shadow: 0 0 0 2px var(--accent-color);
+    box-shadow: 
+      0 0 2px #F00A50,
+      0 0 12px #F00A50,
   }
 }
 

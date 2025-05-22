@@ -10,7 +10,11 @@ const SearchPage: React.FC = () => {
     <div>
       <Navbar />
       <section className="p-g">
-        <SearchBar />
+        <SearchBar
+          onSearch={(query) => {
+            console.log(' Search for:', query);
+          }}
+        />
       </section>
       {term}
       <button
