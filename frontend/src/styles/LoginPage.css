@@ -9,6 +9,11 @@
   box-sizing: border-box;
 }
 
+.error-message {
+  color: #ff0000;
+  font-weight: bold;
+}
+
 .login-left-half {
   flex: 1;
   flex-shrink: 0;
@@ -90,6 +95,12 @@
   line-height: 1.4;
   letter-spacing: 0.42px;
   margin-bottom: 30px;
+}
+
+
+.login-subheader.error {
+  color: #ff0000;
+  font-weight: bold;
 }
 
 .login-form {

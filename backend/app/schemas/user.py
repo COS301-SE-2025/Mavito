@@ -1,52 +1,59 @@
 # app/schemas/user.py
 from pydantic import BaseModel, EmailStr, ConfigDict
-from typing import Optional, List
-from datetime import datetime # For timestamp fields
-# Import the UserRole enum from your models if you want to use it here too
-from app.models.user import UserRole # Assuming UserRole is defined in app/models/user.py
+from typing import (
+    Optional,
+)  # List was correctly marked as unused previously and can be omitted if not needed
+from datetime import datetime
+import uuid  # Import for UUID type
+
+# Assuming UserRole is correctly defined in app/models/user.py
+from app.models.user import UserRole
+
 
 # Shared properties
 class UserBase(BaseModel):
     email: EmailStr
     first_name: str
     last_name: str
-    role: Optional[UserRole] = None # Corresponds to your SQL ENUM/CHECK; make it optional or provide a default
+    role: Optional[UserRole] = None
     profile_pic_url: Optional[str] = None
+
 
 # Properties to receive via API on creation
 class UserCreate(UserBase):
-    password: str # Plain password received from client
+    password: str  # Plain password received from client
+
 
 # Properties to receive via API on update
-class UserUpdate(UserBase):
-    email: Optional[EmailStr] = None # Allow email update
+class UserUpdate(BaseModel):  # Defined independently for clarity on updatable fields
+    email: Optional[EmailStr] = None
     first_name: Optional[str] = None
     last_name: Optional[str] = None
-    password: Optional[str] = None # Allow password update
+    password: Optional[str] = None
     role: Optional[UserRole] = None
     is_active: Optional[bool] = None
     is_verified: Optional[bool] = None
     profile_pic_url: Optional[str] = None
+    account_locked: Optional[bool] = None  # If admins can update this
 
-# Properties stored in DB (never directly exposed if it contains sensitive data)
-class UserInDBBase(UserBase):
-    id: int
-    #is_active: bool # This was in our previous model, your SQL has is_verified and account_locked
+
+# Properties to return to client (this is your main User response model)
+# It includes fields from UserBase and additional fields relevant for API responses.
+class User(UserBase):
+    id: uuid.UUID  # Changed from int to uuid.UUID
+    is_active: (
+        bool  # Re-added this, as it's in your SQLAlchemy model and used in deps.py
+    )
     is_verified: bool
     account_locked: bool
     created_at: datetime
     last_login: Optional[datetime] = None
 
-    # Pydantic V2 configuration to allow ORM mode (reading data from SQLAlchemy models)
+    # Pydantic V2 configuration
     model_config = ConfigDict(from_attributes=True)
-    # For Pydantic V1, you would use:
-    # class Config:
-    #     orm_mode = True 
 
-# Additional properties to return to client (this is your main User response model)
-class User(UserInDBBase):
-    pass # Inherits all from UserInDBBase, effectively making it the response model
 
 # Properties stored in DB, including the hashed password (for internal use by CRUD)
-class UserInDB(UserInDBBase):
-    password_hash: str # Matches your SQL column name
+# This schema is useful if you need a Pydantic model that includes password_hash.
+class UserInDB(User):  # Inherits fields from User
+    password_hash: str  # Matches your SQL column name

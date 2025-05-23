@@ -1,60 +1,87 @@
 // src/pages/LoginPage.tsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/LoginPage.css'; 
+import '../styles/LoginPage.css';
 import LsImage from '/LS_image.png';
 import DfsiLogo from '/DFSI_Logo.png';
 
 const GoogleLogo = () => (
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" height="24px" width="24px">
-    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
-    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
-    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
-    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+  <svg
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 48 48"
+    height="24px"
+    width="24px"
+  >
+    <path
+      fill="#EA4335"
+      d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
+    ></path>
+    <path
+      fill="#4285F4"
+      d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
+    ></path>
+    <path
+      fill="#FBBC05"
+      d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
+    ></path>
+    <path
+      fill="#34A853"
+      d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
+    ></path>
     <path fill="none" d="M0 0h48v48H0z"></path>
   </svg>
 );
 
+interface LoginResponse {
+  access_token: string;
+  token_type: string;
+  detail: string;
+}
+
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const NGROK_BASE_URL = "https://de4b-197-185-129-74.ngrok-free.app";
-    const API_ENDPOINT  = `${NGROK_BASE_URL}/api/v1/auth/login`;
-    console.log("Login attempt with:", { email, password });
-    console.log("Calling API endpoint:", API_ENDPOINT);
+    setErrorMessage(null); // Reset error message on new submission
+
+    const NGROK_BASE_URL = ' https://71e1-197-185-129-74.ngrok-free.app';
+    const API_ENDPOINT = `${NGROK_BASE_URL}/api/v1/auth/login`;
+
     try {
-        const response = await fetch(API_ENDPOINT, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded', // FastAPI OAuth2PasswordRequestForm expects this
-          },
-          body: new URLSearchParams({ // Send as form data
-            username: email, // 'username' is expected by OAuth2PasswordRequestForm
-            password: password,
-          }),
-        });
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          username: email,
+          password: password,
+        }),
+      });
 
-        const data = await response.json();
+      const data = (await response.json()) as LoginResponse;
 
-        if (response.ok) {
-          console.log("Login successful:", data);
-          // TODO: Store the token (data.access_token), redirect user, etc.
-        } else {
-          console.error("Login failed:", data.detail || "Unknown error");
-          // TODO: Show error message to user
-        }
-      } catch (error) {
-        console.error("Network or other error during login:", error);
-        // TODO: Show network error message
+      if (response.ok) {
+        console.log('Login successful:', data);
+        // TODO: Store the token (data.access_token), redirect user, etc.
+      } else {
+        console.error('Login failed:', data.detail);
+        setErrorMessage(data.detail || 'Login failed. Please try again.');
       }
+    } catch (error) {
+      console.error('Network or other error during login:', error);
+      setErrorMessage(
+        'Network error. Please check your connection and try again.',
+      );
+    }
   };
 
   const handleGoogleLogin = () => {
-    // Handle Google Login logic here
-    console.log("Attempting Google Login");
+    console.log('Attempting Google Login');
   };
 
   return (
@@ -62,7 +89,7 @@ const LoginPage: React.FC = () => {
       {/* Left Half - Image */}
       <div className="login-left-half">
         <img
-           src={LsImage} 
+          src={LsImage}
           alt="Mavito Login Welcome"
           className="login-hero-image"
         />
@@ -71,18 +98,24 @@ const LoginPage: React.FC = () => {
       {/* Right Half - Form */}
       <div className="login-right-half">
         <div>
-          <img
-            src={DfsiLogo}
-            alt="DSFSI Logo"
-            className="dsfsi-logo-login"
-          />
+          <img src={DfsiLogo} alt="DSFSI Logo" className="dsfsi-logo-login" />
         </div>
 
         <div className="login-form-content">
           <h1 className="login-header">WELCOME BACK!</h1>
-          <p className="login-subheader">Please enter your credentials to login.</p>
+          <p
+            className="login-subheader"
+            style={{ color: errorMessage ? 'red' : '' }}
+          >
+            {errorMessage || 'Please enter your credentials to login.'}
+          </p>
 
-          <form onSubmit={handleSubmit} className="login-form">
+          <form
+            onSubmit={(e) => {
+              void handleSubmit(e);
+            }}
+            className="login-form"
+          >
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
@@ -91,7 +124,9 @@ const LoginPage: React.FC = () => {
                 name="email"
                 placeholder="Enter your email address"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
                 required
               />
             </div>
@@ -104,17 +139,17 @@ const LoginPage: React.FC = () => {
                 name="password"
                 placeholder="Enter your password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
                 required
               />
             </div>
 
             <div className="form-options">
               <div className="remember-me">
-                
                 <input type="checkbox" id="rememberMe" name="rememberMe" />
                 <label htmlFor="rememberMe">Remember me</label>
-                
               </div>
               <Link to="/forgot-password" className="forgot-password-link">
                 Forgot Password?
@@ -129,7 +164,11 @@ const LoginPage: React.FC = () => {
               <span>OR</span>
             </div>
 
-            <button type="button" onClick={handleGoogleLogin} className="login-button google">
+            <button
+              type="button"
+              onClick={handleGoogleLogin}
+              className="login-button google"
+            >
               <GoogleLogo />
               Login with Google
             </button>
