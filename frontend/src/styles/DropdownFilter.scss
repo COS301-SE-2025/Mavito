@@ -19,7 +19,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: var(--bg-theme);
+    background-color: var(--bg-tir);
     color: var(--text-theme);
     padding: 0.4rem 0.9rem;
     border-radius: 9999px;
@@ -50,7 +50,7 @@
     top: calc(100% + 0.25rem);
     left: 0;
     z-index: 10;
-    background-color: var(--bg-theme);
+    background-color: var(--bg-tir);
     color: var(--text-theme);
     border-radius: 0.5rem;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);

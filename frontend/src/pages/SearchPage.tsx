@@ -5,6 +5,7 @@ import DropdownFilter from '../components/ui/DropdownFilter';
 import ToggleSwitch from '../components/ui/ToggleSwtich';
 import TermCard from '../components/ui/TermCard';
 import { Brain, Wand2 } from 'lucide-react';
+import '../styles/SearchPage.scss';
 
 /**
  * Represents a single suggestion for the search bar autocomplete.
@@ -159,7 +160,7 @@ const SearchPage: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen search-page">
       <Navbar />
 
       <section className="p-6 space-y-4">
