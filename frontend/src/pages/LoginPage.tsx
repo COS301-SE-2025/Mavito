@@ -36,27 +36,29 @@ const GoogleLogo = () => (
 interface LoginResponse {
   access_token: string;
   token_type: string;
+  detail: string;
 }
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const NGROK_BASE_URL = 'https://de4b-197-185-129-74.ngrok-free.app';
+    setErrorMessage(null); // Reset error message on new submission
+
+    const NGROK_BASE_URL = ' https://71e1-197-185-129-74.ngrok-free.app';
     const API_ENDPOINT = `${NGROK_BASE_URL}/api/v1/auth/login`;
-    console.log('Login attempt with:', { email, password });
-    console.log('Calling API endpoint:', API_ENDPOINT);
+
     try {
       const response = await fetch(API_ENDPOINT, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded', // FastAPI OAuth2PasswordRequestForm expects this
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
-          // Send as form data
-          username: email, // 'username' is expected by OAuth2PasswordRequestForm
+          username: email,
           password: password,
         }),
       });
@@ -67,17 +69,18 @@ const LoginPage: React.FC = () => {
         console.log('Login successful:', data);
         // TODO: Store the token (data.access_token), redirect user, etc.
       } else {
-        console.error('Login failed:', 'Unknown error');
-        // TODO: Show error message to user
+        console.error('Login failed:', data.detail);
+        setErrorMessage(data.detail || 'Login failed. Please try again.');
       }
     } catch (error) {
       console.error('Network or other error during login:', error);
-      // TODO: Show network error message
+      setErrorMessage(
+        'Network error. Please check your connection and try again.',
+      );
     }
   };
 
   const handleGoogleLogin = () => {
-    // Handle Google Login logic here
     console.log('Attempting Google Login');
   };
 
@@ -100,8 +103,11 @@ const LoginPage: React.FC = () => {
 
         <div className="login-form-content">
           <h1 className="login-header">WELCOME BACK!</h1>
-          <p className="login-subheader">
-            Please enter your credentials to login.
+          <p
+            className="login-subheader"
+            style={{ color: errorMessage ? 'red' : '' }}
+          >
+            {errorMessage || 'Please enter your credentials to login.'}
           </p>
 
           <form

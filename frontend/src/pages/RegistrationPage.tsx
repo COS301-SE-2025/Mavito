@@ -45,6 +45,7 @@ interface RegistrationResponse {
   account_locked: boolean;
   created_at: string;
   last_login: string | null;
+  detail: string;
 }
 
 const RegistrationPage: React.FC = () => {
@@ -73,7 +74,7 @@ const RegistrationPage: React.FC = () => {
 
     setIsLoading(true);
 
-    const NGROK_BASE_URL = 'https://de4b-197-185-129-74.ngrok-free.app'; // <-- REPLACE WITH YOUR NGROK URL
+    const NGROK_BASE_URL = 'https://71e1-197-185-129-74.ngrok-free.app'; // <-- REPLACE WITH YOUR NGROK URL
     const API_ENDPOINT = `${NGROK_BASE_URL}/api/v1/auth/register`;
 
     // CORRECTED userData object creation:
@@ -111,9 +112,7 @@ const RegistrationPage: React.FC = () => {
           'Response data:',
           data,
         );
-        setError(
-          `Registration failed (status ${response.status.toString()}). Please try again.`,
-        );
+        setError(`${data.detail} Please try again.`);
       }
     } catch (err) {
       console.error('Network or other error during registration:', err);
