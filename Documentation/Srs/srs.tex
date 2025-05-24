@@ -675,6 +675,14 @@ All detailed use case specifications and diagrams are located at:
 
 This section presents the key use case diagrams developed for the Mavito application. Each diagram visualizes the interactions between user roles and the system, based on the user stories defined earlier in this document. These diagrams serve as a visual blueprint for understanding the system's expected behavior.
 
+\subsection{Registration and Login Use Case Diagram}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{registration_login.png}
+  \caption{Registration and Login Use Case Diagram}
+  \label{fig:reg-log-use-case}
+\end{figure}
+
 \subsection{Search Term Use Case Diagram}
 \begin{figure}[H]
   \centering
@@ -691,14 +699,29 @@ This section presents the key use case diagrams developed for the Mavito applica
   \label{fig:gamification-use-case}
 \end{figure}
 
-\subsection{Registration and Login Use Case Diagram}
+\subsection{Visualization Use Case Diagram}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{registration_login.png}
-  \caption{Registration and Login Use Case Diagram}
-  \label{fig:reg-log-use-case}
+  \includegraphics[width=0.9\textwidth]{Visualizations.jpg}
+  \caption{Visualization Use Case Diagram}
+  \label{fig:visualization-use-case}
 \end{figure}
 
+\subsection{Themes Use Case Diagram}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{Themes_UseCase.jpg}
+  \caption{Themes Use Case Diagram}
+  \label{fig:themes-use-case}
+\end{figure}
+
+\subsection{Contributions Use Case Diagram}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{Contributions.jpg}
+  \caption{Contributions Use Case Diagram}
+  \label{fig:contributions-use-case}
+\end{figure}
 
 \subsection{Overview}
 The main use cases covered include:
@@ -706,6 +729,9 @@ The main use cases covered include:
   \item Browsing and searching multilingual terms
   \item Earning contribution points through gamified interactions
   \item Registration and login ineractions
+  \item User Contributions
+  \item User themes
+  \item Data visualizations
 \end{itemize}
 
 
@@ -953,9 +979,12 @@ These constraints serve as the foundation for all architectural, design, and imp
 
 
 \section{Domain Model}
-\begin{itemize}
-Stub
-\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{domain_model.jpg}
+  \caption{Domain Model}
+  \label{fig:domain-model}
+\end{figure}
 
 \section{Architecture Patterns}
 The architectural foundation of Mavito combines the Microkernel and Microservices patterns to address both extensibility and service independence. This hybrid approach is essential for building a maintainable, scalable, and community-driven multilingual terminology platform. Each pattern plays a distinct role in supporting the system’s goals, and their selection is justified below.
@@ -1040,13 +1069,14 @@ The Mavito system is built using modern, open-source technologies selected for t
 \begin{itemize}
   \item \textbf{Framework:} FastAPI for high-performance, Pythonic web APIs.
   \item \textbf{Language:} Python 3.11 with Pydantic for validation and typing.
-  \item \textbf{Service Model:} Microservices organized by function (e.g., glossary API, search, feedback).
-  \item \textbf{Plugin Architecture:} Microkernel pattern with service registration and routing.
+  \item \textbf{Service Model:} Microservices organized by function.
+  \item \textbf{Database:} PostgreSQL.
   \item \textbf{API Documentation:} FastAPI automatically generates OpenAPI-compliant service contracts, which are accessible via a ReDoc interface. This provides structured, human-readable API documentation derived directly from the backend codebase and Pydantic models.
   \item \textbf{Linting:} Ruff for fast, extensible linting.
   \item \textbf{Static Type Checking:} Mypy to ensure type correctness.
   \item \textbf{Formatting:} Black for consistent code formatting.
   \item \textbf{Testing:} Pytest for integration and unit tests.
+  \item \textbf{Cloud Platform:} Google cloud for hosting.
 \end{itemize}
 
 \subsection{DevOps and Deployment}
@@ -1063,4 +1093,3 @@ Stub
 \end{itemize}
 
 \end{document}
-
