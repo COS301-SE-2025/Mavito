@@ -14,6 +14,10 @@ lint:
 typecheck:
 	PYTHONPATH=. mypy app
 
+# Run the backed server 
+run:
+	uvicorn app.main:app --reload
+
 # Run all checks together
 check: format lint typecheck test
 
