@@ -1,0 +1,72 @@
+{
+  "appTitle": "[AF] Mavito",
+  "loading": "[AF] Loading...",
+
+  "landingPage": {
+    "greeting": "[AF] Welcome to Mavito PWA!",
+    "registerButton": "[AF] Register",
+    "loginButton": "[AF] Login",
+    "footerText": "[AF] Mavito Project"
+  },
+
+  "loginPage": {
+    "title": "[AF] WELCOME BACK!",
+    "subtitle": "[AF] Please enter your credentials to login.",
+    "emailLabel": "[AF] Email",
+    "emailPlaceholder": "[AF] Enter your email address",
+    "passwordLabel": "[AF] Password",
+    "passwordPlaceholder": "[AF] Enter your password",
+    "rememberMe": "[AF] Remember me",
+    "forgotPassword": "[AF] Forgot Password?",
+    "loginButton": "[AF] Login",
+    "orDivider": "[AF] OR",
+    "loginWithGoogle": "[AF] Login with Google",
+    "noAccount": "[AF] Don't have an account?",
+    "registerLink": "[AF] Register",
+    "welcomeImageAlt": "[AF] Mavito Login Welcome",
+    "dsfsiLogoAlt": "[AF] DSFSI Logo",
+    "errorTokenMissing": "[AF] Login successful, but no token received. Please contact support.",
+    "errorDefault": "[AF] Login failed. Please check your credentials.",
+    "errorUnexpectedFormat": "[AF] Login error (status {{status}}). Unexpected error format.",
+    "errorWithStatus": "[AF] Login failed (status {{status}}). Please try again.",
+    "errorNetwork": "[AF] An error occurred: {{message}}.",
+    "errorUnknownNetwork": "[AF] An unknown network error occurred. Please try again."
+  },
+
+  "registrationPage": {
+    "title": "[AF] GET STARTED NOW",
+    "subtitle": "[AF] Create your Mavito account.",
+    "firstNameLabel": "[AF] First Name",
+    "firstNamePlaceholder": "[AF] Enter your first name",
+    "lastNameLabel": "[AF] Last Name",
+    "lastNamePlaceholder": "[AF] Enter your last name",
+    "emailLabel": "[AF] Email",
+    "emailPlaceholder": "[AF] Enter your email address",
+    "passwordLabel": "[AF] Password",
+    "passwordPlaceholder": "[AF] Create a password",
+    "confirmPasswordLabel": "[AF] Confirm Password",
+    "confirmPasswordPlaceholder": "[AF] Confirm your password",
+    "agreeToTerms": "[AF] I agree to the",
+    "termsAndConditionsLink": "[AF] Terms and Conditions",
+    "createAccountButton": "[AF] Create Account",
+    "creatingAccountButton": "[AF] Creating Account...",
+    "orDivider": "[AF] OR",
+    "createWithGoogle": "[AF] Create Account with Google",
+    "haveAccount": "[AF] Already have an account?",
+    "loginLink": "[AF] Login",
+    "welcomeImageAlt": "[AF] Mavito Welcome",
+    "dsfsiLogoAlt": "[AF] DSFSI Logo",
+    "errorPasswordsDoNotMatch": "[AF] Passwords do not match.",
+    "errorAgreeToTerms": "[AF] You must agree to the terms and conditions.",
+    "alertSuccess": "[AF] Registration successful! Please proceed to login.",
+    "errorDefault": "[AF] Registration failed. Please try again.",
+    "errorUnexpectedFormat": "[AF] Error: {{detailJson}}",
+    "errorWithStatus": "[AF] Registration failed (status {{status}}). Please try again.",
+    "errorNetwork": "[AF] An error occurred: {{message}}.",
+    "errorUnknownNetwork": "[AF] An unknown network error occurred. Please try again."
+  },
+
+  "languageSwitcher": {
+    "selectLanguage": "[AF] Select Language"
+  }
+}

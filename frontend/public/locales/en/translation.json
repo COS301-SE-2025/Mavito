@@ -1,0 +1,72 @@
+{
+  "appTitle": "Mavito",
+  "loading": "Loading...",
+
+  "landingPage": {
+    "greeting": "Welcome to Mavito PWA!",
+    "registerButton": "Register",
+    "loginButton": "Login",
+    "footerText": "Mavito Project"
+  },
+
+  "loginPage": {
+    "title": "WELCOME BACK!",
+    "subtitle": "Please enter your credentials to login.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter your email address",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot Password?",
+    "loginButton": "Login",
+    "orDivider": "OR",
+    "loginWithGoogle": "Login with Google",
+    "noAccount": "Don't have an account?",
+    "registerLink": "Register",
+    "welcomeImageAlt": "Mavito Login Welcome",
+    "dsfsiLogoAlt": "DSFSI Logo",
+    "errorTokenMissing": "Login successful, but no token received. Please contact support.",
+    "errorDefault": "Login failed. Please check your credentials.",
+    "errorUnexpectedFormat": "Login error (status {{status}}). Unexpected error format.",
+    "errorWithStatus": "Login failed (status {{status}}). Please try again.",
+    "errorNetwork": "An error occurred: {{message}}.",
+    "errorUnknownNetwork": "An unknown network error occurred. Please try again."
+  },
+
+  "registrationPage": {
+    "title": "GET STARTED NOW",
+    "subtitle": "Create your Mavito account.",
+    "firstNameLabel": "First Name",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastNameLabel": "Last Name",
+    "lastNamePlaceholder": "Enter your last name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter your email address",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Create a password",
+    "confirmPasswordLabel": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "agreeToTerms": "I agree to the",
+    "termsAndConditionsLink": "Terms and Conditions",
+    "createAccountButton": "Create Account",
+    "creatingAccountButton": "Creating Account...",
+    "orDivider": "OR",
+    "createWithGoogle": "Create Account with Google",
+    "haveAccount": "Already have an account?",
+    "loginLink": "Login",
+    "welcomeImageAlt": "Mavito Welcome",
+    "dsfsiLogoAlt": "DSFSI Logo",
+    "errorPasswordsDoNotMatch": "Passwords do not match.",
+    "errorAgreeToTerms": "You must agree to the terms and conditions.",
+    "alertSuccess": "Registration successful! Please proceed to login.",
+    "errorDefault": "Registration failed. Please try again.",
+    "errorUnexpectedFormat": "Error: {{detailJson}}",
+    "errorWithStatus": "Registration failed (status {{status}}). Please try again.",
+    "errorNetwork": "An error occurred: {{message}}.",
+    "errorUnknownNetwork": "An unknown network error occurred. Please try again."
+  },
+
+  "languageSwitcher": {
+    "selectLanguage": "Select Language"
+  }
+}

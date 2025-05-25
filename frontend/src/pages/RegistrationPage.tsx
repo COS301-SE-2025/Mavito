@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/RegistrationPage.css';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import LsImage from '/LS_image.png';
 import DfsiLogo from '/DFSI_Logo.png';
 
@@ -138,12 +139,9 @@ const RegistrationPage: React.FC = () => {
       </div>
 
       <div className="registration-right-half">
-        <div>
-          <img
-            src={DfsiLogo}
-            alt="DSFSI Logo"
-            className="dsfsi-logo-registration"
-          />
+        <div className="auth-page-header">
+          <LanguageSwitcher />
+          <img src={DfsiLogo} alt="DSFSI Logo" className="dsfsi-logo-auth" />
         </div>
 
         <div className="registration-form-content">

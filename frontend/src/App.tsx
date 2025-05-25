@@ -7,12 +7,14 @@ import './App.css';
 function App() {
   return (
     <div className="MavitoApp">
-      <Routes>
-        <Route path="/Landing" element={<LandingPage />} />
-        <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/" element={<LandingPage />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/Landing" element={<LandingPage />} />
+          <Route path="/register" element={<RegistrationPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<LandingPage />} />
+        </Routes>
+      </main>
     </div>
   );
 }
