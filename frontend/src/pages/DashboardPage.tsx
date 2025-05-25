@@ -22,6 +22,8 @@ interface CommunityActivity {
 const DashboardPage: React.FC = () => {
   const [activeMenuItem, setActiveMenuItem] = useState('dashboard');
   const [isOffline] = useState(false);
+  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState('English');
 
   const recentTerms: RecentTerm[] = [
     {
@@ -97,6 +99,16 @@ const DashboardPage: React.FC = () => {
     console.log(`Quick action clicked: ${action}`);
   };
 
+  const toggleLanguageDropdown = () => {
+    setShowLanguageDropdown(!showLanguageDropdown);
+  };
+
+  const handleLanguageChange = (language: string) => {
+    setCurrentLanguage(language);
+    setShowLanguageDropdown(false);
+    // Add language change logic here if needed
+  };
+
   return (
     <div className="dashboard-container">
       <LeftPane 
@@ -113,7 +125,58 @@ const DashboardPage: React.FC = () => {
             <div className="profile-info">
               <div className="profile-avatar">U</div>
               <div className="profile-details">
-                <h3>User Name</h3>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ position: 'relative' }}>
+                    <button 
+                      onClick={toggleLanguageDropdown}
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        fontSize: '20px',
+                        color: '#1f2937',
+                        padding: '4px'
+                      }}
+                    >
+                      🌐
+                    </button>
+                    {showLanguageDropdown && (
+                      <div style={{
+                        position: 'absolute',
+                        top: '100%',
+                        left: 0,
+                        backgroundColor: 'white',
+                        borderRadius: '8px',
+                        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                        zIndex: 100,
+                        minWidth: '120px'
+                      }}>
+                        <div 
+                          style={{
+                            padding: '8px 12px',
+                            cursor: 'pointer',
+                            borderBottom: '1px solid #f3f4f6',
+                            backgroundColor: currentLanguage === 'English' ? '#f3f4f6' : 'transparent'
+                          }}
+                          onClick={() => handleLanguageChange('English')}
+                        >
+                          English
+                        </div>
+                        <div 
+                          style={{
+                            padding: '8px 12px',
+                            cursor: 'pointer',
+                            backgroundColor: currentLanguage === 'Afrikaans' ? '#f3f4f6' : 'transparent'
+                          }}
+                          onClick={() => handleLanguageChange('Afrikaans')}
+                        >
+                          Afrikaans
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <h3>User Name</h3>
+                </div>
                 <p>ID: 21540838</p>
               </div>
             </div>
