@@ -1,30 +1,30 @@
+
 # app/api/deps.py
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.ext.asyncio import AsyncSession
-import jwt # PyJWT (ensure it's in requirements.txt: python-jose[cryptography] or PyJWT)
-from pydantic import ValidationError # For validating token payload
+import jwt  # PyJWT (ensure it's in requirements.txt: python-jose[cryptography] or PyJWT)
+from pydantic import ValidationError  # For validating token payload
 from typing import Optional
-
-
+import logging
 
 from app.core.config import settings
-from app.crud.crud_user import crud_user # Your user CRUD operations
-from app.schemas.token import TokenPayload # Pydantic schema for token data
-from app.schemas.user import User as UserSchema # Pydantic schema for API response
-from app.models.user import User as UserModel # SQLAlchemy model for DB operations
-from app.db.session import get_db # Your DB session dependency
+from app.crud.crud_user import crud_user  # Your user CRUD operations
+from app.schemas.token import TokenPayload  # Pydantic schema for token data
+from app.schemas.user import User as UserSchema  # Pydantic schema for API response
+from app.models.user import User as UserModel  # SQLAlchemy model for DB operations
+from app.db.session import get_db  # Your DB session dependency
 
+logger = logging.getLogger(__name__)
 
 # This tells FastAPI where to get the token from.
 # The tokenUrl should point to your login endpoint.
-oauth2_scheme = OAuth2PasswordBearer(
-    tokenUrl=f"{settings.API_V1_STR}/auth/login"
-)
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl=f"{settings.API_V1_STR}/auth/login")
+
 
 async def get_current_user(
     db: AsyncSession = Depends(get_db), token: str = Depends(oauth2_scheme)
-) -> Optional[UserModel]: # Returns the SQLAlchemy UserModel or None
+) -> Optional[UserModel]:  # Returns the SQLAlchemy UserModel or None
     """
     Decodes the JWT token to get the current user.
     Raises HTTPException if token is invalid or user not found.
@@ -44,21 +44,36 @@ async def get_current_user(
             raise credentials_exception
         # Validate that the payload's subject matches what TokenPayload expects
         token_data = TokenPayload(sub=user_identifier)
+    except jwt.ExpiredSignatureError:
+        logger.info(
+            f"Token has expired for sub: {payload.get('sub') if 'payload' in locals() else 'unknown'}"
+        )  # Check if payload exists
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token has expired",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
     except (jwt.PyJWTError, ValidationError) as e:
-        # Catches errors from jwt.decode (e.g., expired, invalid signature)
-        # and Pydantic validation of TokenPayload.
-        logger.error(f"Token validation error: {e}", exc_info=True) # Added logger
+        logger.error(
+            f"Token validation error: {e.__class__.__name__} - {e}", exc_info=False
+        )
         raise credentials_exception
 
-    user = await crud_user.get_user_by_email(db, email=token_data.sub) # Fetch user from DB
+    assert (
+        token_data.sub is not None
+    ), "Token 'sub' (user_identifier) should not be None here"  # Add this assertion
+    user = await crud_user.get_user_by_email(db, email=token_data.sub)
 
     if user is None:
         raise credentials_exception
     return user
 
+
 async def get_current_active_user(
-    current_user: UserModel = Depends(get_current_user) # Depends on the function above
-) -> UserSchema: # Returns the Pydantic UserSchema for API responses
+    current_user: UserModel = Depends(
+        get_current_user
+    ),  # Depends on the function above
+) -> UserSchema:  # Returns the Pydantic UserSchema for API responses
     """
     Checks if the current user (obtained from token) is active.
     Raises HTTPException if the user is inactive.
@@ -66,9 +81,12 @@ async def get_current_active_user(
     """
     # The logic for "is_active" is in crud_user.is_user_active
     if not await crud_user.is_user_active(current_user):
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Inactive or locked user account.")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Inactive or locked user account.",
+        )
 
     # Convert the SQLAlchemy UserModel to Pydantic UserSchema for the API response.
     # UserSchema should have model_config = ConfigDict(from_attributes=True)
-    return UserSchema.model_validate(current_user) # Pydantic V2
+    return UserSchema.model_validate(current_user)  # Pydantic V2
     # For Pydantic V1, it would be: return UserSchema.from_orm(current_user)

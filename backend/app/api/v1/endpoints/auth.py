@@ -1,25 +1,34 @@
+
 # app/api/v1/endpoints/auth.py
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.ext.asyncio import AsyncSession
 from datetime import timedelta
 
-from app.schemas.user import UserCreate, User as UserSchema # Pydantic schema for response
+from app.schemas.user import (
+    UserCreate,
+    User as UserSchema,
+)  # Pydantic schema for response
 from app.schemas.token import Token
 from app.crud.crud_user import crud_user
 from app.core.security import create_access_token
 from app.core.config import settings
 from app.db.session import get_db
-from app.api import deps # We will create/update this next for get_current_active_user
-from app.models.user import User as UserModel # SQLAlchemy model for type hinting current_user
+from app.api import deps  # We will create/update this next for get_current_active_user
+from app.models.user import (
+    User as UserModel,  # noqa: F401
+)  # noqa: F401 # SQLAlchemy model for type hinting current_user
 
 router = APIRouter()
 
-@router.post("/register", response_model=UserSchema, status_code=status.HTTP_201_CREATED)
+
+@router.post(
+    "/register", response_model=UserSchema, status_code=status.HTTP_201_CREATED
+)
 async def register_new_user(
     *,
     db: AsyncSession = Depends(get_db),
-    user_in: UserCreate # This matches the fields from your RegistrationPage.tsx
+    user_in: UserCreate,  # This matches the fields from your RegistrationPage.tsx
 ):
     """
     Create new user.
@@ -42,10 +51,11 @@ async def register_new_user(
     # The response_model=UserSchema will automatically convert it using from_attributes=True.
     return new_user_db_model
 
+
 @router.post("/login", response_model=Token)
 async def login_for_access_token(
     db: AsyncSession = Depends(get_db),
-    form_data: OAuth2PasswordRequestForm = Depends() # FastAPI uses 'username' field for email here
+    form_data: OAuth2PasswordRequestForm = Depends(),  # FastAPI uses 'username' field for email here
 ):
     """
     OAuth2 compatible token login, get an access token for future requests.
@@ -58,15 +68,19 @@ async def login_for_access_token(
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Incorrect email or password",
-            headers={"WWW-Authenticate": "Bearer"}, # Standard for 401 bearer token errors
+            headers={
+                "WWW-Authenticate": "Bearer"
+            },  # Standard for 401 bearer token errors
         )
     # Your SQL schema has account_locked and is_verified.
     # Your UserModel also has is_active.
     # crud_user.is_user_active can check these.
-    if not await crud_user.is_user_active(user): # Check if user is active and not locked
+    if not await crud_user.is_user_active(
+        user
+    ):  # Check if user is active and not locked
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST, 
-            detail="User account is inactive or locked."
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="User account is inactive or locked.",
         )
 
     # Update last_login timestamp
@@ -74,15 +88,18 @@ async def login_for_access_token(
 
     access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
-        data={"sub": user.email}, # 'sub' (subject) in JWT is typically user's email or ID
-        expires_delta=access_token_expires
+        data={
+            "sub": user.email
+        },  # 'sub' (subject) in JWT is typically user's email or ID
+        expires_delta=access_token_expires,
     )
     return {"access_token": access_token, "token_type": "bearer"}
+
 
 @router.get("/me", response_model=UserSchema)
 async def read_users_me(
     # current_user will be the Pydantic UserSchema because get_current_active_user converts it
-    current_user_response_schema: UserSchema = Depends(deps.get_current_active_user)
+    current_user_response_schema: UserSchema = Depends(deps.get_current_active_user),
 ):
     """
     Get current logged-in user's details.
