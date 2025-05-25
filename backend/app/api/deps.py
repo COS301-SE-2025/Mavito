@@ -6,12 +6,15 @@ import jwt # PyJWT (ensure it's in requirements.txt: python-jose[cryptography] o
 from pydantic import ValidationError # For validating token payload
 from typing import Optional
 
+
+
 from app.core.config import settings
 from app.crud.crud_user import crud_user # Your user CRUD operations
 from app.schemas.token import TokenPayload # Pydantic schema for token data
 from app.schemas.user import User as UserSchema # Pydantic schema for API response
 from app.models.user import User as UserModel # SQLAlchemy model for DB operations
 from app.db.session import get_db # Your DB session dependency
+
 
 # This tells FastAPI where to get the token from.
 # The tokenUrl should point to your login endpoint.
