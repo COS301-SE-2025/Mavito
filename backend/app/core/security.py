@@ -1,3 +1,4 @@
+
 # app/core/security.py
 from datetime import datetime, timedelta, timezone
 from typing import Optional
@@ -32,3 +33,4 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -
         to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM
     )
     return encoded_jwt
+
