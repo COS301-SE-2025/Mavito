@@ -21,7 +21,7 @@ const LeftPane: React.FC<LeftPaneProps> = ({ activeItem, onItemClick }) => {
         <h2 className="app-title">Mavito</h2>
         <div className="logo-container">
           <img 
-            src="/DFSI_Logo.png" 
+            src="./icons/maskable_icon_x512.png" 
             alt="DFSI Logo" 
             className="dfsi-logo"
           />
