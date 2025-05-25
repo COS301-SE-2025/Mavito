@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LeftPane from '../components/dashboard/LeftPane.tsx';
 import '../styles/DashboardPage.css';
 
@@ -8,6 +8,7 @@ interface RecentTerm {
   language: string;
   definition: string;
   lastViewed: string;
+  translation: string;
 }
 
 interface CommunityActivity {
@@ -24,72 +25,115 @@ const DashboardPage: React.FC = () => {
   const [isOffline] = useState(false);
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState('English');
+  const [recentTerms, setRecentTerms] = useState<RecentTerm[]>([]);
+  const [communityActivities, setCommunityActivities] = useState<CommunityActivity[]>([]);
+  const [showRecentTerms, setShowRecentTerms] = useState(false);
+  const [showCommunityActivity, setShowCommunityActivity] = useState(false);
 
-  const recentTerms: RecentTerm[] = [
-    {
-      id: '1',
-      term: 'Ubuntu',
-      language: 'Zulu',
-      definition: 'Humanity; the interconnectedness of all people',
-      lastViewed: '2 hours ago'
-    },
-    {
-      id: '2',
-      term: 'Sawubona',
-      language: 'Zulu',
-      definition: 'Hello; I see you',
-      lastViewed: '5 hours ago'
-    },
-    {
-      id: '3',
-      term: 'Dumela',
-      language: 'Sesotho',
-      definition: 'Hello; greeting',
-      lastViewed: '1 day ago'
-    },
-    {
-      id: '4',
-      term: 'Thobela',
-      language: 'Northern Sotho',
-      definition: 'Hello; greeting',
-      lastViewed: '2 days ago'
-    }
-  ];
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        // Load recent terms
+        const recentTermsResponse = await fetch('../Mock_Data/recentTerms.json');
+        console.log('Recent terms response:', recentTermsResponse.status);
+        
+        if (!recentTermsResponse.ok) {
+          throw new Error(`Failed to fetch recent terms: ${recentTermsResponse.status}`);
+        }
+        
+        const recentTermsData = await recentTermsResponse.json();
+        console.log('Recent terms data:', recentTermsData);
+        setRecentTerms(recentTermsData);
 
-  const communityActivities: CommunityActivity[] = [
-    {
-      id: '1',
-      user: 'LinguistMara',
-      action: 'added new term',
-      term: 'Indaba',
-      language: 'Zulu',
-      timestamp: '30 minutes ago'
-    },
-    {
-      id: '2',
-      user: 'SALanguageExpert',
-      action: 'updated definition for',
-      term: 'Braai',
-      language: 'Afrikaans',
-      timestamp: '2 hours ago'
-    },
-    {
-      id: '3',
-      user: 'TsongaScribe',
-      action: 'contributed translation for',
-      term: 'Vutomi',
-      language: 'Tsonga',
-      timestamp: '5 hours ago'
-    },
-    {
-      id: '4',
-      user: 'XhosaWords',
-      action: 'verified term',
-      term: 'Enkosi',
-      language: 'Xhosa',
-      timestamp: '1 day ago'
-    }
-  ];
+        // Load community activities
+        const communityActivitiesResponse = await fetch('../Mock_Data/communityActivity.json');
+        console.log('Community activities response:', communityActivitiesResponse.status);
+        
+        if (!communityActivitiesResponse.ok) {
+          throw new Error(`Failed to fetch community activities: ${communityActivitiesResponse.status}`);
+        }
+        
+        const communityActivitiesData = await communityActivitiesResponse.json();
+        console.log('Community activities data:', communityActivitiesData);
+        setCommunityActivities(communityActivitiesData);
+      } catch (error) {
+        console.error('Error loading data:', error);
+        
+        // Fallback data in case fetch fails
+        setRecentTerms([
+          {
+            id: "1",
+            term: "Agroforestry",
+            language: "Zulu",
+            definition: "Land use management system that combines trees with crops or livestock on the same land.",
+            lastViewed: "2 hours ago",
+            translation: "Izolimo zamahlathi"
+          },
+          {
+            id: "2",
+            term: "Aquaculture",
+            language: "Xhosa",
+            definition: "Cultivation of aquatic organisms under controlled conditions.",
+            lastViewed: "5 hours ago",
+            translation: "Ukukhulisa izilwanyana zasemanzini"
+          },
+          {
+            id: "3",
+            term: "Biodynamic farming",
+            language: "Sesotho",
+            definition: "Ecological farming approach that treats farms as unified organisms.",
+            lastViewed: "1 day ago",
+            translation: "Temo ea tlhaho"
+          },
+          {
+            id: "4",
+            term: "Cover crop",
+            language: "Northern Sotho",
+            definition: "Crop planted to manage soil erosion, fertility, quality, and biodiversity.",
+            lastViewed: "2 days ago",
+            translation: "Peo ya go sireletsa"
+          }
+        ]);
+
+        setCommunityActivities([
+          {
+            id: "1",
+            user: "LinguistMara",
+            action: "added new term",
+            term: "Indaba",
+            language: "Zulu",
+            timestamp: "30 minutes ago"
+          },
+          {
+            id: "2",
+            user: "SALanguageExpert",
+            action: "updated definition for",
+            term: "Braai",
+            language: "Afrikaans",
+            timestamp: "2 hours ago"
+          },
+          {
+            id: "3",
+            user: "TsongaScribe",
+            action: "contributed translation for",
+            term: "Vutomi",
+            language: "Tsonga",
+            timestamp: "5 hours ago"
+          },
+          {
+            id: "4",
+            user: "XhosaWords",
+            action: "verified term",
+            term: "Enkosi",
+            language: "Xhosa",
+            timestamp: "1 day ago"
+          }
+        ]);
+      }
+    };
+
+    loadData();
+  }, []);
 
   const handleMenuItemClick = (item: string) => {
     setActiveMenuItem(item);
@@ -107,6 +151,14 @@ const DashboardPage: React.FC = () => {
     setCurrentLanguage(language);
     setShowLanguageDropdown(false);
     // Add language change logic here if needed
+  };
+
+  const handleViewAllRecentTerms = () => {
+    setShowRecentTerms(!showRecentTerms);
+  };
+
+  const handleViewAllActivity = () => {
+    setShowCommunityActivity(!showCommunityActivity);
   };
 
   return (
@@ -209,19 +261,23 @@ const DashboardPage: React.FC = () => {
             <div className="recent-terms-section">
               <div className="section-card">
                 <h2 className="section-title">Recently Viewed Terms</h2>
-                <div className="recent-terms-list">
-                  {recentTerms.map((term) => (
-                    <div key={term.id} className="term-item">
-                      <div className="term-header">
-                        <h4 className="term-name">{term.term}</h4>
-                        <span className="term-language">{term.language}</span>
+                {showRecentTerms && (
+                  <div className="recent-terms-list">
+                    {recentTerms.map((term) => (
+                      <div key={term.id} className="term-item">
+                        <div className="term-header">
+                          <h4 className="term-name">{term.term}</h4>
+                          <span className="term-language">{term.language}</span>
+                        </div>
+                        <p className="term-definition">{term.definition}</p>
+                        <span className="term-timestamp">{term.lastViewed}</span>
                       </div>
-                      <p className="term-definition">{term.definition}</p>
-                      <span className="term-timestamp">{term.lastViewed}</span>
-                    </div>
-                  ))}
-                </div>
-                <button className="view-all-btn">View All Recent Terms</button>
+                    ))}
+                  </div>
+                )}
+                <button className="view-all-btn" onClick={handleViewAllRecentTerms}>
+                  {showRecentTerms ? 'Hide Recent Terms' : 'View All Recent Terms'}
+                </button>
               </div>
             </div>
           </div>
@@ -229,24 +285,28 @@ const DashboardPage: React.FC = () => {
           <div className="right-column">
             <div className="section-card">
               <h2 className="section-title">Community Activity</h2>
-              <div className="activity-feed">
-                {communityActivities.map((activity) => (
-                  <div key={activity.id} className="activity-item">
-                    <div className="activity-avatar">
-                      {activity.user.charAt(0).toUpperCase()}
+              {showCommunityActivity && (
+                <div className="activity-feed">
+                  {communityActivities.map((activity) => (
+                    <div key={activity.id} className="activity-item">
+                      <div className="activity-avatar">
+                        {activity.user.charAt(0).toUpperCase()}
+                      </div>
+                      <div className="activity-content">
+                        <p className="activity-text">
+                          <strong>{activity.user}</strong> {activity.action} 
+                          <span className="activity-term">"{activity.term}"</span> 
+                          in <span className="activity-language">{activity.language}</span>
+                        </p>
+                        <span className="activity-timestamp">{activity.timestamp}</span>
+                      </div>
                     </div>
-                    <div className="activity-content">
-                      <p className="activity-text">
-                        <strong>{activity.user}</strong> {activity.action} 
-                        <span className="activity-term">"{activity.term}"</span> 
-                        in <span className="activity-language">{activity.language}</span>
-                      </p>
-                      <span className="activity-timestamp">{activity.timestamp}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <button className="view-all-activity-btn">View All Activity</button>
+                  ))}
+                </div>
+              )}
+              <button className="view-all-activity-btn" onClick={handleViewAllActivity}>
+                {showCommunityActivity ? 'Hide Activity' : 'View All Activity'}
+              </button>
             </div>
           </div>
         </div>
