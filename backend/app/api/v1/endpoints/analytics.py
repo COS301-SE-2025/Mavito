@@ -1,19 +1,23 @@
-from fastapi import APIRouter, Query
+from fastapi import APIRouter
 import pandas as pd
-from collections import Counter
+from collections import Counter  # noqa: F401
 import os
 
-router = APIRouter(prefix="/api/analytics",tags=["Analytics"])
+router = APIRouter(prefix="/api/analytics", tags=["Analytics"])
 
-#chaches date set
-TERM_DATASET = None  
+# chaches date set
+TERM_DATASET = None
 
 # Build path relative to the current file location
 DATASET_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../../../../../Mock_Data/multilingual_statistical_terminology_clean.json")
+    os.path.join(
+        os.path.dirname(__file__),
+        "../../../../../Mock_Data/multilingual_statistical_terminology_clean.json",
+    )
 )
 
-#load marito data from json
+
+# load marito data from json
 async def load_marito_data():
     global TERM_DATASET
     if TERM_DATASET is None:
@@ -43,8 +47,7 @@ async def get_descriptive_analytics():
 
     # Term Length Analysis (average length of terms)
     term_lengths = {
-        lang: round(df[lang].dropna().apply(len).mean(), 2)
-        for lang in language_columns
+        lang: round(df[lang].dropna().apply(len).mean(), 2) for lang in language_columns
     }
 
     # Definition Length Analysis (if definitions are multilingual; else use eng only)
@@ -60,8 +63,7 @@ async def get_descriptive_analytics():
 
     # Unique Terms per Language
     unique_term_counts = {
-        lang: df[lang].nunique(dropna=True)
-        for lang in language_columns
+        lang: df[lang].nunique(dropna=True) for lang in language_columns
     }
 
     return {
@@ -69,5 +71,5 @@ async def get_descriptive_analytics():
         "language_coverage_percent": language_coverage,
         "average_term_lengths": term_lengths,
         "average_definition_lengths": def_lengths,
-        "unique_term_counts": unique_term_counts
+        "unique_term_counts": unique_term_counts,
     }

@@ -1,9 +1,0 @@
-node_modules/
-# Ignore environment files
-.env
-*.env
-.env.local
-
-# .gitignore
-# Virtual environment
-venv/

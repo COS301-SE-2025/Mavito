@@ -1,4 +1,3 @@
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import logging
@@ -123,4 +122,3 @@ async def read_root():
         "message": f"Welcome to {settings.PROJECT_NAME}!",
         "documentation": "/docs",  # Corresponds to openapi_url after prefix
     }
-

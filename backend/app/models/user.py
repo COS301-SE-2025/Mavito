@@ -1,4 +1,3 @@
-
 # app/models/user.py
 from sqlalchemy import (
     Column,  # noqa: F401

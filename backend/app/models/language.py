@@ -1,4 +1,3 @@
-
 # app/models/language.py
 from sqlalchemy import String, Boolean, CHAR
 from sqlalchemy.orm import Mapped, mapped_column

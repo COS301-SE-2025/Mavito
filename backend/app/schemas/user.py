@@ -1,4 +1,3 @@
-
 # app/schemas/user.py
 from pydantic import BaseModel, EmailStr, ConfigDict
 from typing import (
@@ -58,4 +57,3 @@ class User(UserBase):
 # This schema is useful if you need a Pydantic model that includes password_hash.
 class UserInDB(User):  # Inherits fields from User
     password_hash: str  # Matches your SQL column name
-
