@@ -3,6 +3,7 @@ from fastapi import APIRouter
 
 from app.api.v1.endpoints import auth  # <--- IMPORT your auth router
 from app.api.v1.endpoints import search
+from app.api.v1.endpoints import suggest
 
 # from .endpoints import lexicon, comment # You'll import these later when created
 
@@ -14,6 +15,7 @@ api_router_v1.include_router(
 )  # <--- INCLUDE the router
 
 api_router_v1.include_router(search.router, prefix="/search", tags=["Search"])
+api_router_v1.include_router(suggest.router, prefix="/suggest", tags=["Suggest"])
 
 # You will include other routers here later:
 # api_router_v1.include_router(lexicon.router, prefix="/lexicons", tags=["Lexicons & Entries"])
