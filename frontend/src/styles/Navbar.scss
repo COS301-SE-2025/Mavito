@@ -1,0 +1,59 @@
+/* --------------------------------------
+   Base SCSS Color Variables
+-------------------------------------- */
+$accent-pink: #f00a50;
+$accent-yellow: #f2d001;
+$accent-teal: #00ceaf;
+$accent-blue: #212431;
+$accent-white: #ffffff;
+
+$background-light: #f5f5f5;
+$background-dark: #363b4d;
+
+$secondary-light: #ffffff;
+$secondary-dark: #212431;
+
+$tertiary-light: #212431;
+$tertiary-dark: #ffffff;
+
+$text-light: #212431;
+$text-dark: #ffffff;
+
+/* Theme Class Definitions */
+.theme-light {
+  --bg-theme: #{$tertiary-light};
+  --text-theme: #{$text-dark};
+  --accent-color: #{$accent-pink};
+  --bg-secondary: #{$secondary-dark};
+  --bg-first: #{$background-light};
+}
+
+.theme-dark {
+  --bg-theme: #{$tertiary-dark};
+  --text-theme: #{$text-light};
+  --accent-color: #{$accent-pink};
+  --bg-secondary: #{$secondary-light};
+  --bg-first: #{$background-dark};
+}
+
+/* Utility classes */
+.bg-theme {
+  background-color: var(--bg-tir);
+}
+
+.text-theme {
+  color: var(--text-theme);
+}
+
+.underline-glow {
+  background-color: var(--accent-color);
+  box-shadow: 0 0 6px var(--accent-color);
+  border-radius: 999px;
+}
+
+.hover-text-accent {
+  transition: color 0.2s;
+  &:hover {
+    color: var(--accent-color);
+  }
+}

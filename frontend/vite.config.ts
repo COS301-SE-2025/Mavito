@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,11 +12,14 @@ export default defineConfig({
   base: '/Mavito/',
   plugins: [
     react(),
+    tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate', // Automatically update the PWA when a new version is available
       injectRegister: 'auto', // Injects the service worker registration script
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2,ttf,eot}'], // Files to precache
+        globPatterns: [
+          '**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2,ttf,eot}',
+        ], // Files to precache
         // Runtime caching for API calls - Commented out as APIs are not yet implemented
         /*
         runtimeCaching: [
@@ -39,11 +43,12 @@ export default defineConfig({
       manifest: {
         name: 'Mavito - Multilingual Lexicons',
         short_name: 'Mavito',
-        description: 'A PWA for Multilingual Lexicons, Term Banks, and Glossaries for South African Languages.',
+        description:
+          'A PWA for Multilingual Lexicons, Term Banks, and Glossaries for South African Languages.',
         theme_color: '#00CEAF',
         background_color: '#ffffff', // Background color for splash screen
-        display: 'standalone', 
-        start_url: '/Mavito/', 
+        display: 'standalone',
+        start_url: '/Mavito/',
         scope: '/Mavito/',
         icons: [
           {

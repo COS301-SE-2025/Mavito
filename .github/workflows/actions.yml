@@ -1,0 +1,71 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  # Backend Pipeline
+  backend:
+    name: Backend Pipeline
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install types-passlib
+          pip install spacy
+          python -m spacy download en_core_web_sm
+          pip install httpx
+
+      - name: Lint with Ruff
+        run: ruff check .
+
+      - name: Type check with mypy
+        run: PYTHONPATH=. mypy app
+
+      - name: Format check with Black
+        run: black --check .
+
+      - name: Run tests
+        run: make test 
+
+  # Frontend Pipeline
+  frontend:
+    name: Frontend Pipeline
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint + Prettier checks
+        run: |
+          npx eslint . --ext .ts,.tsx
+          npx prettier --check .
