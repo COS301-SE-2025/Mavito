@@ -2,6 +2,7 @@ import React from 'react';
 /*import { useNavigate } from 'react-router-dom';*/
 import '../../styles/TermCard.scss';
 import { ThumbsUp, ThumbsDown, Share2 } from 'lucide-react';
+//#import ReactTooltip from 'react-tooltip';
 
 interface TermCardProps {
   id: string;
@@ -35,7 +36,10 @@ const TermCard: React.FC<TermCardProps> = ({
     <div className="term-card">
       <div className="term-header">
         <div className="term-left">
-          <h3 className="text-left font-bold text-lg truncate w-full term-title">
+          <h3
+            className="text-left font-bold text-lg truncate w-full term-title"
+            title={term}
+          >
             {term.length > 40 ? `${term.slice(0, 40)}...` : term}
           </h3>
           <div className="pills">
@@ -60,8 +64,8 @@ const TermCard: React.FC<TermCardProps> = ({
         </div>
       </div>
 
-      <p className="term-description">
-        {definition.length > 30 ? `${definition.slice(0, 30)}...` : definition}
+      <p className="term-description" title={definition}>
+        {definition.length > 80 ? `${definition.slice(0, 80)}...` : definition}
       </p>
 
       <button

@@ -1,15 +1,14 @@
 // src/pages/LandingPage.tsx
 import React from 'react';
-import { Link } from 'react-router-dom'; 
-import AnimatedGreeting from '../components/auth/AnimatedGreeting'; 
-import '../styles/LandingPage.css'; 
+import { Link } from 'react-router-dom';
+import AnimatedGreeting from '../components/auth/AnimatedGreeting';
+import '../styles/LandingPage.css';
 
 const LandingPage: React.FC = () => {
   return (
     <div className="landing-page-container">
-      
       <AnimatedGreeting />
-     
+
       <main className="landing-actions">
         <div className="landing-buttons-stack">
           {/* Register Button */}
