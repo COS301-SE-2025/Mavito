@@ -12,7 +12,7 @@ TERM_DATASET = None
 DATASET_PATH = os.path.abspath(
     os.path.join(
         os.path.dirname(__file__),
-        "../../../../../Mock_Data/multilingual_statistical_terminology_clean.json",
+        "../../../../Mock_Data/multilingual_statistical_terminology_clean.json",
     )
 )
 

@@ -1,13 +1,18 @@
-# Ignore environment files
-.env
-*.env
-.env.local
-
-# .gitignore
-# Virtual environment
-venv/.env
+# Python virtual environment
+.venv/
 venv/
-.env
 
+# Environment variables
+.env
+.env.*
+
+# Pycache and bytecode
 __pycache__/
-*.pyc
+*.py[cod]
+
+# VSCode settings (optional)
+.vscode/
+
+# macOS or Windows system files (optional)
+.DS_Store
+Thumbs.db
