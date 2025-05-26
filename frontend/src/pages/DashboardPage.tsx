@@ -218,11 +218,44 @@ const DashboardPage: React.FC = () => {
                           style={{
                             padding: '8px 12px',
                             cursor: 'pointer',
+                            borderBottom: '1px solid #f3f4f6',
                             backgroundColor: currentLanguage === 'Afrikaans' ? '#f3f4f6' : 'transparent'
                           }}
                           onClick={() => handleLanguageChange('Afrikaans')}
                         >
                           Afrikaans
+                        </div>
+                        <div 
+                          style={{
+                            padding: '8px 12px',
+                            cursor: 'pointer',
+                            borderBottom: '1px solid #f3f4f6',
+                            backgroundColor: currentLanguage === 'Sesotho' ? '#f3f4f6' : 'transparent'
+                          }}
+                          onClick={() => handleLanguageChange('Sesotho')}
+                        >
+                          Sesotho
+                        </div>
+                        <div 
+                          style={{
+                            padding: '8px 12px',
+                            cursor: 'pointer',
+                            borderBottom: '1px solid #f3f4f6',
+                            backgroundColor: currentLanguage === 'Xhosa' ? '#f3f4f6' : 'transparent'
+                          }}
+                          onClick={() => handleLanguageChange('Xhosa')}
+                        >
+                          Xhosa
+                        </div>
+                        <div 
+                          style={{
+                            padding: '8px 12px',
+                            cursor: 'pointer',
+                            backgroundColor: currentLanguage === 'Zulu' ? '#f3f4f6' : 'transparent'
+                          }}
+                          onClick={() => handleLanguageChange('Zulu')}
+                        >
+                          Zulu
                         </div>
                       </div>
                     )}
