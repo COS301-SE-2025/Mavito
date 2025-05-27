@@ -23,6 +23,24 @@ interface CommunityActivity {
   timestamp: string;
 }
 
+// This should ideally be in a shared config file or environment variable
+const NGROK_BASE_URL = 'https://7ecc-197-185-168-28.ngrok-free.app';
+
+interface UserProfileApiResponse {
+  // Based on the example: /api/v1/me response
+  id: string; // This will be our UUID
+  first_name: string;
+  last_name: string;
+  email?: string;
+  // Add other fields if needed, e.g., profile_pic_url, role
+}
+interface UserData {
+  // For component state and localStorage
+  uuid: string;
+  firstName: string;
+  lastName: string;
+}
+
 const DashboardPage: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -34,12 +52,100 @@ const DashboardPage: React.FC = () => {
   const [showRecentTerms, setShowRecentTerms] = useState(false);
   const [showCommunityActivity, setShowCommunityActivity] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const [userData, setUserData] = useState<UserData | null>(null);
+  const [avatarInitials, setAvatarInitials] = useState<string>('U');
+  const [isLoadingUserData, setIsLoadingUserData] = useState(true);
+
   useEffect(() => {
-    const loadData = async () => {
+    const token = localStorage.getItem('accessToken');
+
+    if (!token) {
+      void navigate('/login');
+      return;
+    }
+
+    const fetchAndSetUserData = async () => {
+      setIsLoadingUserData(true);
+      // Try to load from localStorage first
+      const storedUserDataString = localStorage.getItem('userData');
+      if (storedUserDataString) {
+        try {
+          const parsedData = JSON.parse(storedUserDataString) as UserData;
+          setUserData(parsedData);
+          if (parsedData.firstName && parsedData.lastName) {
+            setAvatarInitials(
+              `${parsedData.firstName.charAt(0)}${parsedData.lastName.charAt(0)}`.toUpperCase(),
+            );
+          } else if (parsedData.firstName) {
+            setAvatarInitials(parsedData.firstName.charAt(0).toUpperCase());
+          }
+          setIsLoadingUserData(false);
+          return; // Found in localStorage, no need to fetch from API immediately
+        } catch (error) {
+          console.error(
+            'Failed to parse user data from localStorage, fetching from API.',
+            error,
+          );
+          localStorage.removeItem('userData'); // Clear corrupted data
+        }
+      }
+
+      // If not in localStorage or parsing failed, fetch from API
+      try {
+        const response = await fetch(`${NGROK_BASE_URL}/api/v1/auth/me`, {
+          // Using /api/v1/me as per your example
+          headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: 'application/json',
+            'ngrok-skip-browser-warning': 'true',
+          },
+        });
+
+        if (response.ok) {
+          const contentType = response.headers.get('content-type');
+          if (contentType && contentType.indexOf('application/json') !== -1) {
+            const apiData = (await response.json()) as UserProfileApiResponse;
+            const newUserData: UserData = {
+              uuid: apiData.id,
+              firstName: apiData.first_name,
+              lastName: apiData.last_name,
+            };
+            setUserData(newUserData);
+            localStorage.setItem('userData', JSON.stringify(newUserData));
+            setAvatarInitials(
+              `${newUserData.firstName.charAt(0)}${newUserData.lastName.charAt(0)}`.toUpperCase(),
+            );
+          } else {
+            const textResponse = await response.text();
+            console.error(
+              'Failed to fetch user data: Expected JSON, but received non-JSON response.',
+              textResponse,
+            );
+            // Potentially navigate to login or show an error message
+            void navigate('/login');
+          }
+        } else {
+          console.error('Failed to fetch user data from API:', response.status);
+          const errorText = await response.text();
+          console.error('Error response body:', errorText);
+          localStorage.removeItem('accessToken'); // Token might be invalid
+          localStorage.removeItem('userData');
+          void navigate('/login');
+        }
+      } catch (error) {
+        console.error('Network or other error fetching user data:', error);
+        void navigate('/login'); // Fallback to login on critical error
+      } finally {
+        setIsLoadingUserData(false);
+      }
+    };
+
+    const loadDashboardWidgetsData = async () => {
       try {
         // Load recent terms
         const recentTermsResponse = await fetch(
-          '../../../Mock_Data/recentTerms.json',
+          '/Mavito/Mock_Data/recentTerms.json',
         );
         console.log('Recent terms response:', recentTermsResponse.status);
 
@@ -56,7 +162,7 @@ const DashboardPage: React.FC = () => {
 
         // Load community activities
         const communityActivitiesResponse = await fetch(
-          '../../../Mock_Data/communityActivity.json',
+          '/Mavito/Mock_Data/communityActivity.json', // Updated path
         );
         console.log(
           'Community activities response:',
@@ -153,8 +259,13 @@ const DashboardPage: React.FC = () => {
       }
     };
 
-    void loadData();
-  }, []);
+    // Fetch user data first, then other dashboard content
+    fetchAndSetUserData()
+      .then(() => {
+        void loadDashboardWidgetsData();
+      })
+      .catch(console.error);
+  }, [navigate]);
 
   const handleMenuItemClick = (item: string) => {
     setActiveMenuItem(item);
@@ -219,21 +330,34 @@ const DashboardPage: React.FC = () => {
             {' '}
             <h1 className="welcome-title">{t('dashboard.welcome')}</h1>
           </div>
-          <div className="profile-section">
-            <div className="profile-info">
-              <div className="profile-avatar">U</div>
-              <div className="profile-details">
-                <div
-                  style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
-                >
-                  {' '}
-                  <LanguageSwitcher />
-                  <h3>{t('dashboard.userName')}</h3>
+          {isLoadingUserData ? (
+            <div className="profile-section">Loading profile...</div>
+          ) : (
+            <div className="profile-section">
+              <div className="profile-info">
+                <div className="profile-avatar">{avatarInitials}</div>
+                <div className="profile-details">
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                    }}
+                  >
+                    <LanguageSwitcher />
+                    <h3>
+                      {userData
+                        ? `${userData.firstName} ${userData.lastName}`
+                        : t('dashboard.userName')}
+                    </h3>
+                  </div>
+                  <p>
+                    {t('dashboard.userId')}: {userData ? userData.uuid : 'N/A'}
+                  </p>
                 </div>
-                <p>{t('dashboard.userId')}: 21540838</p>
               </div>
             </div>
-          </div>
+          )}
         </div>
 
         <div className="three-column-layout">

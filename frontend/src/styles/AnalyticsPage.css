@@ -76,3 +76,27 @@
 .theme-light .text-white {
   color: #22223b !important;
 }
+
+.chart-title, .analytics h2, .analytics-root h2 {
+  word-break: break-word;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  font-size: 1.125rem;
+}
+
+@media (max-width: 600px) {
+  .chart-title, .analytics h2, .analytics-root h2 {
+    font-size: 1rem;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+
+@media (max-width: 400px) {
+  .chart-title, .analytics h2, .analytics-root h2 {
+    font-size: 0.95rem;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}

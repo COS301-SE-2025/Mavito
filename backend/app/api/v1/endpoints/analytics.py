@@ -3,7 +3,7 @@ import pandas as pd
 from collections import Counter  # noqa: F401
 import os
 
-router = APIRouter(prefix="/api/analytics", tags=["Analytics"])
+router = APIRouter()
 
 # caches dataset
 TERM_DATASET = None
