@@ -38,7 +38,7 @@ const GoogleLogo = () => (
 interface LoginResponse {
   access_token: string;
   token_type: string;
-  detail: string;
+  detail?: string;
 }
 
 const LoginPage: React.FC = () => {
@@ -71,7 +71,9 @@ const LoginPage: React.FC = () => {
 
       if (response.ok) {
         console.log('Login successful:', data);
-        // Store the token (data.access_token) - (Assuming you'll handle this part)
+        console.log('Login successful. Token:', data.access_token);
+        localStorage.setItem('accessToken', data.access_token);
+        // User details will be fetched on the dashboard page
         await navigate('/dashboard'); // Redirect to dashboard
       } else {
         console.error('Login failed:', data.detail);
