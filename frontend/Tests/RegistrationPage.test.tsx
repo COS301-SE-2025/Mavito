@@ -109,7 +109,7 @@ describe('RegistrationPage', () => {
 
     const termsCheckbox = screen.getByRole('checkbox', {
       name: /registrationPage.agreeToTerms/i,
-    });
+    }) as unknown as HTMLInputElement;
 
     if (
       (agreeToTerms && !termsCheckbox.checked) ||
