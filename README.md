@@ -1,6 +1,6 @@
 # Mavito: A PWA for Multilingual Lexicons, Term Banks, and Glossaries
 <p align="center">
-    <img href="https://github.com/COS301-SE-2025/Mavito/blob/develop/frontend/public/DFSI_Logo.png" alt="banner"/>
+    <img href="frontend/public/DFSI_Logo.png" alt="banner"/>
 </a>
 
 <p align="center">
