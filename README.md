@@ -4,6 +4,31 @@
 </a>
 
 <p align="center">
+    <code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/figma.png" alt="Figma"/></code>
+
+<code>
+    <img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/react.png" alt="Figma"/>
+</code>
+
+<code>
+    <img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/typescript.png" alt="Figma"/>
+</code>
+
+<code>
+    <img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/vite.png" alt="Figma"/>
+</code>
+
+<code>
+    <img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/python.png" alt="Figma"/>
+</code>
+
+<code>
+    <img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/gcp.png" alt="Figma"/>
+</code>
+
+</p>
+
+<p align="center">
   <a href="https://choosealicense.com/licenses/mit/">
     <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License"/>
   </a>
