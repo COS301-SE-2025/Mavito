@@ -289,7 +289,13 @@ const SearchPage: React.FC = () => {
                     key={res.id}
                     id={res.id}
                     term={res.term}
-                    part_of_speech={res.part_of_speech}
+                    part_of_speech={
+                      res.part_of_speech.toLowerCase() as
+                        | 'noun'
+                        | 'verb'
+                        | 'adjective'
+                        | 'adverb'
+                    }
                     domain={res.domain}
                     upvotes={res.upvotes}
                     downvotes={res.downvotes}

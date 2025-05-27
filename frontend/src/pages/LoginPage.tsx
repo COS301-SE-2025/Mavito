@@ -1,8 +1,10 @@
 // src/pages/LoginPage.tsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import '../styles/LoginPage.css';
 import LsImage from '/LS_image.png';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import DfsiLogo from '/DFSI_Logo.png';
 
 const GoogleLogo = () => (
@@ -40,15 +42,17 @@ interface LoginResponse {
 }
 
 const LoginPage: React.FC = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setErrorMessage(null); // Reset error message on new submission
 
-    const NGROK_BASE_URL = ' https://71e1-197-185-129-74.ngrok-free.app';
+    const NGROK_BASE_URL = 'https://d7c9-137-215-99-183.ngrok-free.app';
     const API_ENDPOINT = `${NGROK_BASE_URL}/api/v1/auth/login`;
 
     try {
@@ -67,7 +71,8 @@ const LoginPage: React.FC = () => {
 
       if (response.ok) {
         console.log('Login successful:', data);
-        // TODO: Store the token (data.access_token), redirect user, etc.
+        // Store the token (data.access_token) - (Assuming you'll handle this part)
+        await navigate('/dashboard'); // Redirect to dashboard
       } else {
         console.error('Login failed:', data.detail);
         setErrorMessage(data.detail || 'Login failed. Please try again.');
@@ -97,19 +102,24 @@ const LoginPage: React.FC = () => {
 
       {/* Right Half - Form */}
       <div className="login-right-half">
-        <div>
-          <img src={DfsiLogo} alt="DSFSI Logo" className="dsfsi-logo-login" />
+        <div className="auth-page-header">
+          <LanguageSwitcher />
+          <img
+            src={DfsiLogo}
+            alt={t('loginPage.dsfsiLogoAlt', 'DSFSI Logo')}
+            className="dsfsi-logo-auth"
+          />
         </div>
 
         <div className="login-form-content">
-          <h1 className="login-header">WELCOME BACK!</h1>
+          {' '}
+          <h1 className="login-header">{t('loginPage.title')}</h1>
           <p
             className="login-subheader"
             style={{ color: errorMessage ? 'red' : '' }}
           >
-            {errorMessage || 'Please enter your credentials to login.'}
+            {errorMessage || t('loginPage.subtitle')}
           </p>
-
           <form
             onSubmit={(e) => {
               void handleSubmit(e);
@@ -117,12 +127,13 @@ const LoginPage: React.FC = () => {
             className="login-form"
           >
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              {' '}
+              <label htmlFor="email">{t('loginPage.emailLabel')}</label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Enter your email address"
+                placeholder={t('loginPage.emailPlaceholder')}
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -132,12 +143,13 @@ const LoginPage: React.FC = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              {' '}
+              <label htmlFor="password">{t('loginPage.passwordLabel')}</label>
               <input
                 type="password"
                 id="password"
                 name="password"
-                placeholder="Enter your password"
+                placeholder={t('loginPage.passwordPlaceholder')}
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
@@ -148,20 +160,20 @@ const LoginPage: React.FC = () => {
 
             <div className="form-options">
               <div className="remember-me">
-                <input type="checkbox" id="rememberMe" name="rememberMe" />
-                <label htmlFor="rememberMe">Remember me</label>
+                <input type="checkbox" id="rememberMe" name="rememberMe" />{' '}
+                <label htmlFor="rememberMe">{t('loginPage.rememberMe')}</label>
               </div>
               <Link to="/forgot-password" className="forgot-password-link">
-                Forgot Password?
+                {t('loginPage.forgotPassword')}
               </Link>
             </div>
 
             <button type="submit" className="login-button primary">
-              Login
+              {t('loginPage.loginButton')}
             </button>
 
             <div className="social-login-divider">
-              <span>OR</span>
+              <span>{t('loginPage.orDivider')}</span>
             </div>
 
             <button
@@ -170,12 +182,12 @@ const LoginPage: React.FC = () => {
               className="login-button google"
             >
               <GoogleLogo />
-              Login with Google
+              {t('loginPage.loginWithGoogle')}
             </button>
           </form>
-
           <p className="register-link-prompt">
-            Don't have an account? <Link to="/register">Register</Link>
+            {t('loginPage.noAccount')}{' '}
+            <Link to="/register">{t('loginPage.registerLink')}</Link>
           </p>
         </div>
       </div>

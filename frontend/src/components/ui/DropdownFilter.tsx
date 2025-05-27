@@ -1,4 +1,5 @@
-import { FC, useState, useRef, useEffect } from 'react';
+import type { FC } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import '../../styles/DropdownFilter.scss';
 

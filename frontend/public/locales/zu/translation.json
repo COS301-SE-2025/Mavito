@@ -1,0 +1,97 @@
+{
+  "appTitle": "i-Mavito",
+  "loading": "Iyalayisha...",
+
+  "landingPage": {
+    "greeting": "Siyakwamukela ku-Mavito PWA!",
+    "registerButton": "Bhalisa",
+    "loginButton": "Ngena ngemvume",
+    "footerText": "Iphrojekthi ye-Mavito"
+  },
+
+  "loginPage": {
+    "title": "WAMUKULEKILE FUTHI!",
+    "subtitle": "Sicela ufake imininingwane yakho ukuze ungene ngemvume.",
+    "emailLabel": "I-imeyili",
+    "emailPlaceholder": "Faka ikheli lakho le-imeyili",
+    "passwordLabel": "Iphasiwedi",
+    "passwordPlaceholder": "Faka iphasiwedi yakho",
+    "rememberMe": "Ngikhumbule",
+    "forgotPassword": "Ukhohlwe Iphasiwedi?",
+    "loginButton": "Ngena ngemvume",
+    "orDivider": "NOMA",
+    "loginWithGoogle": "Ngena nge-Google",
+    "noAccount": "Awunayo i-akhawunti?",
+    "registerLink": "Bhalisa",
+    "welcomeImageAlt": "Ukwamukelwa kokungena ngemvume kwe-Mavito",
+    "dsfsiLogoAlt": "Ilogo ye-DSFSI",
+    "errorTokenMissing": "Ukungena ngemvume kuphumelele, kodwa alikho ithokheni elitholiwe. Sicela uxhumane nosekelo.",
+    "errorDefault": "Ukungena ngemvume kwehlulekile. Sicela uhlole imininingwane yakho.",
+    "errorUnexpectedFormat": "Iphutha lokungena ngemvume (isimo {{status}}). Ifomethi yephutha engalindelekile.",
+    "errorWithStatus": "Ukungena ngemvume kwehlulekile (isimo {{status}}). Sicela uzame futhi.",
+    "errorNetwork": "Kwenzeke iphutha: {{message}}.",
+    "errorUnknownNetwork": "Kwenzeke iphutha lenethiwekhi elingaziwa. Sicela uzame futhi."
+  },
+
+  "registrationPage": {
+    "title": "QALA MANJE",
+    "subtitle": "Dala i-akhawunti yakho ye-Mavito.",
+    "firstNameLabel": "Igama Lokuqala",
+    "firstNamePlaceholder": "Faka igama lakho lokuqala",
+    "lastNameLabel": "Isibongo",
+    "lastNamePlaceholder": "Faka isibongo sakho",
+    "emailLabel": "I-imeyili",
+    "emailPlaceholder": "Faka ikheli lakho le-imeyili",
+    "passwordLabel": "Iphasiwedi",
+    "passwordPlaceholder": "Dala iphasiwedi",
+    "confirmPasswordLabel": "Qinisekisa Iphasiwedi",
+    "confirmPasswordPlaceholder": "Qinisekisa iphasiwedi yakho",
+    "agreeToTerms": "Ngiyavumelana ne",
+    "termsAndConditionsLink": "Migomo Nemibandela",
+    "createAccountButton": "Dala i-Akhawunti",
+    "creatingAccountButton": "Idala i-Akhawunti...",
+    "orDivider": "NOMA",
+    "createWithGoogle": "Dala i-Akhawunti nge-Google",
+    "haveAccount": "Usuvele unayo i-akhawunti?",
+    "loginLink": "Ngena ngemvume",
+    "welcomeImageAlt": "Ukwamukelwa kwe-Mavito",
+    "dsfsiLogoAlt": "Ilogo ye-DSFSI",
+    "errorPasswordsDoNotMatch": "Amaphasiwedi awafani.",
+    "errorAgreeToTerms": "Kufanele uvumelane nemigomo nemibandela.",
+    "alertSuccess": "Ukubhalisa kuphumelele! Sicela uqhubeke ungene ngemvume.",
+    "errorDefault": "Ukubhalisa kwehlulekile. Sicela uzame futhi.",
+    "errorUnexpectedFormat": "Iphutha: {{detailJson}}",
+    "errorWithStatus": "Ukubhalisa kwehlulekile (isimo {{status}}). Sicela uzame futhi.",
+    "errorNetwork": "Kwenzeke iphutha: {{message}}.",
+    "errorUnknownNetwork": "Kwenzeke iphutha lenethiwekhi elingaziwa. Sicela uzame futhi."
+  },
+  "languageSwitcher": {
+    "selectLanguage": "Khetha Ulimi"
+  },
+
+  "dashboard": {
+    "welcome": "Wamukelekile futhi, Umnikeli!",
+    "quickActions": "Izenzo Ezisheshayo",
+    "searchNow": "Sesha Manje",
+    "searchDescription": "Hlola idatabase yethu yezilimi eziningi",
+    "downloadResources": "Landa Izinsiza",
+    "downloadDescription": "Thola okuqukethwe ngaphandle kwe-intanethi",
+    "contributeTerm": "Nikela Ngegama",
+    "contributeDescription": "Siza ukukhulisa idatabase yethu",
+    "recentTerms": "Amagama Abonwe Kamuva",
+    "viewAll": "Bona Wonke Amagama Amuva",
+    "hideTerms": "Fihla Amagama",
+    "communityActivity": "Umsebenzi Womphakathi",
+    "viewAllActivity": "Bona Yonke Imisebenzi",
+    "hideActivity": "Fihla Imisebenzi",
+    "userName": "Igama Lomsebenzisi",
+    "userId": "ID Yomsebenzisi"
+  },
+  
+  "leftPane": {
+    "dashboard": "Ideshibhodi",
+    "search": "Sesha",
+    "savedTerms": "Amagama Agciniwe",
+    "analytics": "Ukuhlaziya"
+  }
+}

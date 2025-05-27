@@ -1,11 +1,6 @@
-import {
-  FC,
-  InputHTMLAttributes,
-  useState,
-  useEffect,
-  KeyboardEvent,
-  useRef,
-} from 'react';
+import type { FC, InputHTMLAttributes } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import type { KeyboardEvent } from 'react';
 import { Search } from 'lucide-react';
 import '../../styles/SearchBar.scss';
 

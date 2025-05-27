@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../styles/RegistrationPage.css';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import LsImage from '/LS_image.png';
 import DfsiLogo from '/DFSI_Logo.png';
 
@@ -49,6 +51,7 @@ interface RegistrationResponse {
 }
 
 const RegistrationPage: React.FC = () => {
+  const { t } = useTranslation();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -74,7 +77,7 @@ const RegistrationPage: React.FC = () => {
 
     setIsLoading(true);
 
-    const NGROK_BASE_URL = 'https://71e1-197-185-129-74.ngrok-free.app'; // <-- REPLACE WITH YOUR NGROK URL
+    const NGROK_BASE_URL = 'https://d7c9-137-215-99-183.ngrok-free.app'; // <-- REPLACE WITH YOUR NGROK URL
     const API_ENDPOINT = `${NGROK_BASE_URL}/api/v1/auth/register`;
 
     // CORRECTED userData object creation:
@@ -132,23 +135,26 @@ const RegistrationPage: React.FC = () => {
       <div className="registration-left-half">
         <img
           src={LsImage}
-          alt="Mavito Welcome"
+          alt={t('registrationPage.welcomeImageAlt')}
           className="registration-hero-image"
         />
       </div>
 
       <div className="registration-right-half">
-        <div>
+        <div className="auth-page-header">
+          <LanguageSwitcher />
           <img
             src={DfsiLogo}
-            alt="DSFSI Logo"
-            className="dsfsi-logo-registration"
+            alt={t('registrationPage.dsfsiLogoAlt')}
+            className="dsfsi-logo-auth"
           />
         </div>
 
         <div className="registration-form-content">
-          <h1 className="registration-header">GET STARTED NOW</h1>
-          <p className="registration-subheader">Create your Mavito account.</p>
+          <h1 className="registration-header">{t('registrationPage.title')}</h1>
+          <p className="registration-subheader">
+            {t('registrationPage.subtitle')}
+          </p>
 
           {error && (
             <p
@@ -171,31 +177,35 @@ const RegistrationPage: React.FC = () => {
           >
             <div className="form-row">
               <div className="form-group column">
-                <label htmlFor="firstName">First Name</label>
+                <label htmlFor="firstName">
+                  {t('registrationPage.firstNameLabel')}
+                </label>
                 <input
                   type="text"
                   id="firstName"
                   name="firstName"
-                  placeholder="Enter your first name"
-                  value={firstName} // Bind to state
+                  placeholder={t('registrationPage.firstNamePlaceholder')}
+                  value={firstName}
                   onChange={(e) => {
                     setFirstName(e.target.value);
-                  }} // Update state
+                  }}
                   required
                   disabled={isLoading}
                 />
               </div>
               <div className="form-group column">
-                <label htmlFor="lastName">Last Name</label>
+                <label htmlFor="lastName">
+                  {t('registrationPage.lastNameLabel')}
+                </label>
                 <input
                   type="text"
                   id="lastName"
                   name="lastName"
-                  placeholder="Enter your last name"
-                  value={lastName} // Bind to state
+                  placeholder={t('registrationPage.lastNamePlaceholder')}
+                  value={lastName}
                   onChange={(e) => {
                     setLastName(e.target.value);
-                  }} // Update state
+                  }}
                   required
                   disabled={isLoading}
                 />
@@ -203,48 +213,52 @@ const RegistrationPage: React.FC = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">{t('registrationPage.emailLabel')}</label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Enter your email address"
-                value={email} // Bind to state
+                placeholder={t('registrationPage.emailPlaceholder')}
+                value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                }} // Update state
+                }}
                 required
                 disabled={isLoading}
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">
+                {t('registrationPage.passwordLabel')}
+              </label>
               <input
                 type="password"
                 id="password"
                 name="password"
-                placeholder="Create a password"
-                value={password} // Bind to state
+                placeholder={t('registrationPage.passwordPlaceholder')}
+                value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
-                }} // Update state
+                }}
                 required
                 disabled={isLoading}
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="confirmPassword">Confirm Password</label>
+              <label htmlFor="confirmPassword">
+                {t('registrationPage.confirmPasswordLabel')}
+              </label>
               <input
                 type="password"
                 id="confirmPassword"
                 name="confirmPassword"
-                placeholder="Confirm your password"
-                value={confirmPassword} // Bind to state
+                placeholder={t('registrationPage.confirmPasswordPlaceholder')}
+                value={confirmPassword}
                 onChange={(e) => {
                   setConfirmPassword(e.target.value);
-                }} // Update state
+                }}
                 required
                 disabled={isLoading}
               />
@@ -263,9 +277,9 @@ const RegistrationPage: React.FC = () => {
                 disabled={isLoading}
               />
               <label htmlFor="terms" className="terms-label">
-                I agree to the{' '}
+                {t('registrationPage.agreeToTerms')}{' '}
                 <Link to="/terms" target="_blank" rel="noopener noreferrer">
-                  Terms and Conditions
+                  {t('registrationPage.termsAndConditionsLink')}
                 </Link>
               </label>
             </div>
@@ -275,11 +289,13 @@ const RegistrationPage: React.FC = () => {
               className="register-button primary"
               disabled={isLoading}
             >
-              {isLoading ? 'Creating Account...' : 'Create Account'}
+              {isLoading
+                ? t('registrationPage.creatingAccountButton')
+                : t('registrationPage.createAccountButton')}
             </button>
 
             <div className="social-login-divider">
-              <span>OR</span>
+              <span>{t('registrationPage.orDivider')}</span>
             </div>
 
             <button
@@ -289,12 +305,13 @@ const RegistrationPage: React.FC = () => {
               disabled={isLoading}
             >
               <GoogleLogo />
-              Create Account with Google
+              {t('registrationPage.createWithGoogle')}
             </button>
           </form>
 
           <p className="login-link">
-            Already have an account? <Link to="/login">Login</Link>
+            {t('registrationPage.haveAccount')}{' '}
+            <Link to="/login">{t('registrationPage.loginLink')}</Link>
           </p>
         </div>
       </div>
