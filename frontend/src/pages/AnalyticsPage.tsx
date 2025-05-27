@@ -146,7 +146,14 @@ const AnalyticsPage: React.FC = () => {
   const [categoryData, setCategoryData] = useState<TermData[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/analytics/descriptive')
+    fetch(
+      'https://7ecc-197-185-168-28.ngrok-free.app/api/v1/analytics/descriptive',
+      {
+        headers: {
+          'ngrok-skip-browser-warning': 'true', // This bypasses the warning page
+        },
+      },
+    )
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch analytics data');
         return res.json();
