@@ -23,7 +23,6 @@ const posColorMap: Record<string, string> = {
 };
 
 const TermCard: React.FC<TermCardProps> = ({
-  id,
   term,
   part_of_speech,
   domain,
@@ -68,11 +67,7 @@ const TermCard: React.FC<TermCardProps> = ({
         {definition.length > 80 ? `${definition.slice(0, 80)}...` : definition}
       </p>
 
-      <button
-        className="view-button"
-        onClick={() => onView?.(id)}
-        type="button"
-      >
+      <button className="view-button" onClick={() => onView?.()} type="button">
         View
       </button>
     </div>

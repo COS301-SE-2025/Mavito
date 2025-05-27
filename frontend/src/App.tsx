@@ -3,7 +3,7 @@ import LandingPage from './pages/LandingPage';
 import RegistrationPage from './pages/RegistrationPage';
 import LoginPage from './pages/LoginPage';
 import SearchPage from './pages/SearchPage';
-import DashboardPage from './pages/SearchPage';
+import DashboardPage from './pages/DashboardPage';
 import SavedTermsPage from './pages/SavedTermsPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import './App.css';

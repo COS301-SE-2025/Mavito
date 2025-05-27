@@ -1,0 +1,93 @@
+{
+  "appTitle": "Mavito",
+  "loading": "Iyalayisha...",
+
+  "landingPage": {
+    "greeting": "Wamkelekile ku-Mavito PWA!",
+    "registerButton": "Bhalisa",
+    "loginButton": "Ngena",
+    "footerText": "Iprojekthi ye-Mavito"
+  },
+  "loginPage": {
+    "title": "WAMKELEKILE KWAKHONA!",
+    "subtitle": "Nceda faka iinkcukacha zakho zokungena.",
+    "emailLabel": "I-imeyili",
+    "emailPlaceholder": "Faka idilesi ye-imeyili yakho",
+    "passwordLabel": "Iphasiwedi",
+    "passwordPlaceholder": "Faka iphasiwedi yakho",
+    "rememberMe": "Ndikhumbule",
+    "forgotPassword": "Ulibele Iphasiwedi?",
+    "loginButton": "Ngena",
+    "orDivider": "OKANYE",
+    "loginWithGoogle": "Ngena nge-Google",
+    "noAccount": "Awunayo i-akhawunti?",
+    "registerLink": "[XH] Register",
+    "welcomeImageAlt": "[XH] Mavito Login Welcome",
+    "dsfsiLogoAlt": "[XH] DSFSI Logo",
+    "errorTokenMissing": "[XH] Login successful, but no token received. Please contact support.",
+    "errorDefault": "[XH] Login failed. Please check your credentials.",
+    "errorUnexpectedFormat": "[XH] Login error (status {{status}}). Unexpected error format.",
+    "errorWithStatus": "[XH] Login failed (status {{status}}). Please try again.",
+    "errorNetwork": "[XH] An error occurred: {{message}}.",
+    "errorUnknownNetwork": "[XH] An unknown network error occurred. Please try again."
+  },
+  "registrationPage": {
+    "title": "QALISA NGOKU",
+    "subtitle": "Yenza i-akhawunti yakho ye-Mavito.",
+    "firstNameLabel": "Igama Lokuqala",
+    "firstNamePlaceholder": "Faka igama lakho lokuqala",
+    "lastNameLabel": "Ifani",
+    "lastNamePlaceholder": "Faka ifani yakho",
+    "emailLabel": "I-imeyili",
+    "emailPlaceholder": "Faka idilesi yakho ye-imeyili",
+    "passwordLabel": "Iphasiwedi",
+    "passwordPlaceholder": "Yenza iphasiwedi",
+    "confirmPasswordLabel": "Qinisekisa Iphasiwedi",
+    "confirmPasswordPlaceholder": "Qinisekisa iphasiwedi yakho",
+    "agreeToTerms": "Ndiyavuma kwi",
+    "termsAndConditionsLink": "Imigaqo neMiqathango",
+    "createAccountButton": "Yenza i-Akhawunti",
+    "creatingAccountButton": "Ukwenza i-Akhawunti...",
+    "orDivider": "OKANYE",
+    "createWithGoogle": "Yenza i-Akhawunti nge-Google",
+    "haveAccount": "Sele unayo i-akhawunti?",
+    "loginLink": "Ngena",
+    "welcomeImageAlt": "[XH] Mavito Welcome",
+    "dsfsiLogoAlt": "[XH] DSFSI Logo",    "errorPasswordsDoNotMatch": "Iiphasiwedi azifani.",
+    "errorAgreeToTerms": "Kufuneka uvume imigaqo nemiqathango.",
+    "alertSuccess": "Ubhaliso luphumelele! Nceda qhubeka ungene.",
+    "errorDefault": "Ubhaliso lusilele. Nceda uzame kwakhona.",
+    "errorUnexpectedFormat": "Imposiso: {{detailJson}}",
+    "errorWithStatus": "Ubhaliso lusilele (isimo {{status}}). Nceda uzame kwakhona.",
+    "errorNetwork": "Kwenzeke imposiso: {{message}}.",
+    "errorUnknownNetwork": "Kwenzeke imposiso engaziwayo kwinethiwekhi. Nceda uzame kwakhona."  },
+
+  "languageSwitcher": {
+    "selectLanguage": "Khetha Ulwimi"
+  },
+    "dashboard": {
+    "welcome": "Wamkelekile kwakhona, Mnikeli!",
+    "quickActions": "Izenzo Ezikhawulezayo",
+    "searchNow": "Khangela Ngoku",
+    "searchDescription": "Hlola idatabase yethu yeelwimi ezininzi",
+    "downloadResources": "Khuphela Izixhobo",
+    "downloadDescription": "Fikelela umxholo ngaphandle kwe-intanethi",
+    "contributeTerm": "Nikela ngeTem",
+    "contributeDescription": "Nceda ukukhula kwedatabase yethu",
+    "recentTerms": "Amagama Abonwe Kutshanje",
+    "viewAll": "Jonga Onke Amagama Akutshanje",
+    "hideTerms": "Fihla Amagama",
+    "communityActivity": "Umsebenzi woLuntu",
+    "viewAllActivity": "Jonga Yonke Imisebenzi",
+    "hideActivity": "Fihla Imisebenzi",
+    "userName": "Igama loMsebenzisi",
+    "userId": "ID yoMsebenzisi"
+  },
+  
+  "leftPane": {
+    "dashboard": "Ideshibhodi",
+    "search": "Khangela",
+    "savedTerms": "Amagama Agciniweyo",
+    "analytics": "Uhlalutyo"
+  }
+}
