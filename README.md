@@ -7,26 +7,6 @@
 <code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/figma.png" alt="Figma"/></code><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/react.png" alt="Figma"/></code><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/typescript.png" alt="Figma"/></code><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/vite.png" alt="Figma"/></code><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/python.png" alt="Figma"/></code><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/gcp.png" alt="Figma"/></code>
 </div>
 
-<p align="center">
-  <a href="https://choosealicense.com/licenses/mit/">
-    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License"/>
-  </a>
-  <a href="https://github.com/COS301-SE-2025/Mavito/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/COS301-SE-2025/Mavito/ci.yml?branch=main" alt="Build Status"/>
-  </a>
-  <a href="https://codecov.io/gh/COS301-SE-2025/Mavito">
-    <img src="https://img.shields.io/codecov/c/github/COS301-SE-2025/Mavito" alt="Code Coverage"/>
-  </a>
-  <a href="https://github.com/COS301-SE-2025/Mavito">
-    <img src="https://img.shields.io/badge/requirements-purple" alt="Requirements"/>
-  </a>
-  <a href="https://github.com/COS301-SE-2025/Mavito/issues">
-    <img src="https://img.shields.io/github/issues/COS301-SE-2025/Mavito" alt="GitHub Issues"/>
-  </a>
-  <a href="https://uptimerobot.com/">
-    <img src="https://img.shields.io/uptimerobot/status/m788123456-123456789abcdef" alt="Uptime Robot"/>
-  </a>
-</p>
 
 
 ## Project Description
@@ -74,4 +54,28 @@ This structure ensures clean separation between environments, supports parallel 
 | Palesa Thabane    | Services Engineer / Business Analyst           | 21540838       | [github.com/Palesa-Thabane](https://github.com/Palesa-Thabane)       | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/palesa-thabane-943604364/) |
 | Eugen Vosloo      | Data Engineer               | 20445696        | [github.com/eugenvosloo](https://github.com/eugenvosloo)         | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eugen-vosloo-aa2522353/) |
 
+---
+
+## Badges
+
+<p align="center">
+  <a href="https://choosealicense.com/licenses/mit/">
+    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License"/>
+  </a>
+  <a href="https://github.com/COS301-SE-2025/Mavito/actions">
+    <img src="https://img.shields.io/github/actions/workflow/status/COS301-SE-2025/Mavito/ci.yml?branch=main" alt="Build Status"/>
+  </a>
+  <a href="https://codecov.io/gh/COS301-SE-2025/Mavito">
+    <img src="https://img.shields.io/codecov/c/github/COS301-SE-2025/Mavito" alt="Code Coverage"/>
+  </a>
+  <a href="https://github.com/COS301-SE-2025/Mavito">
+    <img src="https://img.shields.io/badge/requirements-purple" alt="Requirements"/>
+  </a>
+  <a href="https://github.com/COS301-SE-2025/Mavito/issues">
+    <img src="https://img.shields.io/github/issues/COS301-SE-2025/Mavito" alt="GitHub Issues"/>
+  </a>
+  <a href="https://uptimerobot.com/">
+    <img src="https://img.shields.io/uptimerobot/status/m788123456-123456789abcdef" alt="Uptime Robot"/>
+  </a>
+</p>
 
