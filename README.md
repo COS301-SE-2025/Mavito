@@ -1,9 +1,9 @@
 # Mavito: A PWA for Multilingual Lexicons, Term Banks, and Glossaries
 <p align="center">
-    <img href="frontend/public/DFSI_Logo.png" alt="banner"/>
-</a>
+    <img src="frontend/public/DFSI_Logo.png" alt="banner"/>
+</p>
 
-<p align="center">
+<div align="center">
     <code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/figma.png" alt="Figma"/></code>
 
 <code>
@@ -26,7 +26,7 @@
     <img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/gcp.png" alt="Figma"/>
 </code>
 
-</p>
+</div>
 
 <p align="center">
   <a href="https://choosealicense.com/licenses/mit/">
