@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import LeftPane from '../components/dashboard/LeftPane.tsx';
 import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
 import '../styles/DashboardPage.css';
@@ -24,6 +25,7 @@ interface CommunityActivity {
 
 const DashboardPage: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [activeMenuItem, setActiveMenuItem] = useState('dashboard');
   const [recentTerms, setRecentTerms] = useState<RecentTerm[]>([]);
   const [communityActivities, setCommunityActivities] = useState<
@@ -157,21 +159,22 @@ const DashboardPage: React.FC = () => {
   const handleMenuItemClick = (item: string) => {
     setActiveMenuItem(item);
     if (window.innerWidth <= 768) {
-      // Assuming 768px is the mobile breakpoint
       setIsMobileMenuOpen(false);
+    }
+    // Navigation logic for left pane using React Router
+    if (item === 'dashboard') {
+      void navigate('/dashboard');
+    } else if (item === 'search') {
+      void navigate('/search');
+    } else if (item === 'saved') {
+      void navigate('/saved-terms');
+    } else if (item === 'analytics') {
+      void navigate('/analytics');
     }
   };
 
   const handleQuickAction = (action: string) => {
     console.log(`Quick action clicked: ${action}`);
-  };
-
-  const handleViewAllRecentTerms = () => {
-    setShowRecentTerms(!showRecentTerms);
-  };
-
-  const handleViewAllActivity = () => {
-    setShowCommunityActivity(!showCommunityActivity);
   };
 
   const toggleMobileMenu = () => {
@@ -295,7 +298,9 @@ const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   className="view-all-btn"
-                  onClick={handleViewAllRecentTerms}
+                  onClick={() => {
+                    setShowRecentTerms((prev) => !prev);
+                  }}
                 >
                   {showRecentTerms
                     ? t('dashboard.hideTerms')
@@ -340,7 +345,9 @@ const DashboardPage: React.FC = () => {
               <button
                 type="button"
                 className="view-all-activity-btn"
-                onClick={handleViewAllActivity}
+                onClick={() => {
+                  setShowCommunityActivity((prev) => !prev);
+                }}
               >
                 {showCommunityActivity
                   ? t('dashboard.hideActivity')

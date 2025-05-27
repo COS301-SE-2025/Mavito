@@ -77,7 +77,7 @@ const RegistrationPage: React.FC = () => {
 
     setIsLoading(true);
 
-    const NGROK_BASE_URL = 'https://d7c9-137-215-99-183.ngrok-free.app'; // <-- REPLACE WITH YOUR NGROK URL
+    const NGROK_BASE_URL = 'https://7ecc-197-185-168-28.ngrok-free.app'; // <-- REPLACE WITH YOUR NGROK URL
     const API_ENDPOINT = `${NGROK_BASE_URL}/api/v1/auth/register`;
 
     // CORRECTED userData object creation:

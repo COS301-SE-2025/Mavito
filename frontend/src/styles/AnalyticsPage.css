@@ -1,4 +1,4 @@
-.analytics {
+.analytics-root {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -6,10 +6,73 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  background-color: #363B4D;
-  color: black;
+  background: var(--analytics-bg, #363b4d);
+  color: var(--analytics-text, black);
+  transition: background 0.3s, color 0.3s;
+  padding: 0;
+  overflow: auto;
+}
+
+.theme-dark .analytics-root {
+  --analytics-bg: #181a23;
+  --analytics-text: #f3f4f6;
+}
+
+.theme-light .analytics-root {
+  --analytics-bg: #f3f4f6;
+  --analytics-text: #22223b;
+}
+
+.analytics {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: none;
+    color: inherit;
+    padding: 0;
+}
+
+/* Card and chart backgrounds */
+.bg-gray-100 {
+  background-color: #f3f4f6 !important;
+}
+.bg-gray-800 {
+  background-color: #181a23 !important;
+}
+.bg-white {
+  background-color: #fff !important;
+}
+.text-gray-700 {
+  color: #22223b !important;
+}
+.text-white {
+  color: #f3f4f6 !important;
+}
+.text-gray-900 {
+  color: #181a23 !important;
+}
+
+.theme-dark .bg-gray-100,
+.theme-dark .bg-white {
+  background-color: #181a23 !important;
+}
+.theme-dark .text-gray-700,
+.theme-dark .text-gray-900 {
+  color: #f3f4f6 !important;
+}
+.theme-dark .text-white {
+  color: #f3f4f6 !important;
+}
+.theme-light .bg-gray-800 {
+  background-color: #f3f4f6 !important;
+}
+.theme-light .text-white {
+  color: #22223b !important;
 }

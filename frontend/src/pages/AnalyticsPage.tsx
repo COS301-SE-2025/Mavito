@@ -4,6 +4,7 @@ import type { TermData } from '../components/data/HorizontalBarChart';
 import { FaCheckCircle, FaBookmark, FaComments, FaGlobe } from 'react-icons/fa';
 import StatCard from '../components/data/StatCard';
 import PieChart from '../components/data/PieChart';
+import Navbar from '../components/ui/Navbar';
 
 import {
   Chart as ChartJS,
@@ -166,84 +167,70 @@ const AnalyticsPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="p-2 md:p-4 analytics">
-      <div className="pt-16 md:pt-18 min-h-screen w-full p-2 md:p-4 flex flex-col">
-        {/*navbar here*/}
-        {/* Top Section */}
-        <div className="h-auto md:h-1/2 w-full p-2 md:p-4 flex flex-col md:flex-row gap-4">
-          {/* Pie Chart Section */}
-          <div className="w-full md:w-3/8 h-64 md:h-full bg-gray-100 dark:bg-gray-800 rounded-lg shadow-inner p-4 flex flex-col">
-            <h2 className="text-lg md:text-xl font-bold text-gray-700 dark:text-white mb-4">
-              Unique Term Counts
-            </h2>
-            <div className="flex-1 overflow-hidden">
-              <PieChart
-                data={mockPieData}
-                formatValue={(value) => `${String(value)}%`}
+    <div className="analytics-root">
+      <Navbar />
+      <div className="p-2 md:p-4 analytics">
+        <div className="pt-16 md:pt-18 min-h-screen w-full p-2 md:p-4 flex flex-col">
+          {/* Top Section */}
+          <div className="h-auto md:h-1/2 w-full p-2 md:p-4 flex flex-col md:flex-row gap-4">
+            {/* Pie Chart Section */}
+            <div className="w-full md:w-3/8 h-64 md:h-full rounded-lg shadow-inner p-4 flex flex-col bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-white">
+              <h2 className="text-lg md:text-xl font-bold mb-4">
+                Unique Term Counts
+              </h2>
+              <div className="flex-1 overflow-hidden">
+                <PieChart
+                  data={mockPieData}
+                  formatValue={(value) => `${String(value)}%`}
+                />
+              </div>
+            </div>
+
+            {/* Stat Cards Section */}
+            <div className="w-full md:w-5/8 h-auto grid grid-cols-1 sm:grid-cols-2 gap-4 min-h-[160px]">
+              <StatCard
+                title="Feedback Submissions Made"
+                value={12}
+                icon={<FaComments className="text-xl md:text-2xl" />}
+              />
+              <StatCard
+                title="Approved Submissions"
+                value={12}
+                icon={<FaCheckCircle className="text-xl md:text-2xl" />}
+              />
+              <StatCard
+                title="Your Total Saved Terms:"
+                value={12}
+                icon={<FaBookmark className="text-xl md:text-2xl" />}
+              />
+              <StatCard
+                title="Your Top Language:"
+                value="English"
+                icon={<FaGlobe className="text-xl md:text-2xl" />}
               />
             </div>
           </div>
 
-          {/* Stat Cards Section */}
-          <div className="w-full md:w-5/8 h-auto grid grid-cols-1 sm:grid-cols-2 gap-4 min-h-[160px]">
-            <StatCard
-              title="Feedback Submissions Made"
-              value={12}
-              icon={
-                <FaComments
-                  style={{ color: '#363B4D' }}
-                  className="text-xl md:text-2xl"
-                />
-              }
-            />
-            <StatCard
-              title="Approved Submissions"
-              value={12}
-              icon={
-                <FaCheckCircle
-                  style={{ color: '#D62F3F' }}
-                  className="text-xl md:text-2xl"
-                />
-              }
-            />
-            <StatCard
-              title="Your Total Saved Terms:"
-              value={12}
-              icon={
-                <FaBookmark
-                  style={{ color: '#00CEAF' }}
-                  className="text-xl md:text-2xl"
-                />
-              }
-            />
-            <StatCard
-              title="Your Top Language:"
-              value="English"
-              icon={
-                <FaGlobe
-                  style={{ color: '#F2D001' }}
-                  className="text-xl md:text-2xl"
-                />
-              }
-            />
-          </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="h-auto md:h-1/2 w-full flex flex-col md:flex-row gap-4 mt-4 p-2 md:p-4">
-          <div className="w-full md:w-1/2 h-64 md:h-full bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
-            <HorizontalBarChart
-              data={mockData}
-              title="Term Frequency"
-              isDarkMode={true}
-            />
-          </div>
-          <div className="w-full md:w-1/2 h-64 md:h-full bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
-            <HorizontalBarChart
-              data={categoryData}
-              title="Term Category Frequency"
-              isDarkMode={true}
-            />
+          {/* Bottom Section */}
+          <div className="h-auto md:h-1/2 w-full flex flex-col md:flex-row gap-4 mt-4 p-2 md:p-4">
+            <div className="w-full md:w-1/2 h-64 md:h-full p-4 rounded-lg shadow bg-white text-gray-900 dark:bg-gray-800 dark:text-white">
+              <HorizontalBarChart
+                data={mockData}
+                title="Term Frequency"
+                isDarkMode={document.documentElement.classList.contains(
+                  'theme-dark',
+                )}
+              />
+            </div>
+            <div className="w-full md:w-1/2 h-64 md:h-full p-4 rounded-lg shadow bg-white text-gray-900 dark:bg-gray-800 dark:text-white">
+              <HorizontalBarChart
+                data={categoryData}
+                title="Term Category Frequency"
+                isDarkMode={document.documentElement.classList.contains(
+                  'theme-dark',
+                )}
+              />
+            </div>
           </div>
         </div>
       </div>

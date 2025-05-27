@@ -52,7 +52,7 @@ const LoginPage: React.FC = () => {
     event.preventDefault();
     setErrorMessage(null); // Reset error message on new submission
 
-    const NGROK_BASE_URL = 'https://d7c9-137-215-99-183.ngrok-free.app';
+    const NGROK_BASE_URL = 'https://7ecc-197-185-168-28.ngrok-free.app';
     const API_ENDPOINT = `${NGROK_BASE_URL}/api/v1/auth/login`;
 
     try {
