@@ -1,4 +1,4 @@
-# Mavito: A PWA for Multilingual Lexicons, Term Banks, and Glossaries
+# Marito: A PWA for Multilingual Lexicons, Term Banks, and Glossaries
 <p align="center">
     <img src="frontend/public/DFSI_Logo.png" alt="banner"/>
 </p>
@@ -10,13 +10,13 @@
 
 
 ## Project Description
-**Mavito** is a progressive web application (PWA) developed for the COS 301 Capstone project at the University of Pretoria. It serves as a unified platform for accessing, browsing, and contributing to multilingual glossaries, dictionaries, and terminology banks. Designed with an offline-first approach and scalable architecture, Mavito aims to support South Africa’s low-resource languages and empower linguistic research, NLP development, and language preservation.
+**Marito** is a progressive web application (PWA) developed for the COS 301 Capstone project at the University of Pretoria. It serves as a unified platform for accessing, browsing, and contributing to multilingual glossaries, dictionaries, and terminology banks. Designed with an offline-first approach and scalable architecture, Mavito aims to support South Africa’s low-resource languages and empower linguistic research, NLP development, and language preservation.
 
 
 ---
 
 ## Project Resources
-* [Functional Requirements (SRS) Document](#)
+* [Functional Requirements (SRS) Document](https://github.com/COS301-SE-2025/Mavito/blob/develop/Documentation/Srs/Software_Requirement_Document.pdf)
 * [GitHub Project Board](https://github.com/COS301-SE-2025/Mavito/projects)
 
 ---
