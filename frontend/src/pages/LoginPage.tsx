@@ -70,6 +70,8 @@ const LoginPage: React.FC = () => {
       const data = (await response.json()) as LoginResponse;
 
       if (response.ok) {
+        localStorage.removeItem('accessToken'); // Clear any existing token
+        localStorage.removeItem('userData'); // Clear stale user data from previous session
         console.log('Login successful:', data);
         console.log('Login successful. Token:', data.access_token);
         localStorage.setItem('accessToken', data.access_token);
