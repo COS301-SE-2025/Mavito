@@ -5,7 +5,7 @@ import os
 
 router = APIRouter(prefix="/api/analytics", tags=["Analytics"])
 
-# chaches date set
+# caches dataset
 TERM_DATASET = None
 
 # Build path relative to the current file location
