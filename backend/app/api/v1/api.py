@@ -14,7 +14,7 @@ api_router_v1.include_router(
     auth.router, prefix="/auth", tags=["Authentication"]
 )  # <--- INCLUDE the router
 
-api_router_v1.include_router(analytics.router , prefix="/analytics", tags=["Analytics"])
+api_router_v1.include_router(analytics.router, prefix="/analytics", tags=["Analytics"])
 api_router_v1.include_router(search.router, prefix="/search", tags=["Search"])
 api_router_v1.include_router(suggest.router, prefix="/suggest", tags=["Suggest"])
 

@@ -98,8 +98,8 @@ describe('LoginPage', () => {
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
     fireEvent.change(passwordInput, { target: { value: 'password123' } });
 
-    expect(emailInput.value).toBe('test@example.com');
-    expect(passwordInput.value).toBe('password123');
+    expect((emailInput as HTMLInputElement).value).toBe('test@example.com');
+    expect((passwordInput as HTMLInputElement).value).toBe('password123');
   });
 
   test('submits the form and navigates on successful login', async () => {

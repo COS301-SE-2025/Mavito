@@ -107,9 +107,10 @@ describe('RegistrationPage', () => {
       { target: { value: confirmPassword } },
     );
 
-    const termsCheckbox = screen.getByLabelText(
-      /registrationPage.agreeToTerms/i,
-    );
+    const termsCheckbox = screen.getByRole('checkbox', {
+      name: /registrationPage.agreeToTerms/i,
+    });
+
     if (
       (agreeToTerms && !termsCheckbox.checked) ||
       (!agreeToTerms && termsCheckbox.checked)
