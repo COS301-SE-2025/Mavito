@@ -99,8 +99,6 @@ def test_search_large_page_size():
     assert len(json["items"]) <= 1000
 
 
-
-
 @pytest.mark.parametrize(
     "word,expected",
     [
