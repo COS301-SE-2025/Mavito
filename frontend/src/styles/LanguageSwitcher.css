@@ -1,0 +1,53 @@
+/* src/styles/LanguageSwitcher.css */
+.language-switcher-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 100; /* Ensure it's above other elements */
+}
+
+.language-switcher-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #1f2937;
+  padding: 4px;
+}
+
+.language-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  /* Aligns the menu to the right edge of the button */
+  right: 0;
+  left: auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 101;
+  min-width: 140px;
+  padding: 8px 0;
+  margin-top: 4px;
+}
+
+.language-dropdown-item {
+  display: block; /* Make the whole area clickable */
+  padding: 10px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.language-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.language-dropdown-item:hover {
+  background-color: #f9f9f9;
+}
+
+.language-dropdown-item.active {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}

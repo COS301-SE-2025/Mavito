@@ -1,0 +1,95 @@
+{
+  "appTitle": "Mavito",
+  "loading": "Laai tans...",
+
+  "landingPage": {
+    "greeting": "Welkom by Mavito PWA!",
+    "registerButton": "Registreer",
+    "loginButton": "Teken in",
+    "footerText": "Mavito Projek"
+  },
+  "loginPage": {
+    "title": "WELKOM TERUG!",
+    "subtitle": "Voer asseblief jou inligting in om aan te teken.",
+    "emailLabel": "E-pos",
+    "emailPlaceholder": "Voer jou e-posadres in",
+    "passwordLabel": "Wagwoord",
+    "passwordPlaceholder": "Voer jou wagwoord in",
+    "rememberMe": "Onthou my",
+    "forgotPassword": "Wagwoord Vergeet?",
+    "loginButton": "Teken in",
+    "orDivider": "OF",
+    "loginWithGoogle": "Teken in met Google",
+    "noAccount": "Het jy nie 'n rekening nie?",
+    "registerLink": "Registreer",
+    "welcomeImageAlt": "[AF] Mavito Login Welcome",
+    "dsfsiLogoAlt": "[AF] DSFSI Logo",
+    "errorTokenMissing": "[AF] Login successful, but no token received. Please contact support.",
+    "errorDefault": "[AF] Login failed. Please check your credentials.",
+    "errorUnexpectedFormat": "[AF] Login error (status {{status}}). Unexpected error format.",
+    "errorWithStatus": "[AF] Login failed (status {{status}}). Please try again.",
+    "errorNetwork": "[AF] An error occurred: {{message}}.",
+    "errorUnknownNetwork": "[AF] An unknown network error occurred. Please try again."
+  },
+  "registrationPage": {
+    "title": "BEGIN NOU",
+    "subtitle": "Skep jou Mavito-rekening.",
+    "firstNameLabel": "Voornaam",
+    "firstNamePlaceholder": "Voer jou voornaam in",
+    "lastNameLabel": "Van",
+    "lastNamePlaceholder": "Voer jou van in",
+    "emailLabel": "E-pos",
+    "emailPlaceholder": "Voer jou e-posadres in",
+    "passwordLabel": "Wagwoord",
+    "passwordPlaceholder": "Skep 'n wagwoord",
+    "confirmPasswordLabel": "Bevestig Wagwoord",
+    "confirmPasswordPlaceholder": "Bevestig jou wagwoord",
+    "agreeToTerms": "Ek stem in met die",
+    "termsAndConditionsLink": "Terme en Voorwaardes",
+    "createAccountButton": "[AF] Create Account",
+    "creatingAccountButton": "[AF] Creating Account...",
+    "orDivider": "[AF] OR",
+    "createWithGoogle": "[AF] Create Account with Google",
+    "haveAccount": "[AF] Already have an account?",
+    "loginLink": "[AF] Login",
+    "welcomeImageAlt": "[AF] Mavito Welcome",
+    "dsfsiLogoAlt": "[AF] DSFSI Logo",
+    "errorPasswordsDoNotMatch": "Wagwoorde stem nie ooreen nie.",
+    "errorAgreeToTerms": "Jy moet instem tot die terme en voorwaardes.",
+    "alertSuccess": "Registrasie suksesvol! Gaan voort om aan te teken.",
+    "errorDefault": "Registrasie het misluk. Probeer asseblief weer.",
+    "errorUnexpectedFormat": "Fout: {{detailJson}}",
+    "errorWithStatus": "Registrasie het misluk (status {{status}}). Probeer asseblief weer.",
+    "errorNetwork": "'n Fout het voorgekom: {{message}}.",
+    "errorUnknownNetwork": "'n Onbekende netwerkfout het voorgekom. Probeer asseblief weer."
+  },
+
+  "languageSwitcher": {
+    "selectLanguage": "Kies Taal"
+  },
+  "dashboard": {
+    "welcome": "Welkom terug, Bydraer!",
+    "quickActions": "Vinnige Aksies",
+    "searchNow": "Soek Nou",
+    "searchDescription": "Verken ons veeltalige databasis",
+    "downloadResources": "Laai Hulpbronne Af",
+    "downloadDescription": "Kry toegang tot inhoud vanlyn",
+    "contributeTerm": "Dra 'n Term By",
+    "contributeDescription": "Help om ons databasis te laat groei",
+    "recentTerms": "Onlangs Bekekene Terme",
+    "viewAll": "Bekyk Alle Onlangse Terme",
+    "hideTerms": "Versteek Terme",
+    "communityActivity": "Gemeenskapsaktiwiteit",
+    "viewAllActivity": "Bekyk Alle Aktiwiteit",
+    "hideActivity": "Versteek Aktiwiteit",
+    "userName": "Gebruikersnaam",
+    "userId": "Gebruiker ID"
+  },
+
+  "leftPane": {
+    "dashboard": "Dashboard",
+    "search": "Soek",
+    "savedTerms": "Gestoor Terme",
+    "analytics": "Analise"
+  }
+}

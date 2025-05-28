@@ -1,0 +1,312 @@
+.registration-page-full-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.registration-left-half {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #e0e0e0; /* Example background */
+}
+
+.registration-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.registration-right-half {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start for scrolling */
+  padding: 20px;
+  background-color: #ffffff;
+  position: relative; /* For absolute positioning of children */
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.auth-page-header {
+  /* Common class for Login and Registration */
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Switcher left, Logo right */
+  align-items: center;
+  padding-bottom: 20px; /* Space below header */
+  margin-bottom: 20px; /* Additional space before form content */
+  box-sizing: border-box;
+}
+
+.auth-page-header .language-switcher-wrapper {
+  /* Specific alignment if needed, but flex on parent should handle it */
+}
+
+.dsfsi-logo-auth {
+  /* Common class for logo in auth pages */
+  width: 60px;
+  height: auto;
+  display: block;
+}
+
+.registration-form-content {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  /* padding-top is removed as .auth-page-header now provides the top spacing */
+  padding-bottom: 40px;
+}
+
+.registration-header {
+  width: 100%;
+  color: #4f5d75;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 1.02px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.registration-subheader {
+  width: 100%;
+  color: #00ceaf;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.42px;
+  margin-bottom: 25px;
+}
+
+.registration-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+.form-row .form-group.column {
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-group label {
+  color: #4f5d75;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.42px;
+  margin-bottom: 5px;
+}
+
+.form-group input[type='text'],
+.form-group input[type='email'],
+.form-group input[type='password'] {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+  padding: 0 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #212431;
+  box-sizing: border-box;
+}
+
+.form-group input[type='text']:focus,
+.form-group input[type='email']:focus,
+.form-group input[type='password']:focus {
+  border-color: #00ceaf;
+  outline: none;
+  box-shadow:
+    0px 2px 5px 0px rgba(0, 0, 0, 0.1),
+    0 0 0 3px rgba(0, 206, 175, 0.25);
+}
+
+.form-group.terms-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.form-group.terms-checkbox input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1.5px solid #212431;
+  background: rgba(196, 196, 196, 0);
+  cursor: pointer;
+  accent-color: #00ceaf;
+}
+
+.form-group.terms-checkbox .terms-label {
+  color: #212431;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.36px;
+  margin-bottom: 0;
+}
+
+.form-group.terms-checkbox .terms-label a {
+  color: #00ceaf;
+  text-decoration: none;
+}
+.form-group.terms-checkbox .terms-label a:hover {
+  text-decoration: underline;
+}
+
+.register-button {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
+}
+
+.register-button.primary {
+  background: #00ceaf;
+  box-shadow: 0px 4px 10px 0px rgba(0, 206, 175, 0.3);
+  color: white;
+}
+.register-button.primary:hover {
+  background-color: #00b89e;
+  transform: translateY(-1px);
+}
+
+.social-login-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #999;
+  margin: 20px 0;
+  font-size: 0.85em;
+  width: 100%;
+}
+.social-login-divider span {
+  padding: 0 12px;
+}
+.social-login-divider::before,
+.social-login-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.register-button.google {
+  border: 1px solid #dadce0;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+  color: #3c4043;
+}
+.register-button.google:hover {
+  background-color: #f8f9fa;
+  border-color: #c6c9cc;
+  transform: translateY(-1px);
+}
+
+.login-link {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+  margin-top: 20px;
+  color: #4f5d75;
+}
+
+.login-link a {
+  color: #00ceaf;
+  text-decoration: none;
+  font-weight: 500;
+}
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.dsfsi-logo-registration {
+  position: static;
+  width: 60px; /* Adjust size as needed */
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .registration-left-half {
+    display: none;
+  }
+
+  .registration-right-half {
+    flex: 1 1 100%;
+    width: 100%;
+    padding: 15px; /* Adjust mobile padding */
+    justify-content: flex-start;
+  }
+
+  .auth-page-header {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+
+  .dsfsi-logo-auth {
+    width: 50px; /* Slightly smaller for mobile header */
+  }
+
+  .registration-form-content {
+    padding-top: 0; /* No extra padding if header is in normal flow */
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 16px; /* Keep gap consistent with form gap */
+  }
+}

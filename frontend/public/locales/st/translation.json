@@ -1,0 +1,101 @@
+{
+  "appTitle": "Mavito",
+  "loading": "E ntse e jarwa...",
+
+  "landingPage": {
+    "greeting": "O amohetswe ho Mavito PWA!",
+    "registerButton": "Ngodisa",
+    "loginButton": "Kena",
+    "footerText": "Projeke ya Mavito"
+  },
+  "loginPage": {
+    "title": "RE A O AMOHELA HAPE!",
+    "subtitle": "Ka kopo kenya dintlha tsa hao ho kena.",
+    "emailLabel": "Imeili",
+    "emailPlaceholder": "Kenya aterese ya hao ya imeili",
+    "passwordLabel": "Lekunutu",
+    "passwordPlaceholder": "Kenya lekunutu la hao",
+    "rememberMe": "Nkhopole",
+    "forgotPassword": "O lebetse Lekunutu?",
+    "loginButton": "Kena",
+    "orDivider": "KAPA",
+    "loginWithGoogle": "Kena ka Google",
+    "noAccount": "Ha o na akhaonto?",
+    "registerLink": "[ST] Register",
+    "welcomeImageAlt": "[ST] Mavito Login Welcome",
+    "dsfsiLogoAlt": "[ST] DSFSI Logo",
+    "errorTokenMissing": "[ST] Login successful, but no token received. Please contact support.",
+    "errorDefault": "[ST] Login failed. Please check your credentials.",
+    "errorUnexpectedFormat": "[ST] Login error (status {{status}}). Unexpected error format.",
+    "errorWithStatus": "[ST] Login failed (status {{status}}). Please try again.",
+    "errorNetwork": "[ST] An error occurred: {{message}}.",
+    "errorUnknownNetwork": "[ST] An unknown network error occurred. Please try again."
+  },
+  "registrationPage": {
+    "title": "QALA JWALE",
+    "subtitle": "Theha akhaonto ya hao ya Mavito.",
+    "firstNameLabel": "Lebitso la Pele",
+    "firstNamePlaceholder": "Kenya lebitso la hao la pele",
+    "lastNameLabel": "Sefane",
+    "lastNamePlaceholder": "Kenya sefane sa hao",
+    "emailLabel": "Imeili",
+    "emailPlaceholder": "Kenya aterese ya hao ya imeili",
+    "passwordLabel": "Lekunutu",
+    "passwordPlaceholder": "Theha lekunutu",
+    "confirmPasswordLabel": "Netefatsa Lekunutu",
+    "confirmPasswordPlaceholder": "Netefatsa lekunutu la hao",
+    "agreeToTerms": "Ke dumellana le",
+    "termsAndConditionsLink": "Melao le Dipehelo",
+    "createAccountButton": "Theha Akhaonto",
+    "creatingAccountButton": "Ho Theha Akhaonto...",
+    "orDivider": "KAPA",
+    "createWithGoogle": "Theha Akhaonto ka Google",
+    "haveAccount": "O se o na le akhaonto?",
+    "loginLink": "Kena",
+    "welcomeImageAlt": "[ST] Mavito Welcome",
+    "dsfsiLogoAlt": "[ST] DSFSI Logo",
+    "errorPasswordsDoNotMatch": "Mantswe a lekunutu ha a tshwane.",
+    "errorAgreeToTerms": "O tlamehile ho dumela melawana le dipehelo.",
+    "alertSuccess": "Ngodiso e atlehetse! Ka kopo tswela pele ho kena.",
+    "errorDefault": "Ngodiso e hlolehile. Ka kopo leka hape.",
+    "errorUnexpectedFormat": "Phoso: {{detailJson}}",
+    "errorWithStatus": "Ngodiso e hlolehile (boemo {{status}}). Ka kopo leka hape.",
+    "errorNetwork": "Ho hlahile phoso: {{message}}.",
+    "errorUnknownNetwork": "Ho hlahile phoso e sa tsejweng ya neteweke. Ka kopo leka hape."
+  },
+  "languageSwitcher": {
+    "selectLanguage": "Kgetha Puo"
+  },
+
+  "dashboard": {
+    "welcome": "O amohelehile hape, Moneheli!",
+    "quickActions": "Diketso tse Potlakileng",
+    "searchNow": "Batla Hona Jwale",
+    "searchDescription": "Batlisisa databese ya rona ya dipuo tse ngata",
+    "downloadResources": "Jarolla Disebediswa",
+    "downloadDescription": "Fumana dikahare o sa kenyeletsa inthanete",
+    "contributeTerm": "Fana ka Lentswe",
+    "contributeDescription": "Thusa ho hodisa databese ya rona",
+    "recentTerms": "Mantswe a Bonweng Haufinyana",
+    "viewAll": "Sheba Mantswe Ohle a Haufinyana",
+    "hideTerms": "Pata Mantswe",
+    "communityActivity": "Diketsahalo tsa Setjhaba",
+    "viewAllActivity": "Sheba Diketsahalo Tsohle",
+    "hideActivity": "Pata Diketsahalo",
+    "userName": "Lebitso la Mosebedisi",
+    "userId": "ID ya Mosebedisi"
+  },
+
+  "leftPane": {
+    "dashboard": "Tafole ya Tshebetso",
+    "search": "Batla",
+    "savedTerms": "Mantswe a Bolokilweng",
+    "analytics": "Ditatistiki"
+  },
+  "leftPane": {
+    "dashboard": "Tafole ya Tshebetso",
+    "search": "Batla",
+    "savedTerms": "Mantswe a Bolokilweng",
+    "analytics": "Tekolo"
+  }
+}

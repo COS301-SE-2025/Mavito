@@ -1,0 +1,331 @@
+.login-page-full-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.login-left-half {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #00a79d;
+}
+
+.login-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login-right-half {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start for scrolling */
+  padding: 20px;
+  background-color: #ffffff;
+  position: relative; /* For absolute positioning of children */
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.auth-page-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Switcher left, Logo right */
+  align-items: center;
+  padding-bottom: 20px; /* Space below header */
+  margin-bottom: 20px; /* Additional space before form content */
+  box-sizing: border-box;
+  /* position: absolute; /* If you want it fixed at the top */
+  /* top: 20px; */
+  /* left: 20px; */
+  /* right: 20px; */
+  /* z-index: 10; */
+}
+
+.auth-page-header .language-switcher-wrapper {
+  /* Specific alignment if needed, but flex on parent should handle it */
+}
+
+.dsfsi-logo-auth {
+  /* Common class for logo in auth pages */
+  width: 60px; /* Adjust size as needed */
+  height: auto;
+  display: block; /* Remove any extra space if it's inline */
+}
+
+.login-form-content {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  /* padding-top is removed as .auth-page-header now provides the top spacing */
+  padding-bottom: 40px;
+}
+
+.login-header {
+  width: 100%;
+  color: #4f5d75;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 1.02px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.login-subheader {
+  width: 100%;
+  color: #00ceaf;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.42px;
+  margin-bottom: 30px;
+}
+
+.login-subheader.error {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-group label {
+  color: #4f5d75;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.42px;
+  margin-bottom: 5px;
+}
+
+.form-group input[type='email'],
+.form-group input[type='password'] {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+  padding: 0 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #212431;
+  box-sizing: border-box;
+}
+
+.form-group input[type='email']:focus,
+.form-group input[type='password']:focus {
+  border-color: #00ceaf;
+  outline: none;
+  box-shadow:
+    0px 2px 5px 0px rgba(0, 0, 0, 0.1),
+    0 0 0 3px rgba(0, 206, 175, 0.25);
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4f5d75;
+}
+
+.remember-me input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  accent-color: #00ceaf;
+  cursor: pointer;
+  border-radius: 4px; /* Added for consistency */
+}
+
+.remember-me label {
+  font-size: 12px;
+  font-weight: normal;
+  color: #4f5d75;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.forgot-password-link {
+  color: #00ceaf;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-button.primary {
+  background: #00ceaf;
+  box-shadow: 0px 4px 10px 0px rgba(0, 206, 175, 0.3);
+  color: white;
+}
+.login-button.primary:hover {
+  background-color: #00b89e;
+  transform: translateY(-1px);
+}
+
+.social-login-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #999;
+  margin: 20px 0;
+  font-size: 0.85em;
+  width: 100%;
+}
+.social-login-divider span {
+  padding: 0 12px;
+}
+.social-login-divider::before,
+.social-login-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.login-button.google {
+  border: 1px solid #dadce0;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+  color: #3c4043;
+}
+.login-button.google:hover {
+  background-color: #f8f9fa;
+  border-color: #c6c9cc;
+  transform: translateY(-1px);
+}
+
+.register-link-prompt {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+  margin-top: 25px;
+  color: #4f5d75;
+}
+
+.register-link-prompt a {
+  color: #00ceaf;
+  text-decoration: none;
+  font-weight: 500;
+}
+.register-link-prompt a:hover {
+  text-decoration: underline;
+}
+
+/* Remove previous absolute positioning for logo if it's now in .auth-page-header */
+.dsfsi-logo-login {
+  position: static;
+  width: 60px; /* Adjust size as needed */
+  height: auto;
+  display: block; /* Remove any extra space if it's inline */
+}
+
+@media (max-width: 900px) {
+  .login-left-half {
+    display: none;
+  }
+
+  .login-right-half {
+    flex: 1 1 100%;
+    width: 100%;
+    padding: 15px; /* Adjust mobile padding */
+    justify-content: flex-start;
+  }
+
+  .auth-page-header {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    /* If it was absolute, it might need adjustments for mobile, 
+       but as a normal flow block, it should adapt. */
+  }
+
+  .dsfsi-logo-auth {
+    width: 50px; /* Slightly smaller for mobile header */
+  }
+
+  .login-form-content {
+    padding-top: 0; /* No extra padding if header is in normal flow */
+  }
+
+  .login-header {
+    font-size: 24px;
+  }
+
+  .login-subheader {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .form-options {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+}
