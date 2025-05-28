@@ -53,18 +53,20 @@
     "haveAccount": "O se o na le akhaonto?",
     "loginLink": "Kena",
     "welcomeImageAlt": "[ST] Mavito Welcome",
-    "dsfsiLogoAlt": "[ST] DSFSI Logo",    "errorPasswordsDoNotMatch": "Mantswe a lekunutu ha a tshwane.",
+    "dsfsiLogoAlt": "[ST] DSFSI Logo",
+    "errorPasswordsDoNotMatch": "Mantswe a lekunutu ha a tshwane.",
     "errorAgreeToTerms": "O tlamehile ho dumela melawana le dipehelo.",
     "alertSuccess": "Ngodiso e atlehetse! Ka kopo tswela pele ho kena.",
     "errorDefault": "Ngodiso e hlolehile. Ka kopo leka hape.",
     "errorUnexpectedFormat": "Phoso: {{detailJson}}",
     "errorWithStatus": "Ngodiso e hlolehile (boemo {{status}}). Ka kopo leka hape.",
     "errorNetwork": "Ho hlahile phoso: {{message}}.",
-    "errorUnknownNetwork": "Ho hlahile phoso e sa tsejweng ya neteweke. Ka kopo leka hape."  },
+    "errorUnknownNetwork": "Ho hlahile phoso e sa tsejweng ya neteweke. Ka kopo leka hape."
+  },
   "languageSwitcher": {
     "selectLanguage": "Kgetha Puo"
   },
-  
+
   "dashboard": {
     "welcome": "O amohelehile hape, Moneheli!",
     "quickActions": "Diketso tse Potlakileng",
@@ -83,14 +85,14 @@
     "userName": "Lebitso la Mosebedisi",
     "userId": "ID ya Mosebedisi"
   },
-  
+
   "leftPane": {
     "dashboard": "Tafole ya Tshebetso",
     "search": "Batla",
     "savedTerms": "Mantswe a Bolokilweng",
     "analytics": "Ditatistiki"
   },
-    "leftPane": {
+  "leftPane": {
     "dashboard": "Tafole ya Tshebetso",
     "search": "Batla",
     "savedTerms": "Mantswe a Bolokilweng",

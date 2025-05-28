@@ -1,4 +1,3 @@
-
 .login-page-full-container {
   display: flex;
   position: fixed;
@@ -58,7 +57,8 @@
   /* Specific alignment if needed, but flex on parent should handle it */
 }
 
-.dsfsi-logo-auth { /* Common class for logo in auth pages */
+.dsfsi-logo-auth {
+  /* Common class for logo in auth pages */
   width: 60px; /* Adjust size as needed */
   height: auto;
   display: block; /* Remove any extra space if it's inline */
@@ -72,12 +72,12 @@
   align-items: center;
   box-sizing: border-box;
   /* padding-top is removed as .auth-page-header now provides the top spacing */
-  padding-bottom: 40px; 
+  padding-bottom: 40px;
 }
 
 .login-header {
   width: 100%;
-  color: #4F5D75;
+  color: #4f5d75;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
@@ -90,7 +90,7 @@
 
 .login-subheader {
   width: 100%;
-  color: #00CEAF;
+  color: #00ceaf;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
@@ -120,7 +120,7 @@
 }
 
 .form-group label {
-  color: #4F5D75;
+  color: #4f5d75;
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
   font-weight: 500;
@@ -286,7 +286,6 @@
   display: block; /* Remove any extra space if it's inline */
 }
 
-
 @media (max-width: 900px) {
   .login-left-half {
     display: none;
@@ -305,7 +304,7 @@
     /* If it was absolute, it might need adjustments for mobile, 
        but as a normal flow block, it should adapt. */
   }
-  
+
   .dsfsi-logo-auth {
     width: 50px; /* Slightly smaller for mobile header */
   }
@@ -330,5 +329,3 @@
     margin-bottom: 15px;
   }
 }
-
-

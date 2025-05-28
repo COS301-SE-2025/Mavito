@@ -53,19 +53,21 @@
     "haveAccount": "Sele unayo i-akhawunti?",
     "loginLink": "Ngena",
     "welcomeImageAlt": "[XH] Mavito Welcome",
-    "dsfsiLogoAlt": "[XH] DSFSI Logo",    "errorPasswordsDoNotMatch": "Iiphasiwedi azifani.",
+    "dsfsiLogoAlt": "[XH] DSFSI Logo",
+    "errorPasswordsDoNotMatch": "Iiphasiwedi azifani.",
     "errorAgreeToTerms": "Kufuneka uvume imigaqo nemiqathango.",
     "alertSuccess": "Ubhaliso luphumelele! Nceda qhubeka ungene.",
     "errorDefault": "Ubhaliso lusilele. Nceda uzame kwakhona.",
     "errorUnexpectedFormat": "Imposiso: {{detailJson}}",
     "errorWithStatus": "Ubhaliso lusilele (isimo {{status}}). Nceda uzame kwakhona.",
     "errorNetwork": "Kwenzeke imposiso: {{message}}.",
-    "errorUnknownNetwork": "Kwenzeke imposiso engaziwayo kwinethiwekhi. Nceda uzame kwakhona."  },
+    "errorUnknownNetwork": "Kwenzeke imposiso engaziwayo kwinethiwekhi. Nceda uzame kwakhona."
+  },
 
   "languageSwitcher": {
     "selectLanguage": "Khetha Ulwimi"
   },
-    "dashboard": {
+  "dashboard": {
     "welcome": "Wamkelekile kwakhona, Mnikeli!",
     "quickActions": "Izenzo Ezikhawulezayo",
     "searchNow": "Khangela Ngoku",
@@ -83,7 +85,7 @@
     "userName": "Igama loMsebenzisi",
     "userId": "ID yoMsebenzisi"
   },
-  
+
   "leftPane": {
     "dashboard": "Ideshibhodi",
     "search": "Khangela",

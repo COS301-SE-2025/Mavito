@@ -1,6 +1,6 @@
 /* ===== DASHBOARD CONTAINER ===== */
 .dashboard-container {
-    display: flex;
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,8 @@
   overflow: hidden;
   box-sizing: border-box;
   background-color: #f8fafc;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
 /* ===== LEFT PANE STYLES ===== */
@@ -109,12 +110,11 @@
 .main-content {
   margin-left: 280px;
   padding: 32px;
-  padding-bottom: 40px; 
+  padding-bottom: 40px;
   width: calc(100% - 280px);
   background-color: #f8fafc;
   box-sizing: border-box;
   overflow-y: auto;
-
 }
 
 /* ===== TOP BAR ===== */
@@ -464,12 +464,12 @@
   .three-column-layout {
     flex-direction: column;
   }
-  
+
   .right-column {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  
+
   .right-column .section-card {
     flex: 1 1 45%;
     min-width: 0;
@@ -486,7 +486,7 @@
     z-index: 1050; /* Ensure it's on top of the overlay */
     /* position: fixed; top: 0; left: 0; are inherited from the base .left-pane style */
   }
-  
+
   .main-content {
     display: flex;
     flex-direction: column;
@@ -496,24 +496,23 @@
     box-sizing: border-box;
     padding-bottom: 105px;
   }
-  
-  
+
   .top-bar .hamburger-icon {
     display: block; /* Show hamburger on mobile */
     flex-direction: column;
     gap: 16px;
   }
-  
+
   .welcome-section {
     display: none; /* Hide welcome section on mobile */
     margin-right: 0;
     width: 100%;
   }
-  
+
   .profile-section {
     width: 100%;
   }
-  
+
   .quick-actions-grid {
     grid-template-columns: 1fr;
   }
@@ -540,34 +539,32 @@
   }
 }
 
-
-
 @media (max-width: 480px) {
   .left-pane-header {
     padding: 16px;
   }
-  
+
   .app-title {
     font-size: 24px;
   }
-  
+
   .dfsi-logo {
     width: 32px;
     height: 32px;
   }
-  
+
   .menu-item {
     padding: 12px 16px;
   }
-  
+
   .welcome-title {
     font-size: 20px;
   }
-  
+
   .section-card {
     padding: 20px;
   }
-  
+
   .action-card {
     padding: 24px;
   }

@@ -18,11 +18,11 @@
   position: absolute;
   top: 100%;
   /* Aligns the menu to the right edge of the button */
-  right: 0; 
+  right: 0;
   left: auto;
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 101;
   min-width: 140px;
   padding: 8px 0;
@@ -44,7 +44,7 @@
 }
 
 .language-dropdown-item:hover {
-    background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 .language-dropdown-item.active {

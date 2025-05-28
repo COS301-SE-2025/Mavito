@@ -53,7 +53,8 @@
     "haveAccount": "[AF] Already have an account?",
     "loginLink": "[AF] Login",
     "welcomeImageAlt": "[AF] Mavito Welcome",
-    "dsfsiLogoAlt": "[AF] DSFSI Logo",    "errorPasswordsDoNotMatch": "Wagwoorde stem nie ooreen nie.",
+    "dsfsiLogoAlt": "[AF] DSFSI Logo",
+    "errorPasswordsDoNotMatch": "Wagwoorde stem nie ooreen nie.",
     "errorAgreeToTerms": "Jy moet instem tot die terme en voorwaardes.",
     "alertSuccess": "Registrasie suksesvol! Gaan voort om aan te teken.",
     "errorDefault": "Registrasie het misluk. Probeer asseblief weer.",
@@ -66,7 +67,7 @@
   "languageSwitcher": {
     "selectLanguage": "Kies Taal"
   },
-    "dashboard": {
+  "dashboard": {
     "welcome": "Welkom terug, Bydraer!",
     "quickActions": "Vinnige Aksies",
     "searchNow": "Soek Nou",
@@ -84,7 +85,7 @@
     "userName": "Gebruikersnaam",
     "userId": "Gebruiker ID"
   },
-  
+
   "leftPane": {
     "dashboard": "Dashboard",
     "search": "Soek",

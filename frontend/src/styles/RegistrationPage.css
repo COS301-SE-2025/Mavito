@@ -38,7 +38,8 @@
   box-sizing: border-box;
 }
 
-.auth-page-header { /* Common class for Login and Registration */
+.auth-page-header {
+  /* Common class for Login and Registration */
   width: 100%;
   display: flex;
   justify-content: space-between; /* Switcher left, Logo right */
@@ -52,8 +53,9 @@
   /* Specific alignment if needed, but flex on parent should handle it */
 }
 
-.dsfsi-logo-auth { /* Common class for logo in auth pages */
-  width: 60px; 
+.dsfsi-logo-auth {
+  /* Common class for logo in auth pages */
+  width: 60px;
   height: auto;
   display: block;
 }
@@ -71,7 +73,7 @@
 
 .registration-header {
   width: 100%;
-  color: #4F5D75;
+  color: #4f5d75;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
@@ -84,7 +86,7 @@
 
 .registration-subheader {
   width: 100%;
-  color: #00CEAF;
+  color: #00ceaf;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
@@ -119,7 +121,7 @@
 }
 
 .form-group label {
-  color: #4F5D75;
+  color: #4f5d75;
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
   font-weight: 500;
@@ -271,7 +273,6 @@
   text-decoration: underline;
 }
 
-
 .dsfsi-logo-registration {
   position: static;
   width: 60px; /* Adjust size as needed */
@@ -290,7 +291,7 @@
     padding: 15px; /* Adjust mobile padding */
     justify-content: flex-start;
   }
-  
+
   .auth-page-header {
     padding-bottom: 15px;
     margin-bottom: 15px;
