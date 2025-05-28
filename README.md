@@ -1,35 +1,22 @@
-# Mavito: A PWA for Multilingual Lexicons, Term Banks, and Glossaries
-
+# Marito: A PWA for Multilingual Lexicons, Term Banks, and Glossaries
 <p align="center">
-  <a href="https://choosealicense.com/licenses/mit/">
-    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License"/>
-  </a>
-  <a href="https://github.com/COS301-SE-2025/Mavito/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/COS301-SE-2025/Mavito/ci.yml?branch=main" alt="Build Status"/>
-  </a>
-  <a href="https://codecov.io/gh/COS301-SE-2025/Mavito">
-    <img src="https://img.shields.io/codecov/c/github/COS301-SE-2025/Mavito" alt="Code Coverage"/>
-  </a>
-  <a href="https://github.com/COS301-SE-2025/Mavito">
-    <img src="https://img.shields.io/badge/requirements-purple" alt="Requirements"/>
-  </a>
-  <a href="https://github.com/COS301-SE-2025/Mavito/issues">
-    <img src="https://img.shields.io/github/issues/COS301-SE-2025/Mavito" alt="GitHub Issues"/>
-  </a>
-  <a href="https://uptimerobot.com/">
-    <img src="https://img.shields.io/uptimerobot/status/m788123456-123456789abcdef" alt="Uptime Robot"/>
-  </a>
+    <img src="frontend/public/DFSI_Logo.png" alt="banner"/>
 </p>
+
+<div align="center">
+<code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/figma.png" alt="Figma"/></code><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/react.png" alt="Figma"/></code><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/typescript.png" alt="Figma"/></code><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/vite.png" alt="Figma"/></code><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/python.png" alt="Figma"/></code><code><img width="50" src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/gcp.png" alt="Figma"/></code>
+</div>
+
 
 
 ## Project Description
-**Mavito** is a progressive web application (PWA) developed for the COS 301 Capstone project at the University of Pretoria. It serves as a unified platform for accessing, browsing, and contributing to multilingual glossaries, dictionaries, and terminology banks. Designed with an offline-first approach and scalable architecture, Mavito aims to support South Africa’s low-resource languages and empower linguistic research, NLP development, and language preservation.
+**Marito** is a progressive web application (PWA) developed for the COS 301 Capstone project at the University of Pretoria. It serves as a unified platform for accessing, browsing, and contributing to multilingual glossaries, dictionaries, and terminology banks. Designed with an offline-first approach and scalable architecture, Mavito aims to support South Africa’s low-resource languages and empower linguistic research, NLP development, and language preservation.
 
 
 ---
 
 ## Project Resources
-* [Functional Requirements (SRS) Document](#)
+* [Functional Requirements (SRS) Document](https://github.com/COS301-SE-2025/Mavito/blob/develop/Documentation/Srs/Software_Requirement_Document.pdf)
 * [GitHub Project Board](https://github.com/COS301-SE-2025/Mavito/projects)
 
 ---
@@ -59,12 +46,36 @@ This structure ensures clean separation between environments, supports parallel 
 
 ## Velox Team Members
 
-| Name              | Role                        | Student Number | GitHub Profile                             | LinkedIn                                                                 |
+| Name              | Role                        | Student Number | Description                             | LinkedIn                                                                 |
 |-------------------|-----------------------------|----------------|--------------------------------------------|--------------------------------------------------------------------------|
-| Hayley Dodkins    | Project Manager / DevOps Engineer | 21528790       | [github.com/hayley-d](https://github.com/hayley-d)       | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hayley-dodkins-867126222/) |
-| Zainab Abdulrasaq | UI Engineer           | 22566202       | [github.com/abdulrasaqzainab](https://github.com/abdulrasaqzainab)       | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/zainab-abdulrasaq) |
-| Arnaud Strydom    | Integration Engineer           | 23536013       | [github.com/ArnaudZStrydom](https://github.com/ArnaudZStrydom)       | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arnaud-zander-strydom-44a95a319/) |
-| Palesa Thabane    | Services Engineer / Business Analyst           | 21540838       | [github.com/Palesa-Thabane](https://github.com/Palesa-Thabane)       | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/palesa-thabane-943604364/) |
-| Eugen Vosloo      | Data Engineer               | 20445696        | [github.com/eugenvosloo](https://github.com/eugenvosloo)         | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eugen-vosloo-aa2522353/) |
+| Hayley Dodkins    | DevOps Engineer / UI Engineer | 21528790       |  I’m a developer passionate about systems programming and distributed systems. Some of my most impressive projects include a custom kernel implemented in Rust, a graph database built in C++, and a DAG-based blockchain written in OCaml. I have a strong interest in CRDT-based distributed systems and the unique consistency and synchronization problems they solve. I’m drawn to challenges that let me explore system internals, optimize performance, and solve complex concurrency problems. I’m always looking to expand my knowledge and tackle exciting, technically challenging work.      | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hayley-dodkins-867126222/) |
+| Zainab Abdulrasaq | Project Manager            | 22566202       | I’m a Computer Science student and developer passionate about data security, database systems, and cybersecurity. My projects include designing a NoSQL database system with a focus on performance and security, developing a certificate management app with robust architecture, and contributing to web applications using the LAMP stack. I thrive on challenges that involve optimizing data structures, securing systems, and solving real-world problems through technology. Eager to leverage my technical skills and analytical mindset to make a meaningful impact in the world of cybersecurity and data innovation.    | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/zainab-abdulrasaq) |
+| Arnaud Strydom    | Integration Engineer           | 23536013       | I am a third-year BSc Computer Science student at the University of Pretoria, majoring in Software Engineering. My passion for software development, web development (net-centric development), cybersecurity, and artificial intelligence drives me to be a dedicated and diligent worker. I am committed to expanding my knowledge and improving my skills every day. Striving for excellence is one of my core values. I aim to master the technical aspects of software engineering while also developing essential soft skills such as problem-solving, critical thinking, and effective communication. A great software engineer must understand and address user needs, work collaboratively with team members, and clearly articulate ideas and solutions. My dedication to continuous learning, desire to excel, and commitment to making a lasting impact set me apart. I am eager to take on new challenges, collaborate with like-minded individuals, and contribute to the ever-evolving field of software development.    | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arnaud-zander-strydom-44a95a319/) |
+| Palesa Thabane    | Services Engineer / Business Analyst           | 21540838       | I am a data science and cybersecurity enthusiast with hands-on experience in systems programming, particularly in distributed computing (e.g., actor models, inter-server communication), and backend development, including NoSQL database engineering and RESTful API design. My technical projects and coursework reflect a strong foundation in secure software practices, which I aim to apply at the intersection of fintech , data science and cybersecurity.     | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/palesa-thabane-943604364/) |
+| Eugen Vosloo      | Data Engineer               | 20445696        | I'm a BSc Computer Science student with a focus on Data Science and a passion for backend development. My project experience includes designing and implementing multiple RESTful APIs, as well as using image processing in Python for mining applications. I’m always eager to broaden my skillset and am especially driven to grow in areas like backend development and data science.   | [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eugen-vosloo-aa2522353/) |
 
+---
+
+## Badges
+
+<p align="center">
+  <a href="https://choosealicense.com/licenses/mit/">
+    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License"/>
+  </a>
+  <a href="https://github.com/COS301-SE-2025/Mavito/actions">
+    <img src="https://img.shields.io/github/actions/workflow/status/COS301-SE-2025/Mavito/ci.yml?branch=main" alt="Build Status"/>
+  </a>
+  <a href="https://codecov.io/gh/COS301-SE-2025/Mavito">
+    <img src="https://img.shields.io/codecov/c/github/COS301-SE-2025/Mavito" alt="Code Coverage"/>
+  </a>
+  <a href="https://github.com/COS301-SE-2025/Mavito">
+    <img src="https://img.shields.io/badge/requirements-purple" alt="Requirements"/>
+  </a>
+  <a href="https://github.com/COS301-SE-2025/Mavito/issues">
+    <img src="https://img.shields.io/github/issues/COS301-SE-2025/Mavito" alt="GitHub Issues"/>
+  </a>
+  <a href="https://uptimerobot.com/">
+    <img src="https://img.shields.io/uptimerobot/status/m788123456-123456789abcdef" alt="Uptime Robot"/>
+  </a>
+</p>
 
