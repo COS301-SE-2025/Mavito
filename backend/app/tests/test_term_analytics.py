@@ -354,7 +354,6 @@ class TestAnalyticsIntegration:
     def test_router_prefix_and_tags(self):
         """Test that router is configured with correct prefix and tags"""
         assert router.prefix == ""
-       
 
 
 # Pytest configuration
