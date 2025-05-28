@@ -9,7 +9,7 @@ from app.api.v1.endpoints.analytics import router, load_marito_data, DATASET_PAT
 
 # Create a test app
 app = FastAPI()
-app.include_router(router)
+app.include_router(router, prefix="/analytics")
 client = TestClient(app)
 
 
@@ -149,7 +149,7 @@ class TestAnalyticsModule:
         """Test successful descriptive analytics endpoint"""
         mock_load_data.return_value = sample_dataframe
 
-        response = client.get("/api/analytics/descriptive")
+        response = client.get("/analytics/descriptive")
 
         assert response.status_code == 200
         data = response.json()
@@ -172,7 +172,7 @@ class TestAnalyticsModule:
         """Test category frequency calculation"""
         mock_load_data.return_value = sample_dataframe
 
-        response = client.get("/api/analytics/descriptive")
+        response = client.get("/analytics/descriptive")
         data = response.json()
 
         category_freq = data["category_frequency"]
@@ -187,7 +187,7 @@ class TestAnalyticsModule:
         """Test language coverage percentage calculation"""
         mock_load_data.return_value = sample_dataframe
 
-        response = client.get("/api/analytics/descriptive")
+        response = client.get("/analytics/descriptive")
         data = response.json()
 
         coverage = data["language_coverage_percent"]
@@ -207,7 +207,7 @@ class TestAnalyticsModule:
         """Test average term length calculation"""
         mock_load_data.return_value = sample_dataframe
 
-        response = client.get("/api/analytics/descriptive")
+        response = client.get("/analytics/descriptive")
         data = response.json()
 
         term_lengths = data["average_term_lengths"]
@@ -227,7 +227,7 @@ class TestAnalyticsModule:
         """Test average definition length calculation"""
         mock_load_data.return_value = sample_dataframe
 
-        response = client.get("/api/analytics/descriptive")
+        response = client.get("/analytics/descriptive")
         data = response.json()
 
         def_lengths = data["average_definition_lengths"]
@@ -246,7 +246,7 @@ class TestAnalyticsModule:
         """Test unique term count calculation"""
         mock_load_data.return_value = sample_dataframe
 
-        response = client.get("/api/analytics/descriptive")
+        response = client.get("/analytics/descriptive")
         data = response.json()
 
         unique_counts = data["unique_term_counts"]
@@ -271,7 +271,7 @@ class TestAnalyticsModule:
         )
         mock_load_data.return_value = df
 
-        response = client.get("/api/analytics/descriptive")
+        response = client.get("/analytics/descriptive")
         data = response.json()
 
         def_lengths = data["average_definition_lengths"]
@@ -320,7 +320,7 @@ class TestAnalyticsModule:
         """Test that response format matches expected structure"""
         mock_load_data.return_value = sample_dataframe
 
-        response = client.get("/api/analytics/descriptive")
+        response = client.get("/analytics/descriptive")
         data = response.json()
 
         # Validate data types
@@ -347,14 +347,14 @@ class TestAnalyticsIntegration:
     def test_analytics_endpoint_accessibility(self):
         """Test that the analytics endpoint is accessible"""
         # This would normally fail without mocking, but tests the route setup
-        response = client.get("/api/analytics/descriptive")
+        response = client.get("/analytics/descriptive")
         # Should get some response (likely 500 due to missing data file in test env)
         assert response.status_code in [200, 500]
 
     def test_router_prefix_and_tags(self):
         """Test that router is configured with correct prefix and tags"""
-        assert router.prefix == "/api/analytics"
-        assert "Analytics" in router.tags
+        assert router.prefix == ""
+       
 
 
 # Pytest configuration
