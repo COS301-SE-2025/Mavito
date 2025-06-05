@@ -30,16 +30,6 @@ const SearchBar: FC<SearchBarProps> = ({
     void onSearch('');
   }, [onSearch]);
 
-  // Debounced logic
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebounced(value);
-    }, debounceMs);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [value, debounceMs]);
-
   // Fetch suggestions
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -48,8 +38,12 @@ const SearchBar: FC<SearchBarProps> = ({
           .then((results) => {
             setOptions(results.map((s) => s.label));
           })
-          .catch((err) => {
-            console.error('Failed to fetch suggestions', err);
+          .catch((err: unknown) => {
+            if (err instanceof Error) {
+              console.error('Failed to fetch suggestions:', err.message);
+            } else {
+              console.error('Unknown error while fetching suggestions:', err);
+            }
             setOptions([]);
           });
       } else {

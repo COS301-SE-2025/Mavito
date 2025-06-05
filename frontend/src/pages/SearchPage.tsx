@@ -6,14 +6,6 @@ import ToggleSwitch from '../components/ui/ToggleSwtich';
 import TermCard from '../components/ui/TermCard';
 import { Brain, Wand2 } from 'lucide-react';
 import '../styles/SearchPage.scss';
-import {
-  Autocomplete,
-  TextField,
-  List,
-  ListItem,
-  Switch,
-  FormControlLabel,
-} from '@mui/material';
 
 /**
  * Represents a single suggestion for the search bar autocomplete.
@@ -86,8 +78,6 @@ const SearchPage: React.FC = () => {
         } else {
           console.error('Unknown error during search:', error);
         }
-        setResults([]);
-        setTotalPages(1);
       }
     };
 
@@ -143,10 +133,6 @@ const SearchPage: React.FC = () => {
     void fetchDomains().then(setDomainOptions);
     void fetchPOS().then(setPartOfSpeechOptions);
   }, []);
-
-  useEffect(() => {
-    void onSearch('');
-  }, [onSearch]);
 
   const languages = [
     'Afrikaans',
