@@ -26,7 +26,7 @@ interface SearchResponse {
 interface Term {
   id: string;
   term: string;
-  part_of_speech: string;
+  language: string;
   domain: string;
   definition: string;
   upvotes: number;
@@ -293,13 +293,7 @@ const SearchPage: React.FC = () => {
                     key={res.id}
                     id={res.id}
                     term={res.term}
-                    part_of_speech={
-                      res.part_of_speech.toLowerCase() as
-                        | 'noun'
-                        | 'verb'
-                        | 'adjective'
-                        | 'adverb'
-                    }
+                    language={res.language}
                     domain={res.domain}
                     upvotes={res.upvotes}
                     downvotes={res.downvotes}
