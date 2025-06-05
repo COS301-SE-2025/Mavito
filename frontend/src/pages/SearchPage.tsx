@@ -41,9 +41,7 @@ const SearchPage: React.FC = () => {
   const [term, setTerm] = useState('');
   const [language, setLanguage] = useState('English');
   const [domain, setDomain] = useState('');
-  const [partOfSpeech, setPartOfSpeech] = useState('');
   const [domainOptions, setDomainOptions] = useState<string[]>([]);
-  const [partOfSpeechOptions, setPartOfSpeechOptions] = useState<string[]>([]);
   const [aiSearch, setAiSearch] = useState(false);
   const [fuzzySearch, setFuzzySearch] = useState(false);
   const [results, setResults] = useState<Term[]>([]);
@@ -61,7 +59,6 @@ const SearchPage: React.FC = () => {
           term,
           language,
           domain,
-          partOfSpeech,
           aiSearch,
           fuzzySearch,
           currentPage,
@@ -82,15 +79,7 @@ const SearchPage: React.FC = () => {
     };
 
     void runSearch();
-  }, [
-    term,
-    language,
-    domain,
-    partOfSpeech,
-    aiSearch,
-    fuzzySearch,
-    currentPage,
-  ]);
+  }, [term, language, domain, aiSearch, fuzzySearch, currentPage]);
 
   const handleSearch = useCallback(
     async (t: string) => {
@@ -101,7 +90,6 @@ const SearchPage: React.FC = () => {
           t,
           language,
           domain,
-          partOfSpeech,
           aiSearch,
           fuzzySearch,
           1,
@@ -122,7 +110,7 @@ const SearchPage: React.FC = () => {
         setTotalPages(1);
       }
     },
-    [language, domain, partOfSpeech, aiSearch, fuzzySearch],
+    [language, domain, aiSearch, fuzzySearch],
   );
 
   const navigate = (path: string) => {
@@ -131,7 +119,6 @@ const SearchPage: React.FC = () => {
 
   useEffect(() => {
     void fetchDomains().then(setDomainOptions);
-    void fetchPOS().then(setPartOfSpeechOptions);
   }, []);
 
   const languages = [
@@ -168,7 +155,6 @@ const SearchPage: React.FC = () => {
    * @param query - The search term
    * @param _language - Selected language
    * @param _domain - Selected domain filter
-   * @param _partOfSpeech - Selected part of speech filter
    * @param _ai - Whether AI Search is enabled
    * @param _fuzzy - Whether Fuzzy Search is enabled
    * @param page - The current page number
@@ -179,7 +165,6 @@ const SearchPage: React.FC = () => {
     query: string,
     language: string,
     domain: string,
-    partOfSpeech: string,
     _ai: boolean,
     _fuzzy: boolean,
     page: number,
@@ -188,7 +173,6 @@ const SearchPage: React.FC = () => {
       query,
       language,
       domain,
-      part_of_speech: partOfSpeech,
       sort_by: 'name',
       page: page.toString(),
       page_size: pageSize.toString(),
@@ -215,14 +199,6 @@ const SearchPage: React.FC = () => {
       'Education',
       'Business',
     ]);
-  };
-
-  /**
-   * Fetches part-of-speech options from the backend.
-   * @returns Promise resolving to an array of part-of-speech strings
-   */
-  const fetchPOS = async (): Promise<string[]> => {
-    return Promise.resolve(['Noun', 'Adjective', 'Verb']);
   };
 
   return (
@@ -257,12 +233,6 @@ const SearchPage: React.FC = () => {
                     options={domainOptions}
                     selected={domain}
                     onSelect={setDomain}
-                  />
-                  <DropdownFilter
-                    label="Part of Speech"
-                    options={partOfSpeechOptions}
-                    selected={partOfSpeech}
-                    onSelect={setPartOfSpeech}
                   />
                 </div>
 
