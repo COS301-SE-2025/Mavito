@@ -69,3 +69,8 @@ body {
     color: var(--text-dark);
   }
 }
+
+.MuiAutocomplete-option:hover {
+  background-color: var(--accent-color);
+  color: var(--text-dark);
+}

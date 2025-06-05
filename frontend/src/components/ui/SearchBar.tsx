@@ -45,7 +45,9 @@ const SearchBar: FC<SearchBarProps> = ({
     const handler = setTimeout(() => {
       if (value.length >= minChars) {
         fetchSuggestions(value)
-          .then((results) => { setOptions(results.map((s) => s.label)); })
+          .then((results) => {
+            setOptions(results.map((s) => s.label));
+          })
           .catch((err) => {
             console.error('Failed to fetch suggestions', err);
             setOptions([]);
@@ -65,7 +67,9 @@ const SearchBar: FC<SearchBarProps> = ({
       freeSolo
       options={options}
       inputValue={value}
-      onInputChange={(_, newInputValue) => { setValue(newInputValue); }}
+      onInputChange={(_, newInputValue) => {
+        setValue(newInputValue);
+      }}
       onChange={(_, selectedValue) => {
         if (typeof selectedValue === 'string') {
           void onSearch(selectedValue);

@@ -144,6 +144,10 @@ const SearchPage: React.FC = () => {
     void fetchPOS().then(setPartOfSpeechOptions);
   }, []);
 
+  useEffect(() => {
+    void onSearch('');
+  }, [onSearch]);
+
   const languages = [
     'Afrikaans',
     'English',
