@@ -241,40 +241,46 @@ const SearchPage: React.FC = () => {
                 onSearch={handleSearch}
                 fetchSuggestions={fetchSuggestions}
               />
-              <div className="flex flex-wrap gap-4">
-                <DropdownFilter
-                  label="Language"
-                  options={languages}
-                  selected={language}
-                  onSelect={setLanguage}
-                />
-                <DropdownFilter
-                  label="Domain"
-                  options={domainOptions}
-                  selected={domain}
-                  onSelect={setDomain}
-                />
-                <DropdownFilter
-                  label="Part of Speech"
-                  options={partOfSpeechOptions}
-                  selected={partOfSpeech}
-                  onSelect={setPartOfSpeech}
-                />
-              </div>
 
-              <div className="flex gap-4 flex-wrap">
-                <ToggleSwitch
-                  label="AI Search"
-                  icon={<Brain size={16} />}
-                  checked={aiSearch}
-                  onChange={setAiSearch}
-                />
-                <ToggleSwitch
-                  label="Fuzzy Search"
-                  icon={<Wand2 size={16} />}
-                  checked={fuzzySearch}
-                  onChange={setFuzzySearch}
-                />
+              {/* Filters and toggles in one responsive row */}
+              <div className="flex flex-wrap gap-4 items-center">
+                {/* Dropdowns */}
+                <div className="flex flex-wrap gap-4">
+                  <DropdownFilter
+                    label="Language"
+                    options={languages}
+                    selected={language}
+                    onSelect={setLanguage}
+                  />
+                  <DropdownFilter
+                    label="Domain"
+                    options={domainOptions}
+                    selected={domain}
+                    onSelect={setDomain}
+                  />
+                  <DropdownFilter
+                    label="Part of Speech"
+                    options={partOfSpeechOptions}
+                    selected={partOfSpeech}
+                    onSelect={setPartOfSpeech}
+                  />
+                </div>
+
+                {/* Toggles */}
+                <div className="flex gap-4 flex-wrap">
+                  <ToggleSwitch
+                    label="AI Search"
+                    icon={<Brain size={16} />}
+                    checked={aiSearch}
+                    onChange={setAiSearch}
+                  />
+                  <ToggleSwitch
+                    label="Fuzzy Search"
+                    icon={<Wand2 size={16} />}
+                    checked={fuzzySearch}
+                    onChange={setFuzzySearch}
+                  />
+                </div>
               </div>
             </section>
           </div>{' '}
