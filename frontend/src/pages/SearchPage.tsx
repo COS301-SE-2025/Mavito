@@ -6,6 +6,14 @@ import ToggleSwitch from '../components/ui/ToggleSwtich';
 import TermCard from '../components/ui/TermCard';
 import { Brain, Wand2 } from 'lucide-react';
 import '../styles/SearchPage.scss';
+import {
+  Autocomplete,
+  TextField,
+  List,
+  ListItem,
+  Switch,
+  FormControlLabel,
+} from '@mui/material';
 
 /**
  * Represents a single suggestion for the search bar autocomplete.
